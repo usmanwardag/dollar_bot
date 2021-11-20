@@ -1,4 +1,4 @@
-# 💰 TrackMyDollar V2.0 - Budget On The Go(BOTGo) 💰
+# 💰 Dollar Bot 💰
 <hr>
 <p align="center">
 <a><img  height=360 width=550 
