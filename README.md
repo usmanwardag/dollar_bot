@@ -85,14 +85,3 @@ Locally, we use the coverage package in python for code coverage. The commands t
 coverage run -m pytest test/
 coverage report
 ```
-
-## Notes:
-You can download and install the Telegram desktop application for your system from the following site: https://desktop.telegram.org/
-
-
-<hr>
-<p>Title:'Track My Dollar'</p>
-<p>Version: '1.5'</p>
-<p>Description: 'An easy to use Telegram Bot to track everyday expenses'</p>
-<p>Authors(Iteration 1.5):'Athithya, Subramanian, Ashok, Zunaid, Rithik'</p>
-<p>Authors(Iteration 1):'Dev, Prakruthi, Radhika, Rohan, Sunidhi'</p>
