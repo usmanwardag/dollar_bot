@@ -21,8 +21,6 @@
 
 <hr>
 
-## About Dollar Bot
-
 Dollar Bot is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle.  
 With simple commands, this bot allows you to:
 - Add/Record new spendings
@@ -31,14 +29,14 @@ With simple commands, this bot allows you to:
 - Clear/Erase all your records
 - Edit/Change any spending details if you wish to
 
-## What's new? (Delta, New Features)
 
-## Work for the upcoming iteration
+## Why should you use Dollar Bot?
 
+## Check out the video!
 
-## Demo
+## What is new in this version?
 
-## Installation guide
+## Installation
 
 The below instructions can be followed in order to set-up this bot at your end in a span of few minutes! Let's get started:
 
@@ -89,3 +87,14 @@ Locally, we use the coverage package in python for code coverage. The commands t
 coverage run -m pytest test/
 coverage report
 ```
+
+## Code Documentation
+
+## How to Contribute
+
+## Future RoadMap
+
+## Contributors
+
+## Acknowledgements
+
