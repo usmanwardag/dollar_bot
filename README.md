@@ -1,4 +1,23 @@
 # 💰 Dollar Bot 💰
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#why-should-you-use-dollar-bot">Why should you use Dollar Bot?</a></li>
+    <li><a href="#check-out-the-video">Check out the video!</a></li>
+    <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#testing">Testing</a></li>
+    <li><a href="#code-coverage">Code Coverage</a></li>
+    <li><a href="#code-documentation">Code Documentation</a></li>
+    <li><a href="#how-to-contribute">How to Contribute</a></li>
+    <li><a href="#future-roadmap">Future RoadMap</a></li>
+   <li><a href="#contributors">Contributors</a></li>
+   <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
+
 <hr>
 <p align="center">
 <a><img  height=360 width=550 
