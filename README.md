@@ -55,12 +55,14 @@ Follow the instructions on screen and choose a name for your bot (e.g., `dollarb
 
 4. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use.
 
-5. In the directory where this repo has been cloned, please run the below command to execute a bash script to run the Telegram Bot:
+5. In the repo directory (where you cloned it), run these commands to (i) grant execution access to a bash script, and (ii) execute that bash script to run the Telegram Bot:
 ```
+   chmod a+x run.sh
    ./run.sh
 ```
 (OR)
 ```
+   chmod a+x run.sh
    bash run.sh
 ```
 Please note that it will ask you to paste the API token you received from Telegram in step 4.
