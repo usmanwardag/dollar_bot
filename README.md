@@ -51,7 +51,7 @@ The below instructions can be followed in order to set-up this bot at your end i
 ```
   /newbot
 ```
-Follow the instructions on screen and choose a name for your bot. After this, select a username for your bot that ends with "bot".
+Follow the instructions on screen and choose a name for your bot (e.g., `dollarbot`. After this, select a username for your bot that ends with "bot". The username has to be unique. 
 
 4. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use.
 
