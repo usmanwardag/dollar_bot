@@ -44,7 +44,7 @@ def enter_updated_data(m, bot, selected_data):
         bot.register_next_step_handler(new_cat, edit_cat, bot, selected_data)
 
     if 'Amount' in choice1:
-        new_cost = bot.reply_to(m, "Please type the new cost")
+        new_cost = bot.reply_to(m, "Please type the new cost\n(Enter only numerical value)")
         bot.register_next_step_handler(new_cost, edit_cost, bot, selected_data)
 
 
