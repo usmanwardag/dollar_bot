@@ -14,7 +14,7 @@ def visualize(total_text, monthly_budget):
     r1 = np.arange(n1)
     print (n1)
     print(r1)
-    width = 0.20
+    width = 0.45
     total_text_split = [line for line in total_text.split('\n') if line.strip() != '']
     monthly_budget_str= ""
     for key, value in monthly_budget.items():
@@ -40,12 +40,13 @@ def visualize(total_text, monthly_budget):
     y = list(categ_val.values())
     #print(y)
 
-    plt.bar(r2, categ_val.values(), color=[(1.00, 0, 0, 0.6), (0.2, 0.4, 0.6, 0.6), (0, 1.00, 0, 0.6), (1.00, 1.00, 0, 1.00)], edgecolor='blue', width=0.20)
-    plt.bar(r1 + width, monthly_budget_categ_val.values(), width=0.20)
+    plt.bar(r2, categ_val.values(), width=width, label='your spendings')
+    plt.bar(r1 + width, monthly_budget_categ_val.values(), width=width, label='your budget')
     addlabels(x, y)
+    addlabels(list(monthly_budget_categ_val.keys()), list(monthly_budget_categ_val.values()))
 
     plt.ylabel("Expenditure")
     plt.xlabel("Categories")
-    plt.xticks(r1+ width/2, monthly_budget_categ_val.values(), rotation=90)
-
+    plt.xticks(r1+ width/2, monthly_budget_categ_val.keys(), rotation=90)
+    plt.legend()
     plt.savefig('expenditure.png', bbox_inches='tight')
