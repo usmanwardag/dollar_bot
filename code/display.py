@@ -51,6 +51,9 @@ def display_total(message, bot):
             # query all that contains today's date
             queryResult = [value for index, value in enumerate(history) if str(query) in value]
         total_text = calculate_spendings(queryResult)
+        monthly_budget= helper.getCategoryBudget(chat_id)
+        print("Print Total Spending", total_text)
+        print("Print monthly budget", monthly_budget)
 
         spending_text = ""
         if len(total_text) == 0:
@@ -58,7 +61,7 @@ def display_total(message, bot):
             bot.send_message(chat_id, spending_text)
         else:
             spending_text = "Here are your total spendings {}:\nCATEGORIES,AMOUNT \n----------------------\n{}".format(DayWeekMonth.lower(), total_text)
-            graphing.visualize(total_text)
+            graphing.visualize(total_text, monthly_budget)
             bot.send_photo(chat_id, photo=open('expenditure.png', 'rb'))
             os.remove('expenditure.png')
     except Exception as e:
