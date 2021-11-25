@@ -22,8 +22,8 @@ def visualize(total_text):
     plt.bar(categ_val.keys(), categ_val.values(), color=[(1.00, 0, 0, 0.6), (0.2, 0.4, 0.6, 0.6), (0, 1.00, 0, 0.6), (1.00, 1.00, 0, 1.00)], edgecolor='blue')
     addlabels(x, y)
 
-    plt.ylabel("Categories")
-    plt.xlabel("Expenditure")
+    plt.ylabel("Expenditure")
+    plt.xlabel("Categories")
     plt.xticks(rotation=45)
 
     plt.savefig('expenditure.png', bbox_inches='tight')
