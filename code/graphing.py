@@ -33,17 +33,13 @@ def visualize(total_text, monthly_budget):
         monthly_budget_categ_val[x[0]] = float(x[1])
 
     x = list(categ_val.keys())
+    y = list(categ_val.values())
     n2 = len(x)
     r2 = np.arange(n2)
-    print(n2)
-    print(r2)
-    y = list(categ_val.values())
-    #print(y)
 
     plt.bar(r2, categ_val.values(), width=width, label='your spendings')
     plt.bar(r1 + width, monthly_budget_categ_val.values(), width=width, label='your budget')
     addlabels(x, y)
-    addlabels(list(monthly_budget_categ_val.keys()), list(monthly_budget_categ_val.values()))
 
     plt.ylabel("Expenditure")
     plt.xlabel("Categories")
