@@ -1,5 +1,6 @@
 import matplotlib
 import matplotlib.pyplot as plt
+import numpy as np
 matplotlib.use('Agg')
 
 
@@ -9,7 +10,11 @@ def addlabels(x, y):
 
 
 def visualize(total_text, monthly_budget):
-
+    n1 = len(monthly_budget)
+    r1 = np.arange(n1)
+    print (n1)
+    print(r1)
+    width = 0.20
     total_text_split = [line for line in total_text.split('\n') if line.strip() != '']
     monthly_budget_str= ""
     for key, value in monthly_budget.items():
@@ -28,14 +33,19 @@ def visualize(total_text, monthly_budget):
         monthly_budget_categ_val[x[0]] = float(x[1])
 
     x = list(categ_val.keys())
+    n2 = len(x)
+    r2 = np.arange(n2)
+    print(n2)
+    print(r2)
     y = list(categ_val.values())
+    #print(y)
 
-    plt.bar(categ_val.keys(), categ_val.values(), color=[(1.00, 0, 0, 0.6), (0.2, 0.4, 0.6, 0.6), (0, 1.00, 0, 0.6), (1.00, 1.00, 0, 1.00)], edgecolor='blue')
-    plt.bar(monthly_budget_categ_val.keys(), monthly_budget_categ_val.values())
+    plt.bar(r2, categ_val.values(), color=[(1.00, 0, 0, 0.6), (0.2, 0.4, 0.6, 0.6), (0, 1.00, 0, 0.6), (1.00, 1.00, 0, 1.00)], edgecolor='blue', width=0.20)
+    plt.bar(r1 + width, monthly_budget_categ_val.values(), width=0.20)
     addlabels(x, y)
 
     plt.ylabel("Expenditure")
     plt.xlabel("Categories")
-    plt.xticks(rotation=90)
+    plt.xticks(r1+ width/2, monthly_budget_categ_val.values(), rotation=90)
 
     plt.savefig('expenditure.png', bbox_inches='tight')
