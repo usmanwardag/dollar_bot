@@ -1,4 +1,4 @@
-# 💰 Dollar Bot 💰
+# 💰 MyDollar Bot 💰
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -10,6 +10,7 @@
     <li><a href="#installation">Installation</a></li>
     <li><a href="#testing">Testing</a></li>
     <li><a href="#code-coverage">Code Coverage</a></li>
+    <li><a href="#License">License</a></li>
     <li><a href="#code-documentation">Code Documentation</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
     <li><a href="#future-roadmap">Future RoadMap</a></li>
@@ -40,21 +41,24 @@
 
 <hr>
 
+## Why should you use Dollar Bot?
+
 Dollar Bot is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle.  
 With simple commands, this bot allows you to:
 - Add/Record new spendings
+- Display your spendings through bar graph
 - Show the sum of your expenditure for the current day/month
 - Display your spending history
 - Clear/Erase all your records
 - Edit/Change any spending details if you wish to
 
-
-## Why should you use Dollar Bot?
-
 ## Check out the video!
+
+coming soon:)
 
 ## What is new in this version?
 
+Check-out the [Issues](https://github.com/usmanwardag/dollar_bot/issues)
 ## Installation
 
 The below instructions can be followed in order to set-up this bot at your end in a span of few minutes! Let's get started:
@@ -64,27 +68,34 @@ The below instructions can be followed in order to set-up this bot at your end i
 2. Start a terminal session in the directory where the project has been cloned. Run the following command to install the required dependencies:
 ```
   pip install -r requirements.txt
-```
 
-3. In Telegram, search for "BotFather". Click on "Start", and enter the following command:
+```
+3. Download and install the Telegram desktop application for your system from the following site:
+ ```
+ https://desktop.telegram.org/
+ ```
+## How to run?
+
+1. In Telegram, search for "BotFather". Click on "Start", and enter the following command:
 ```
   /newbot
 ```
-Follow the instructions on screen and choose a name for your bot (e.g., `dollarbot`). After this, select a username for your bot that ends with "bot". The username has to be unique. 
+2. Follow the instructions on screen and choose a name for your bot (e.g., `dollarbot`). After this, select a username for your bot that ends with "bot". The username has to be unique. 
 
-4. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use.
+3. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use.
 
-5. In the repo directory (where you cloned it), run these commands to (i) grant execution access to a bash script, and (ii) execute that bash script to run the Telegram Bot:
+4. In the repo directory (where you cloned it), run these commands to (i) grant execution access to a bash script, and (ii) execute that bash script to run the Telegram Bot:
 ```
    chmod a+x run.sh
    ./run.sh
 ```
+   
 (OR)
 ```
    chmod a+x run.sh
    bash run.sh
 ```
-Please note that it will ask you to paste the API token you received from Telegram in step 4.
+```Note```: It will ask you to paste the API token you received from Telegram in step 4.
 A successful run will generate a message on your terminal that says "TeleBot: Started polling." 
 
 6. In the Telegram app, search for your newly created bot by entering the username and open the same. Now, on Telegram, enter the "/start" or "/menu" command, and you are all set to track your expenses!
@@ -107,13 +118,42 @@ coverage run -m pytest test/
 coverage report
 ```
 
+## License
+
+This project is licensed under the terms of the MIT license. Please check [License](https://github.com/usmanwardag/dollar_bot/blob/main/LICENSE) for more details.
+
+
 ## Code Documentation
+
+Checkout the [docs](https://github.com/sak007/MyDollarBot-BOTGo/tree/main/docs)
 
 ## How to Contribute
 
+To contribute to the project, please refer to the 
 ## Future RoadMap
 
-## Contributors
+## 💁🏻‍♀️ Contributors 💁🏻‍♂️
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/usmanwardag"><img src="https://avatars.githubusercontent.com/u/8848723?v=4" width="75px;" alt=""/><br /><sub><b>Usman Khan</b></sub></a></td>
+    <td align="center"><a href="https://github.com/aakriti0fnu"><img src="https://avatars.githubusercontent.com/u/65619749?s=400&u=e7d56965d4414a95f969dbf53ed92b3e31fab610&v=4" width="75px;" alt=""/><br /><sub><b>Aakriti Aakriti</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/sbosenc"><img src="https://avatars.githubusercontent.com/u/89551210?v=4" width="75px;" alt=""/><br /><sub><b>Suneha Bose</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/muskan7828"><img src="https://avatars.githubusercontent.com/u/45363276?v=4" width="75px;" alt=""/><br /><sub><b>Muskan Gupta</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/kriti0207"><img src="https://avatars.githubusercontent.com/u/89510237?v=4" width="75px;" alt=""/><br /><sub><b>Kriti Khullar</b></sub></a><br /></td>
+  </tr>
+</table>
 
-## Acknowledgements
+[Usman Khan](https://github.com/usmanwardag)
+
+## 🙏🏻 Acknowledgements 🙏🏻
+
+- We would like to express our gratitude 🙏🏻 and a big thank you 😇 to Prof. Dr. Timothy Menzie for giving us the opportunity to get into the shoes of software building and learning new skills and development process throught the project building.
+- A big thank you 😊 to the Teaching Assistants for their support.
+- Thank you to the previous team 😊 for a thorough ReadMe and deatiled documentation.[MyDollarBot](https://github.com/sak007/MyDollarBot-BOTGo)
+- Thank you to the ⭐️[Telegram bot](https://github.com/python-telegram-bot/python-telegram-bot)
+
+
+
+
+
 
