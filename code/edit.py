@@ -1,6 +1,7 @@
 import re
 import helper
 from telebot import types
+from telegram_bot_calendar import DetailedTelegramCalendar, LSTEP
 
 
 def run(m, bot):
@@ -30,14 +31,38 @@ def select_category_to_be_updated(m, bot):
 
 def enter_updated_data(m, bot, selected_data):
     choice1 = "" if m.text is None else m.text
-    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
-    markup.row_width = 2
-    for cat in helper.getSpendCategories():
-        markup.add(cat)
+    calendar, step = DetailedTelegramCalendar().build()
+    bot.send_message(m.chat.id,
+                     f"Select {LSTEP[step]}",
+                     reply_markup=calendar)
 
-    if 'Date' in choice1:
-        new_date = bot.reply_to(m, "Please enter the new date (in dd-mmm-yyy format)")
-        bot.register_next_step_handler(new_date, edit_date, bot, selected_data)
+
+    @bot.callback_query_handler(func=DetailedTelegramCalendar.func())
+    def cal(c):
+        result, key, step = DetailedTelegramCalendar().process(c.data)
+        if not result and key:
+            bot.edit_message_text(f"Select {LSTEP[step]}",
+                                c.message.chat.id,
+                                c.message.message_id,
+                                reply_markup=key)
+        elif result:
+            bot.edit_message_text(f"Date updated: {result}",
+                                c.message.chat.id,
+                                c.message.message_id)
+            
+            # if 'Date' in choice1:
+            #     bot.register_next_step_handler(str(result), edit_date, bot, selected_data)
+                                
+
+    # choice1 = "" if m.text is None else m.text
+    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+    # markup.row_width = 2
+    # for cat in helper.getSpendCategories():
+    #     markup.add(cat)
+
+    # if 'Date' in choice1:
+    #     new_date = bot.reply_to(m, "Please enter the new date (in dd-mmm-yyy format)")
+    #     bot.register_next_step_handler(new_date, edit_date, bot, selected_data)
 
     if 'Category' in choice1:
         new_cat = bot.reply_to(m, "Please select the new category", reply_markup=markup)

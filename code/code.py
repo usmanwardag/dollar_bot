@@ -21,6 +21,7 @@ with open('user.properties', 'rb') as read_prop:
 
 api_token = str(configs.get('api_token').data)
 
+
 bot = telebot.TeleBot(api_token)
 
 telebot.logger.setLevel(logging.INFO)
