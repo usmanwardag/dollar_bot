@@ -22,7 +22,7 @@
 <hr>
 <p align="center">
 <a><img  height=360 width=550 
-  src="https://github.com/deekay2310/MyDollarBot/blob/c56b4afd4fd5bbfffea0d0a4aade58596a5cb678/docs/0001-8711513694_20210926_212845_0000.png" alt="Expense tracking made easy!"></a>
+  src="docs/88caf8a73ae04c5b8638e2180dd07811.jpeg" alt="Dollar BoT"></a>
 </p>
 <hr>
 
@@ -58,7 +58,7 @@ coming soon:)
 
 ## What is new in this version?
 
-Check-out the [Issues](https://github.com/usmanwardag/dollar_bot/issues)
+Checkout the [Issues](https://github.com/usmanwardag/dollar_bot/issues)
 ## Installation
 
 The below instructions can be followed in order to set-up this bot at your end in a span of few minutes! Let's get started:
@@ -129,7 +129,7 @@ Checkout the [docs](https://github.com/sak007/MyDollarBot-BOTGo/tree/main/docs)
 
 ## How to Contribute
 
-To contribute to the project, please refer to the 
+To contribute to the project, please refer to the [CONTRIBUTING.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md)
 ## Future RoadMap
 
 ## 💁🏻‍♀️ Contributors 💁🏻‍♂️
@@ -143,7 +143,7 @@ To contribute to the project, please refer to the
   </tr>
 </table>
 
-[Usman Khan](https://github.com/usmanwardag)
+
 
 ## 🙏🏻 Acknowledgements 🙏🏻
 
