@@ -46,7 +46,8 @@ def test_run_overall_budget_new_budget_case(mock_telebot, mocker):
     budget_update.run(message, mc)
 
     assert (mc.reply_to.called)
-    mc.reply_to.assert_called_with(message, 'Select Budget Type', reply_markup=ANY)
+    mc.reply_to.assert_called_with(
+        message, 'Select Budget Type', reply_markup=ANY)
 
 
 @patch('telebot.telebot')

@@ -232,7 +232,8 @@ def test_write_json(mocker):
     helper.json.dump.return_value = True
     user_list = ['hello']
     helper.write_json(user_list)
-    helper.json.dump.assert_called_with(user_list, ANY, ensure_ascii=ANY, indent=ANY)
+    helper.json.dump.assert_called_with(
+        user_list, ANY, ensure_ascii=ANY, indent=ANY)
 
 
 @patch('telebot.telebot')
@@ -243,7 +244,8 @@ def test_throw_exception(mock_telebot, mocker):
     message = create_message("message from testing")
 
     throw_exception("hello, exception from testing", message, mc, logging)
-    mc.reply_to.assert_called_with(message, 'Oh no! hello, exception from testing')
+    mc.reply_to.assert_called_with(
+        message, 'Oh no! hello, exception from testing')
 
 
 def test_createNewUserRecord():
@@ -277,7 +279,8 @@ def test_getCategoryBudget_none_case():
 
 
 def test_getCategoryBudget_working_case():
-    helper.getUserData = mock.Mock(return_value={'budget': {'category': {'Food': 10}}})
+    helper.getUserData = mock.Mock(
+        return_value={'budget': {'category': {'Food': 10}}})
     overall_budget = helper.getCategoryBudget(11)
     assert(overall_budget is not None)
 
@@ -346,7 +349,8 @@ def test_display_remaining_overall_budget(mock_telebot, mocker):
     message = create_message("hello from testing")
     helper.display_remaining_overall_budget(message, mc)
 
-    mc.send_message.assert_called_with(11, '\nRemaining Overall Budget is $100')
+    mc.send_message.assert_called_with(
+        11, '\nRemaining Overall Budget is $100')
 
 
 @patch('telebot.telebot')
@@ -357,7 +361,8 @@ def test_display_remaining_overall_budget_exceeding_case(mock_telebot, mocker):
     message = create_message("hello from testing")
     helper.display_remaining_overall_budget(message, mc)
 
-    mc.send_message.assert_called_with(11, '\nBudget Exceded!\nExpenditure exceeds the budget by $10')
+    mc.send_message.assert_called_with(
+        11, '\nBudget Exceded!\nExpenditure exceeds the budget by $10')
 
 
 @patch('telebot.telebot')
@@ -368,7 +373,8 @@ def test_display_remaining_category_budget(mock_telebot, mocker):
     message = create_message("hello from testing")
     helper.display_remaining_category_budget(message, mc, "Food")
 
-    mc.send_message.assert_called_with(11, '\nRemaining Budget for Food is $150')
+    mc.send_message.assert_called_with(
+        11, '\nRemaining Budget for Food is $150')
 
 
 @patch('telebot.telebot')
@@ -379,7 +385,8 @@ def test_display_remaining_category_budget_exceeded(mock_telebot, mocker):
     message = create_message("hello from testing")
     helper.display_remaining_category_budget(message, mc, "Food")
 
-    mc.send_message.assert_called_with(11, '\nBudget for Food Exceded!\nExpenditure exceeds the budget by $90')
+    mc.send_message.assert_called_with(
+        11, '\nBudget for Food Exceded!\nExpenditure exceeds the budget by $90')
 
 
 @patch('telebot.telebot')
@@ -404,7 +411,8 @@ def test_display_remaining_budget_category_case(mock_telebot, mocker):
     helper.display_remaining_category_budget = mock.Mock(return_value=True)
 
     helper.display_remaining_budget(message, mc, 'Food')
-    helper.display_remaining_category_budget.assert_called_with(message, mc, 'Food')
+    helper.display_remaining_category_budget.assert_called_with(
+        message, mc, 'Food')
 
 
 def test_getBudgetTypes():

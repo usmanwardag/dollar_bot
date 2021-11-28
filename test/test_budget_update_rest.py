@@ -66,12 +66,14 @@ def test_update_category_budget(mock_telebot, mocker):
     mc.reply_to.return_value = True
 
     mocker.patch.object(budget_update, 'helper')
-    budget_update.helper.getSpendCategories.return_value = ['Food', 'Groceries', 'Utilities', 'Transport', 'Shopping', 'Miscellaneous']
+    budget_update.helper.getSpendCategories.return_value = [
+        'Food', 'Groceries', 'Utilities', 'Transport', 'Shopping', 'Miscellaneous']
 
     message = create_message("hello from testing")
     budget_update.update_category_budget(message, mc)
 
-    mc.reply_to.assert_called_with(message, 'Select Category', reply_markup=ANY)
+    mc.reply_to.assert_called_with(
+        message, 'Select Category', reply_markup=ANY)
 
 
 @patch('telebot.telebot')
@@ -96,7 +98,8 @@ def test_post_category_selection_category_wise_case(mock_telebot, mocker):
     mc.send_message.return_value = True
 
     mocker.patch.object(budget_update, 'helper')
-    budget_update.helper.getSpendCategories.return_value = ['Food', 'Groceries', 'Utilities', 'Transport', 'Shopping', 'Miscellaneous']
+    budget_update.helper.getSpendCategories.return_value = [
+        'Food', 'Groceries', 'Utilities', 'Transport', 'Shopping', 'Miscellaneous']
     budget_update.helper.getCategoryBudgetByCategory.return_value = 10
     budget_update.helper.isCategoryBudgetByCategoryAvailable.return_value = True
 
@@ -113,13 +116,15 @@ def test_post_category_selection_overall_case(mock_telebot, mocker):
     mc.send_message.return_value = True
 
     mocker.patch.object(budget_update, 'helper')
-    budget_update.helper.getSpendCategories.return_value = ['Food', 'Groceries', 'Utilities', 'Transport', 'Shopping', 'Miscellaneous']
+    budget_update.helper.getSpendCategories.return_value = [
+        'Food', 'Groceries', 'Utilities', 'Transport', 'Shopping', 'Miscellaneous']
     budget_update.helper.isCategoryBudgetByCategoryAvailable.return_value = False
 
     message = create_message("Food")
     budget_update.post_category_selection(message, mc)
 
-    mc.send_message.assert_called_with(11, 'Enter monthly budget for Food\n(Enter numeric values only)')
+    mc.send_message.assert_called_with(
+        11, 'Enter monthly budget for Food\n(Enter numeric values only)')
 
 
 @patch('telebot.telebot')

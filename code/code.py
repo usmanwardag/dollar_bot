@@ -33,7 +33,8 @@ option = {}
 def listener(user_requests):
     for req in user_requests:
         if(req.content_type == 'text'):
-            print("{} name:{} chat_id:{} \nmessage: {}\n".format(str(datetime.now()), str(req.chat.first_name), str(req.chat.id), str(req.text)))
+            print("{} name:{} chat_id:{} \nmessage: {}\n".format(
+                str(datetime.now()), str(req.chat.first_name), str(req.chat.id), str(req.text)))
 
 
 bot.set_update_listener(listener)

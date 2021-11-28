@@ -3,7 +3,8 @@ import json
 import os
 from datetime import datetime
 
-spend_categories = ['Food', 'Groceries', 'Utilities', 'Transport', 'Shopping', 'Miscellaneous']
+spend_categories = ['Food', 'Groceries', 'Utilities',
+                    'Transport', 'Shopping', 'Miscellaneous']
 choices = ['Date', 'Category', 'Cost']
 spend_display_option = ['Day', 'Month']
 spend_estimate_option = ['Next day', 'Next month']
@@ -172,7 +173,8 @@ def display_remaining_overall_budget(message, bot):
     if remaining_budget >= 0:
         msg = '\nRemaining Overall Budget is $' + str(remaining_budget)
     else:
-        msg = '\nBudget Exceded!\nExpenditure exceeds the budget by $' + str(remaining_budget)[1:]
+        msg = '\nBudget Exceded!\nExpenditure exceeds the budget by $' + \
+            str(remaining_budget)[1:]
     bot.send_message(chat_id, msg)
 
 
@@ -180,7 +182,8 @@ def calculateRemainingOverallBudget(chat_id):
     budget = getOverallBudget(chat_id)
     history = getUserHistory(chat_id)
     query = datetime.now().today().strftime(getMonthFormat())
-    queryResult = [value for index, value in enumerate(history) if str(query) in value]
+    queryResult = [value for index, value in enumerate(
+        history) if str(query) in value]
 
     return float(budget) - calculate_total_spendings(queryResult)
 
@@ -200,7 +203,9 @@ def display_remaining_category_budget(message, bot, cat):
     if remaining_budget >= 0:
         msg = '\nRemaining Budget for ' + cat + ' is $' + str(remaining_budget)
     else:
-        msg = '\nBudget for ' + cat + ' Exceded!\nExpenditure exceeds the budget by $' + str(abs(remaining_budget))
+        msg = '\nBudget for ' + cat + \
+            ' Exceded!\nExpenditure exceeds the budget by $' + \
+            str(abs(remaining_budget))
     bot.send_message(chat_id, msg)
 
 
@@ -208,7 +213,8 @@ def calculateRemainingCategoryBudget(chat_id, cat):
     budget = getCategoryBudgetByCategory(chat_id, cat)
     history = getUserHistory(chat_id)
     query = datetime.now().today().strftime(getMonthFormat())
-    queryResult = [value for index, value in enumerate(history) if str(query) in value]
+    queryResult = [value for index, value in enumerate(
+        history) if str(query) in value]
 
     return float(budget) - calculate_total_spendings_for_category(queryResult, cat)
 
