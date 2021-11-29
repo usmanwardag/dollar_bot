@@ -2,8 +2,14 @@ import helper
 import logging
 from telebot import types
 
+# === Documentation of budget_update.py ===
 
 def run(message, bot):
+    """
+    run(message, bot): This is the main function used to implement the budget add/update features. 
+    It takes 2 arguments for processing - message which is the message from the user, and bot which 
+    is the telegram bot object from the main code.py function.
+    """
     chat_id = message.chat.id
     if helper.isOverallBudgetAvailable(chat_id):
         update_overall_budget(chat_id, bot)
@@ -20,6 +26,12 @@ def run(message, bot):
 
 
 def post_type_selection(message, bot):
+    """
+    post_type_selection(message, bot): It takes 2 arguments for processing - message 
+    which is the message from the user, and bot which is the telegram bot object. 
+    This function takes input from the user, making them choose which type of budget they 
+    would like to create - category-wise or overall, and then calls the corresponding functions for further processing.
+    """
     try:
         chat_id = message.chat.id
         op = message.text
@@ -38,6 +50,14 @@ def post_type_selection(message, bot):
 
 
 def update_overall_budget(chat_id, bot):
+    """
+    update_overall_budget(message, bot): It takes 2 arguments for processing - message which is the 
+    message from the user, and bot which is the telegram bot object. This function is called when the 
+    user wants to either create a new overall budget or update an existing one. It checks if there is an 
+    existing budget through the helper module's isOverallBudgetAvailable function and if so, displays this 
+    along with the prompt for the new (to be updated) budget, or just asks for the new budget. It passes control 
+    to the post_overall_amount_input function in the same file.
+    """
     if (helper.isOverallBudgetAvailable(chat_id)):
         currentBudget = helper.getOverallBudget(chat_id)
         msg_string = 'Current Budget is ${}\n\nHow much is your new monthly budget? \n(Enter numeric values only)'
@@ -49,6 +69,15 @@ def update_overall_budget(chat_id, bot):
 
 
 def post_overall_amount_input(message, bot):
+    """
+    update_overall_budget(message, bot): It takes 2 arguments for processing - 
+    message which is the message from the user, and bot which is the telegram bot object. 
+    This function is called when the user wants to either create a new overall budget or 
+    update an existing one. It checks if there is an existing budget through the helper module's 
+    isOverallBudgetAvailable function and if so, displays this along with the prompt for the new 
+    (to be updated) budget, or just asks for the new budget. It passes control to the post_overall_amount_input 
+    function in the same file.
+    """
     try:
         chat_id = message.chat.id
         amount_value = helper.validate_entered_amount(message.text)
@@ -66,6 +95,13 @@ def post_overall_amount_input(message, bot):
 
 
 def update_category_budget(message, bot):
+    """
+    update_category_budget(message, bot): It takes 2 arguments for processing -
+    message which is the message from the user, and bot which is the telegram bot object. 
+    This function is called in case the user decides to choose category-wise budgest in the run or 
+    post_type_selection stages. It gets the spend categories from the helper module's getSpendCategories 
+    and displays them to the user. It then passes control on to the post_category_selection function.
+    """
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     categories = helper.getSpendCategories()
     markup.row_width = 2
@@ -76,6 +112,15 @@ def update_category_budget(message, bot):
 
 
 def post_category_selection(message, bot):
+    """
+    post_category_selection(message, bot): It takes 2 arguments for processing - 
+    message which is the message from the user, and bot which is the telegram bot object. 
+    Based on the category chosen by the user, the bot checks if these are part of the pre-defined 
+    categories in helper.getSpendCategories(), else it throws an exception. If there is a budget 
+    already existing for the category, it identifies this case through helper.isCategoryBudgetByCategoryAvailable 
+    and shares this information with the user. If not, it simply proceeds. In either case, it then asks for the 
+    new/updated budget amount. It passes control onto post_category_amount_input.
+    """
     try:
         chat_id = message.chat.id
         selected_category = message.text
@@ -101,6 +146,11 @@ def post_category_selection(message, bot):
 
 
 def post_category_amount_input(message, bot, category):
+    """
+    post_category_amount_input(message, bot, category): It takes 2 arguments for 
+    processing - message which is the message from the user, and bot which is the telegram 
+    bot object, and the category chosen by the user.
+    """
     try:
         chat_id = message.chat.id
         amount_value = helper.validate_entered_amount(message.text)
@@ -122,6 +172,13 @@ def post_category_amount_input(message, bot, category):
 
 
 def post_category_add(message, bot):
+    """
+    post_category_add(message, bot): It takes 2 arguments for processing - 
+    message which is the message from the user, and bot which is the telegram bot object. 
+    This exists in case the user wants to add a category-wise budget to another category after adding 
+    it for one category. It prompts the user to choose an option from helper.getUpdateOptions().values() and 
+    passes control to post_option_selection to either continue or exit the add/update feature.
+    """
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     options = helper.getUpdateOptions().values()
     markup.row_width = 2
@@ -132,6 +189,13 @@ def post_category_add(message, bot):
 
 
 def post_option_selection(message, bot):
+    """
+    post_option_selection(message, bot): It takes 2 arguments for processing - 
+    message which is the message from the user, and bot which is the telegram bot object. 
+    It takes the category chosen by the user from the message object. If the message is "continue", 
+    then it runs update_category_budget (above) allowing the user to get into the add/update process again. 
+    Otherwise, it exits the feature.
+    """
     print("here")
     selected_option = message.text
     options = helper.getUpdateOptions()

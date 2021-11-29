@@ -28,9 +28,14 @@ telebot.logger.setLevel(logging.INFO)
 
 option = {}
 
+# === Documentation of code.py ===
 
 # Define listener for requests by user
 def listener(user_requests):
+    """
+    listener(user_requests): Takes 1 argument user_requests and logs all user 
+    interaction with the bot including all bot commands run and any other issue logs.
+    """
     for req in user_requests:
         if(req.content_type == 'text'):
             print("{} name:{} chat_id:{} \nmessage: {}\n".format(
@@ -43,6 +48,11 @@ bot.set_update_listener(listener)
 # defines how the /start and /help commands have to be handled/processed
 @bot.message_handler(commands=['start', 'menu'])
 def start_and_menu_command(m):
+    """
+    start_and_menu_command(m): Prints out the the main menu displaying the features that the 
+    bot offers and the corresponding commands to be run from the Telegram UI to use these features. 
+    Commands used to run this: commands=['start', 'menu']
+    """
     helper.read_json()
     global user_list
     chat_id = m.chat.id
@@ -59,24 +69,44 @@ def start_and_menu_command(m):
 # defines how the /new command has to be handled/processed
 @bot.message_handler(commands=['add'])
 def command_add(message):
+    """
+    command_add(message) Takes 1 argument message which contains the message from 
+    the user along with the chat ID of the user chat. It then calls add.py to run to execute 
+    the add functionality. Commands used to run this: commands=['add']
+    """
     add.run(message, bot)
 
 
 # function to fetch expenditure history of the user
 @bot.message_handler(commands=['history'])
 def command_history(message):
+    """
+    command_history(message): Takes 1 argument message which contains the message from 
+    the user along with the chat ID of the user chat. It then calls history.py to run to execute 
+    the add functionality. Commands used to run this: commands=['history']
+    """
     history.run(message, bot)
 
 
 # function to edit date, category or cost of a transaction
 @bot.message_handler(commands=['edit'])
 def command_edit(message):
+    """
+    command_edit(message): Takes 1 argument message which contains the message from 
+    the user along with the chat ID of the user chat. It then calls edit.py to run to execute 
+    the add functionality. Commands used to run this: commands=['edit']
+    """
     edit.run(message, bot)
 
 
 # function to display total expenditure
 @bot.message_handler(commands=['display'])
 def command_display(message):
+    """
+    command_display(message): Takes 1 argument message which contains the message from the user 
+    along with the chat ID of the user chat. It then calls display.py to run to execute the add functionality. 
+    Commands used to run this: commands=['display']
+    """
     display.run(message, bot)
 
 
@@ -89,6 +119,11 @@ def command_estimate(message):
 # handles "/delete" command
 @bot.message_handler(commands=['delete'])
 def command_delete(message):
+    """
+    command_delete(message): Takes 1 argument message which contains the message from the user 
+    along with the chat ID of the user chat. It then calls delete.py to run to execute the add functionality.
+    Commands used to run this: commands=['display']
+    """
     delete.run(message, bot)
 
 
@@ -107,6 +142,10 @@ def addUserHistory(chat_id, user_record):
 
 
 def main():
+    """
+    main() The entire bot's execution begins here. It ensure the bot variable begins 
+    polling and actively listening for requests from telegram.
+    """
     try:
         bot.polling(none_stop=True)
     except Exception as e:
