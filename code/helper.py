@@ -3,7 +3,8 @@ import json
 import os
 from datetime import datetime
 
-spend_categories = ['Food', 'Groceries', 'Utilities', 'Transport', 'Shopping', 'Miscellaneous']
+spend_categories = ['Food', 'Groceries', 'Utilities',
+                    'Transport', 'Shopping', 'Miscellaneous']
 choices = ['Date', 'Category', 'Cost']
 spend_display_option = ['Day', 'Month']
 spend_estimate_option = ['Next day', 'Next month']
@@ -33,14 +34,23 @@ data_format = {
 
 # set of implemented commands and their description
 commands = {
-    'menu': 'Display this menu',
-    'add': 'Record/Add a new spending',
-    'display': 'Show sum of expenditure for the current day/month',
-    'estimate': 'Show an estimate of expenditure for the next day/month',
-    'history': 'Display spending history',
-    'delete': 'Clear/Erase all your records',
-    'edit': 'Edit/Change spending details',
-    'budget': 'Add/Update/View/Delete budget'
+    'menu': 'This option is to displays the list of commands',
+    'add': 'This option is for adding your expenses \
+       \n 1. It will give you the list of categories to choose from. \
+       \n 2. You will be prompted to enter the amount corresponding to your spending \
+       \n 3.The message will be prompted to notify the addition of your expense with the amount,date, time and category ',
+    'display': 'This option gives user a graphical representation(bar graph) of their expenditures \
+        \n You will get an option to choose from day or month for better analysis of the expenses.',
+    'estimate': 'This option gives you the estimate of expenditure for the next day/month. It calcuates based on your recorded spendings',
+    'history': 'This option is to give you the detailed summary of your expenditure with Date, time ,category and amount. A quick lookup into your spendings',
+    'delete': 'This option is to Clear/Erase all your records',
+    'edit': 'This option helps you to go back and correct/update the missing details \
+        \n 1. It will give you the list of your expenses you wish to edit \
+        \n 2. It will let you change the specific field based on your requirements like amount/date/category',
+    'budget': 'This option is to set/update/delete the budget. \
+        \n 1. The Add/update category is to set the new budget or update the existing budget \
+        \n 2. The view category gives the detail if budget is exceeding or in limit with the difference amount \
+        \n 3. The delete category allows to delete the budget and start afresh!  '
 }
 
 dateFormat = '%d-%b-%Y'
@@ -163,7 +173,8 @@ def display_remaining_overall_budget(message, bot):
     if remaining_budget >= 0:
         msg = '\nRemaining Overall Budget is $' + str(remaining_budget)
     else:
-        msg = '\nBudget Exceded!\nExpenditure exceeds the budget by $' + str(remaining_budget)[1:]
+        msg = '\nBudget Exceded!\nExpenditure exceeds the budget by $' + \
+            str(remaining_budget)[1:]
     bot.send_message(chat_id, msg)
 
 
@@ -171,7 +182,8 @@ def calculateRemainingOverallBudget(chat_id):
     budget = getOverallBudget(chat_id)
     history = getUserHistory(chat_id)
     query = datetime.now().today().strftime(getMonthFormat())
-    queryResult = [value for index, value in enumerate(history) if str(query) in value]
+    queryResult = [value for index, value in enumerate(
+        history) if str(query) in value]
 
     return float(budget) - calculate_total_spendings(queryResult)
 
@@ -191,7 +203,9 @@ def display_remaining_category_budget(message, bot, cat):
     if remaining_budget >= 0:
         msg = '\nRemaining Budget for ' + cat + ' is $' + str(remaining_budget)
     else:
-        msg = '\nBudget for ' + cat + ' Exceded!\nExpenditure exceeds the budget by $' + str(abs(remaining_budget))
+        msg = '\nBudget for ' + cat + \
+            ' Exceded!\nExpenditure exceeds the budget by $' + \
+            str(abs(remaining_budget))
     bot.send_message(chat_id, msg)
 
 
@@ -199,7 +213,8 @@ def calculateRemainingCategoryBudget(chat_id, cat):
     budget = getCategoryBudgetByCategory(chat_id, cat)
     history = getUserHistory(chat_id)
     query = datetime.now().today().strftime(getMonthFormat())
-    queryResult = [value for index, value in enumerate(history) if str(query) in value]
+    queryResult = [value for index, value in enumerate(
+        history) if str(query) in value]
 
     return float(budget) - calculate_total_spendings_for_category(queryResult, cat)
 
