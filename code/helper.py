@@ -79,6 +79,9 @@ def read_json():
 
 
 def write_json(user_list):
+    """
+    write_json(user_list): Stores data into the datastore of the bot.
+    """
     try:
         with open('expense_record.json', 'w') as json_file:
             json.dump(user_list, json_file, ensure_ascii=False, indent=4)
@@ -87,6 +90,10 @@ def write_json(user_list):
 
 
 def validate_entered_amount(amount_entered):
+    """
+    validate_entered_amount(amount_entered): Takes 1 argument, amount_entered. 
+    It validates this amount's format to see if it has been correctly entered by the user.
+    """
     if amount_entered is None:
         return 0
     if re.match("^[1-9][0-9]{0,14}\\.[0-9]*$", amount_entered) or re.match("^[1-9][0-9]{0,14}$", amount_entered):
@@ -97,6 +104,9 @@ def validate_entered_amount(amount_entered):
 
 
 def getUserHistory(chat_id):
+    """
+    getUserHistory(chat_id): Takes 1 argument chat_id and uses this to get the relevant user's historical data.
+    """
     data = getUserData(chat_id)
     if data is not None:
         return data['data']
@@ -234,10 +244,16 @@ def calculate_total_spendings_for_category(queryResult, cat):
 
 
 def getSpendCategories():
+    """
+    getSpendCategories(): This functions returns the spend categories used in the bot. These are defined the same file.
+    """
     return spend_categories
 
 
 def getSpendDisplayOptions():
+    """
+    getSpendDisplayOptions(): This functions returns the spend display options used in the bot. These are defined the same file.
+    """
     return spend_display_option
 
 
@@ -246,18 +262,30 @@ def getSpendEstimateOptions():
 
 
 def getCommands():
+    """
+    getCommands(): This functions returns the command options used in the bot. These are defined the same file.
+    """
     return commands
 
 
 def getDateFormat():
+    """
+    getCommands(): This functions returns the command options used in the bot. These are defined the same file.
+    """
     return dateFormat
 
 
 def getTimeFormat():
+    """
+    def getTimeFormat(): This functions returns the time format used in the bot.
+    """
     return timeFormat
 
 
 def getMonthFormat():
+    """
+    def getMonthFormat(): This functions returns the month format used in the bot.
+    """
     return monthFormat
 
 
