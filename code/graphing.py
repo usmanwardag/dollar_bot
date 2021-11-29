@@ -3,6 +3,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 matplotlib.use('Agg')
 
+def viewBudget(data):
+    sorted_data = {}
+    sorted_data = {k: v for k, v in sorted(data.items(), key=lambda item: item[1])}
+    values =[]
+    labels = []
+    for k,v in sorted_data.items():
+        values.append(v)
+        labels.append(k)
+    plt.pie(values, labels= values, counterclock=False, shadow=True)
+    plt.title('Category Wise Budget')
+    plt.legend(labels,loc="center")
+    plt.savefig('budget.png', bbox_inches='tight')
+
+
 
 def addlabels(x, y):
     for i in range(len(x)):

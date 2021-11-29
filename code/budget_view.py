@@ -1,5 +1,7 @@
+import graphing
 import helper
 import logging
+import os
 
 
 def run(message, bot):
@@ -26,7 +28,6 @@ def display_overall_budget(message, bot):
 def display_category_budget(message, bot):
     chat_id = message.chat.id
     data = helper.getCategoryBudget(chat_id)
-    res = "Budget Summary\n"
-    for c, v in data.items():
-        res = res + c + ": $" + v + "\n"
-    bot.send_message(chat_id, res)
+    graphing.viewBudget(data)
+    bot.send_photo(chat_id, photo=open('budget.png', 'rb'))
+    os.remove('budget.png')
