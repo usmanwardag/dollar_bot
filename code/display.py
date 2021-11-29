@@ -6,8 +6,14 @@ import logging
 from telebot import types
 from datetime import datetime
 
+# === Documentation of display.py ===
 
 def run(message, bot):
+    """
+    run(message, bot): This is the main function used to implement the delete feature. 
+    It takes 2 arguments for processing - message which is the message from the user, and bot 
+    which is the telegram bot object from the main code.py function.
+    """
     helper.read_json()
     chat_id = message.chat.id
     history = helper.getUserHistory(chat_id)
@@ -26,6 +32,14 @@ def run(message, bot):
 
 
 def display_total(message, bot):
+    """
+    display_total(message, bot): It takes 2 arguments for processing - message which is 
+    the message from the user, and bot which is the telegram bot object from the 
+    run(message, bot): function in the same file. This function loads the user's data using 
+    the helper file's getUserHistory(chat_id) method. After this, depending on the option user 
+    has chosen on the UI, it calls the calculate_spendings(queryResult): to process the queried 
+    data to return to the user after which it finally passes the data to the UI for the user to view.
+    """
     try:
         chat_id = message.chat.id
         DayWeekMonth = message.text
@@ -78,6 +92,11 @@ def display_total(message, bot):
 
 
 def calculate_spendings(queryResult):
+    """
+    calculate_spendings(queryResult): Takes 1 argument for processing - queryResult 
+    which is the query result from the display total function in the same file. 
+    It parses the query result and turns it into a form suitable for display on the UI by the user.
+    """
     total_dict = {}
 
     for row in queryResult:

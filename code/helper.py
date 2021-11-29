@@ -57,9 +57,13 @@ dateFormat = '%d-%b-%Y'
 timeFormat = '%H:%M'
 monthFormat = '%b-%Y'
 
+# === Documentation of helper.py ===
 
 # function to load .json expense record data
 def read_json():
+    """
+    read_json(): Function to load .json expense record data
+    """
     try:
         if not os.path.exists('expense_record.json'):
             with open('expense_record.json', 'w') as json_file:
