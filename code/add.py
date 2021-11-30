@@ -13,9 +13,57 @@ def run(message, bot):
     option.pop(chat_id, None)  # remove temp choice
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = 2
+    m= bot.send_message(chat_id, "Do you want to add a new categories? Y/N")
+    bot.register_next_step_handler(
+            m, post_user_def_category, bot)
+    """
+    user_input = m.text
+    print(m)
+    print(user_input)
+    if str(user_input)=="Y":
+        print("Hello")
+        message1=bot.send_message(chat_id, "Please enter your category")
+        selected_category=message1.text
+        helper.spend_categories.append(selected_category)
+        print(selected_category)
+        bot.register_next_step_handler(selected_category, post_category_selection, bot)
+    for c in helper.getSpendCategories():
+            markup.add(c)
+    msg = bot.reply_to(message, 'Select Category', reply_markup=markup)
+    
+    bot.register_next_step_handler(msg, post_category_selection, bot)
+    """
+def post_user_def_category(message,bot):
+    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+    markup.row_width = 2
+    print(message.text)
+    chat_id = message.chat.id
+    if str(message.text)=="Y":
+        message1=bot.send_message(chat_id, "Please enter your category")
+        bot.register_next_step_handler(message1,post_append_spend, bot)
+    else:
+        for c in helper.getSpendCategories():
+            markup.add(c)
+        msg = bot.reply_to(message, 'Select Category', reply_markup=markup)
+    
+        bot.register_next_step_handler(msg, post_category_selection, bot)
+    
+    
+    
+    
+    
+
+def post_append_spend(message,bot):
+    print(message.text)  
+    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+    markup.row_width = 2
+    selected_category=message.text
+    helper.spend_categories.append(selected_category) 
+    print(helper.spend_categories)   
     for c in helper.getSpendCategories():
         markup.add(c)
     msg = bot.reply_to(message, 'Select Category', reply_markup=markup)
+    
     bot.register_next_step_handler(msg, post_category_selection, bot)
 
 
@@ -32,6 +80,7 @@ def post_category_selection(message, bot):
         option[chat_id] = selected_category
         message = bot.send_message(
             chat_id, 'How much did you spend on {}? \n(Enter numeric values only)'.format(str(option[chat_id])))
+        print(message)
         bot.register_next_step_handler(
             message, post_amount_input, bot, selected_category)
     except Exception as e:
