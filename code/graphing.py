@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 matplotlib.use('Agg')
 
+# === Documentation of graphing.py ===
+
 def viewBudget(data):
     sorted_data = {}
     sorted_data = {k: v for k, v in sorted(data.items(), key=lambda item: item[1])}
@@ -19,11 +21,20 @@ def viewBudget(data):
 
 
 def addlabels(x, y):
+    """
+    addlabels(x, y): This function is used to add the labels to the graph. 
+    It takes the expense values and adds the values inside the bar graph for each expense type
+    """
     for i in range(len(x)):
         plt.text(i, y[i] // 2, y[i], ha='center')
 
 
 def visualize(total_text, monthly_budget):
+    """
+    visualize(total_text): This is the main function used to implement the graphing 
+    part of display feature. This file is called from display.py, and takes the user 
+    expense as a string and creates a dictionary which in turn is fed as input matplotlib to create the graph
+    """
     n1 = len(monthly_budget)
     r1 = np.arange(n1)
     print(n1)

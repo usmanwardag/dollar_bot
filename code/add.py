@@ -6,8 +6,15 @@ from datetime import datetime
 
 option = {}
 
-
+# === Documentation of add.py ===
 def run(message, bot):
+    """
+    run(message, bot): This is the main function used to implement the add feature. 
+    It pop ups a menu on the bot asking the user to choose their expense category, 
+    after which control is given to post_category_selection(message, bot) for further proccessing. 
+    It takes 2 arguments for processing - message which is the message from the user, 
+    and bot which is the telegram bot object from the main code.py function.
+    """
     helper.read_json()
     chat_id = message.chat.id
     option.pop(chat_id, None)  # remove temp choice
@@ -68,6 +75,13 @@ def post_append_spend(message,bot):
 
 
 def post_category_selection(message, bot):
+    """
+    post_category_selection(message, bot): It takes 2 arguments for processing -
+    message which is the message from the user, and bot which is the telegram bot object 
+    from the run(message, bot): function in the add.py file. It requests the user to enter the amount 
+    they have spent on the expense category chosen and then passes control to 
+    post_amount_input(message, bot): for further processing.
+    """
     try:
         chat_id = message.chat.id
         selected_category = message.text
@@ -96,6 +110,13 @@ def post_category_selection(message, bot):
 
 
 def post_amount_input(message, bot, selected_category):
+    """
+    post_amount_input(message, bot): It takes 2 arguments for processing - 
+    message which is the message from the user, and bot which is the telegram bot 
+    object from the post_category_selection(message, bot): function in the add.py file. 
+    It takes the amount entered by the user, validates it with helper.validate() and then 
+    calls add_user_record to store it.
+    """
     try:
         print("---------------------------------------------------")
 
@@ -129,6 +150,11 @@ def post_amount_input(message, bot, selected_category):
 
 
 def add_user_record(chat_id, record_to_be_added):
+    """
+    add_user_record(chat_id, record_to_be_added): Takes 2 arguments - 
+    chat_id or the chat_id of the user's chat, and record_to_be_added which 
+    is the expense record to be added to the store. It then stores this expense record in the store.
+    """
     user_list = helper.read_json()
     print('!'*5)
     print('before')

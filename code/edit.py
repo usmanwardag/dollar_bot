@@ -3,8 +3,15 @@ import helper
 from telebot import types
 from telegram_bot_calendar import DetailedTelegramCalendar, LSTEP
 
+# === Documentation of edit.py ===
 
 def run(m, bot):
+    """
+    run(message, bot): This is the main function used to implement the delete feature. 
+    It takes 2 arguments for processing - message which is the message from the user, and 
+    bot which is the telegram bot object from the main code.py function. It gets the details 
+    for the expense to be edited from here and passes control onto edit2(m, bot): for further processing.
+    """
     chat_id = m.chat.id
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = 2
@@ -76,7 +83,11 @@ def enter_updated_data(m, bot, selected_data):
 
 
 def edit_date(bot, selected_data, result, chat_id):
-
+    """
+    def edit_date(m, bot): It takes 2 arguments for processing - message which is 
+    the message from the user, and bot which is the telegram bot object from the 
+    edit3(m, bot):: function in the same file. It takes care of date change and edits.
+    """
     user_list = helper.read_json()
     new_date = str(result)
 
@@ -98,6 +109,11 @@ def edit_date(bot, selected_data, result, chat_id):
 
 
 def edit_cat(m, bot, selected_data):
+    """
+    def edit_cat(m, bot): It takes 2 arguments for processing - message which is the message 
+    from the user, and bot which is the telegram bot object from the edit3(m, bot):: function in the 
+    same file. It takes care of category change and edits.
+    """
     user_list = helper.read_json()
     chat_id = m.chat.id
     data_edit = helper.getUserHistory(chat_id)
@@ -118,6 +134,11 @@ def edit_cat(m, bot, selected_data):
 
 
 def edit_cost(m, bot, selected_data):
+    """
+    def edit_cost(m, bot): It takes 2 arguments for processing - message which is the 
+    message from the user, and bot which is the telegram bot object from the 
+    edit3(m, bot):: function in the same file. It takes care of cost change and edits.
+    """
     user_list = helper.read_json()
     new_cost = "" if m.text is None else m.text
     chat_id = m.chat.id

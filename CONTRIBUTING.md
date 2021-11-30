@@ -1,15 +1,12 @@
-# Contributing to TrackMyDollar - BudgetOnTheGo - BOTGo v2
+# HELLO! WELCOME TO CONTRIBUTING!
 
-Follow the set of guidelines below to contribute to MyDollarBot-BOTGo!
+Follow the set of guidelines below to contribute to MyDollarBot!
 
 ## Code of Conduct
 
-By participating, you are expected to uphold this code. Please report unacceptable behavior to svenka25@ncsu.edu.
+This project and everyone participating in it is governed by the [Code of Conduct]. By participating, you are expected to uphold this code. Please report unacceptable behavior to sbose2@ncsu.edu.
 
-Prerequistes required before starting this project
-
-If you're doing this as part of CSC510 - SE for Fall'21, then: 
-1. Have good understanding of Python Programming Language and Telegram Bots
+Prerequistes required before starting this project:
 
 If you like our project and would like to contribue otherwise, please note:
 1. This project is created as part of CSC510 Coursework at NC State for Fall'21.
@@ -17,55 +14,69 @@ If you like our project and would like to contribue otherwise, please note:
 3. Have good understanding of Python Programming Language and Telegram Bots
 
 ## How can I Contribute -
+
+# Pull Request Process
+1. Pass all the test cases that we have mentioned in the test.py.
+2. Update the README.md with the changes you have made.
+3. Add all the unnecessary build files have to the .gitignore file.
+4. Mention any new installatiuon dependencies in the requirements.txt file.
+
+# Committing Changes
+1. You need to start an issue on the project kanban board.
+2. You need to move this issue from to_do to in progress.
+3. Create a new branch and clone the repository.
+4. Change the branch of the code using git checkout.
+5. Make the required changes and commit everything to the newly created branch.
+6. Create a new pull request.
  
-### Reporting Bugs
+# Reporting Bugs 
+This section gives detailed information on how to report bugs. Reporting a bug will help the community and maintainers of the repository. <br>
+Before reporting any bug, make sure it is correct and you have all the details with you. Fot creating any bug report, please fill out [the required template](https://github.com/atom/.github/blob/master/.github/ISSUE_TEMPLATE/bug_report.md). This template will give us necessary information to help solve a bug faster.
 
-This section guides you through submitting a bug report for TrackMyDollar.
-Following these guidelines helps maintainers and the community understand your report, reproduce the behavior and find related reports.
+## Before Submitting A Bug Report
+The following is a list of items you need to check before submitting a bug report. <br>
 
-Before Submitting A Bug Report
+[debugging guide](https://flight-manual.atom.io/hacking-atom/sections/debugging/). Check out this debugging guide, which helps you to find the cause of the problem and you may fix it by yourself manually. <br>
+[cursory search](https://github.com/search?q=+is%3Aissue+user%3Aatom) A cursory search is necessary to check if the reported bug is already mentioned before or not. You can add to the existing bug report if the issue is still open.
 
-Check the debugging guide
 
-Check the FAQs on the forum for a list of common questions and problems.
-Determine which repository the problem should be reported in.
+## To Submit A Good Bug Report
+[GitHub issues](https://guides.github.com/features/issues/) You can track the bugs from this. For the repository that has bug, create an issue and fill out [the template](https://github.com/atom/.github/blob/master/.github/ISSUE_TEMPLATE/bug_report.md) to give details of the bug.
 
-Perform a cursory search to see if the problem has already been reported.
 
-## How Do I Submit A (Good) Bug Report?
+* To identify the problem, give the issue a clear and informative term. <br>
+* Describe in as much detail as possible to duplicate the problem. Explain the problem and explain about the exact command sused in the terminal which caus ethe bug to occur.
+* To demonstrate the steps, give specific examples. Include links to files or GitHub projects, or copy/pasteable snippets, which you use in those examples. If you're providing snippets in the issue, use [Markdown code blocks](https://help.github.com/articles/markdown-basics/#multiple-lines).
+* Specify what is the problem beavior and what you expected to see and why
+* If possible, include screenshots and animated GIFs that clearly demonstrate the problem. [this tool](https://www.cockos.com/licecap/)- to record GIFs on macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast) or [this tool](https://github.com/GNOME/byzanz) on Linux.
+* To include a crash report, add a stack trace from the operating system. For macOS, `Console.app` under "Diagnostic and usage information" > "User diagnostic reports" has crash report. Include the crash report in the issue in a [code block](https://help.github.com/articles/markdown-basics/#multiple-lines), a [file attachment](https://help.github.com/articles/file-attachments-on-issues-and-pull-requests/), or put it in a [gist](https://gist.github.com/) and provide link to that gist.
+* For performance or memory issues, include a [CPU profile capture](https://flight-manual.atom.io/hacking-atom/sections/debugging/#diagnose-runtime-performance) with your report.
 
-Use a clear and descriptive title for the issue to identify the problem.
+Provide more context by answering these questions: <br>
+* If the problem started happening recently then try downloading the old version of the packages and the code.
+* Include details about your configuration and environment.
+* What is the name and version of the OS you're using?
+* Are you running the project in a virtual environment?
+* Which packages have installed in your system? You can get a list of packages installed by running 'apm list --installed'
 
-Describe the exact steps which reproduce the problem in as many details as possible.
+# Suggesting Enhancements
 
-Provide specific examples to demonstrate the steps.
+Any suggesting enhancements like adding new features or imporving existing functionalities, etc can done by following the below guidelines. They help maintainers understand your improvement. <br>
+[the template](https://github.com/atom/.github/blob/master/.github/ISSUE_TEMPLATE/feature_request.md)- this template is to be filled to add suggestions. These can include the steps that you imagine you would take if the feature you're requesting existed.
 
-Describe the behavior you observed after following the steps and point out what exactly is the problem with that behavior.
+## Before Submitting An Enhancement Suggestion
 
-Explain which behavior you expected to see instead and why.
+[debugging guide](https://flight-manual.atom.io/hacking-atom/sections/debugging/). Check out this debugging guide, which helps you to find the cause of the problem and you may fix it by yourself manually. <br>
+[cursory search](https://github.com/search?q=+is%3Aissue+user%3Aatom) A cursory search is necessary to check if the reported bug is already mentioned before or not. You can add to the existing bug report if the issue is still open.
 
-Include screenshots and animated GIFs which show you following the described steps and clearly demonstrate the problem.
+## To Submit A Good Enhancement Suggestion
 
-If the problem is related to performance or memory, include a CPU profile capture with your report.
+[GitHub issues](https://guides.github.com/features/issues/) You can track the bugs from this. For the repository that has bug, create an issue and fill out [the template](https://github.com/atom/.github/blob/master/.github/ISSUE_TEMPLATE/bug_report.md) to give details of the bug.
 
-## Pull Requests
-
-The process described here has several goals:
-
-Maintain the projects quality and ensure you have a code coverage of > 80%. Otherwise your PR will not be approved.
-
-Fix problems that are important to users.
-
-Enable a sustainable system for the projects maintainers to review contributions
-
-## Tips to Extend
-
-Check the Projects tab for TO-DO list and pick the feature you find interesting to work on.
-
-Create a branch and implement the feature in Python using Telegram bot and test it locally. (Check the docs to learn more)
-
-Write corresponding test cases to ensure it is not breaking the existing system.
-
-Create pull request and request for the code review. Once the request is approved, merge to main.
-
-Any suggestions to improve the bot is appreciated. Please add it to the TO-DO list.
+* To identify the problem, give the issue a clear and informative term. <br>
+* Describe in as much detail as possible to duplicate the problem. Explain the problem and explain about the exact command sused in the terminal which caus ethe bug to occur.
+* To demonstrate the steps, give specific examples. Include links to files or GitHub projects, or copy/pasteable snippets, which you use in those examples. If you're providing snippets in the issue, use [Markdown code blocks](https://help.github.com/articles/markdown-basics/#multiple-lines).
+* Specify what is the problem beavior and what you expected to see and why
+* If possible, include screenshots and animated GIFs that clearly demonstrate the problem. [this tool](https://www.cockos.com/licecap/)- to record GIFs on macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast) or [this tool](https://github.com/GNOME/byzanz) on Linux.
+* To include a crash report, add a stack trace from the operating system. For macOS, `Console.app` under "Diagnostic and usage information" > "User diagnostic reports" has crash report. Include the crash report in the issue in a [code block](https://help.github.com/articles/markdown-basics/#multiple-lines), a [file attachment](https://help.github.com/articles/file-attachments-on-issues-and-pull-requests/), or put it in a [gist](https://gist.github.com/) and provide link to that gist.
+* For performance or memory issues, include a [CPU profile capture](https://flight-manual.atom.io/hacking-atom/sections/debugging/#diagnose-runtime-performance) with your report.
