@@ -4,7 +4,7 @@ Follow the set of guidelines below to contribute to MyDollarBot!
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the [Code of Conduct]. By participating, you are expected to uphold this code. Please report unacceptable behavior to sbose2@ncsu.edu.
+This project and everyone participating in it is governed by the [Code of Conduct](https://github.com/usmanwardag/dollar_bot/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to sbose2@ncsu.edu.
 
 Prerequistes required before starting this project:
 
@@ -36,12 +36,12 @@ Before reporting any bug, make sure it is correct and you have all the details w
 ## Before Submitting A Bug Report
 The following is a list of items you need to check before submitting a bug report. <br>
 
-[debugging guide](https://flight-manual.atom.io/hacking-atom/sections/debugging/). Check out this debugging guide, which helps you to find the cause of the problem and you may fix it by yourself manually. <br>
-[cursory search](https://github.com/search?q=+is%3Aissue+user%3Aatom) A cursory search is necessary to check if the reported bug is already mentioned before or not. You can add to the existing bug report if the issue is still open.
+Check out this [debugging guide](https://flight-manual.atom.io/hacking-atom/sections/debugging/), which helps you to find the cause of the problem and you may fix it by yourself manually. <br>
+A cursory search is necessary to check if the reported bug is already mentioned before or not. You can add to the existing bug report if the issue is still open.
 
 
 ## To Submit A Good Bug Report
-[GitHub issues](https://guides.github.com/features/issues/) You can track the bugs from this. For the repository that has bug, create an issue and fill out [the template](https://github.com/atom/.github/blob/master/.github/ISSUE_TEMPLATE/bug_report.md) to give details of the bug.
+[GitHub issues](https://github.com/usmanwardag/dollar_bot/issues) You can track the bugs from this. For the repository that has bug, create an issue and fill out [the template](https://github.com/atom/.github/blob/master/.github/ISSUE_TEMPLATE/bug_report.md) to give details of the bug.
 
 
 * To identify the problem, give the issue a clear and informative term. <br>
@@ -50,7 +50,6 @@ The following is a list of items you need to check before submitting a bug repor
 * Specify what is the problem beavior and what you expected to see and why
 * If possible, include screenshots and animated GIFs that clearly demonstrate the problem. [this tool](https://www.cockos.com/licecap/)- to record GIFs on macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast) or [this tool](https://github.com/GNOME/byzanz) on Linux.
 * To include a crash report, add a stack trace from the operating system. For macOS, `Console.app` under "Diagnostic and usage information" > "User diagnostic reports" has crash report. Include the crash report in the issue in a [code block](https://help.github.com/articles/markdown-basics/#multiple-lines), a [file attachment](https://help.github.com/articles/file-attachments-on-issues-and-pull-requests/), or put it in a [gist](https://gist.github.com/) and provide link to that gist.
-* For performance or memory issues, include a [CPU profile capture](https://flight-manual.atom.io/hacking-atom/sections/debugging/#diagnose-runtime-performance) with your report.
 
 Provide more context by answering these questions: <br>
 * If the problem started happening recently then try downloading the old version of the packages and the code.
@@ -66,12 +65,12 @@ Any suggesting enhancements like adding new features or imporving existing funct
 
 ## Before Submitting An Enhancement Suggestion
 
-[debugging guide](https://flight-manual.atom.io/hacking-atom/sections/debugging/). Check out this debugging guide, which helps you to find the cause of the problem and you may fix it by yourself manually. <br>
+Check out this [debugging guide](https://flight-manual.atom.io/hacking-atom/sections/debugging/), which helps you to find the cause of the problem and you may fix it by yourself manually. <br>
 [cursory search](https://github.com/search?q=+is%3Aissue+user%3Aatom) A cursory search is necessary to check if the reported bug is already mentioned before or not. You can add to the existing bug report if the issue is still open.
 
 ## To Submit A Good Enhancement Suggestion
 
-[GitHub issues](https://guides.github.com/features/issues/) You can track the bugs from this. For the repository that has bug, create an issue and fill out [the template](https://github.com/atom/.github/blob/master/.github/ISSUE_TEMPLATE/bug_report.md) to give details of the bug.
+[GitHub issues](https://github.com/usmanwardag/dollar_bot/issues) You can track the bugs from this. For the repository that has bug, create an issue and fill out [the template](https://github.com/atom/.github/blob/master/.github/ISSUE_TEMPLATE/bug_report.md) to give details of the bug.
 
 * To identify the problem, give the issue a clear and informative term. <br>
 * Describe in as much detail as possible to duplicate the problem. Explain the problem and explain about the exact command sused in the terminal which caus ethe bug to occur.
