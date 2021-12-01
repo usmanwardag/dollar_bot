@@ -132,7 +132,7 @@ Checkout the [docs](https://github.com/sak007/MyDollarBot-BOTGo/tree/main/docs)
 To contribute to the project, please refer to the [CONTRIBUTING.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md)
 ## Future RoadMap
 
-## 💁🏻‍♀️ Contributors 💁🏻‍♂️
+## Contributors
 <table>
   <tr>
     <td align="center"><a href="https://github.com/usmanwardag"><img src="https://avatars.githubusercontent.com/u/8848723?v=4" width="75px;" alt=""/><br /><sub><b>Usman Khan</b></sub></a></td>
