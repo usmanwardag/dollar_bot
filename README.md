@@ -145,7 +145,7 @@ To contribute to the project, please refer to the [CONTRIBUTING.md](https://gith
 
 
 
-## 🙏🏻 Acknowledgements 🙏🏻
+## Acknowledgements
 
 - We would like to express our gratitude 🙏🏻 and a big thank you 😇 to Prof. Dr. Timothy Menzie for giving us the opportunity to get into the shoes of software building and learning new skills and development process throught the project building.
 - A big thank you 😊 to the Teaching Assistants for their support.
