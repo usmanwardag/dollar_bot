@@ -41,7 +41,7 @@ def listener(user_requests):
                 str(datetime.now()), str(req.chat.first_name), str(req.chat.id), str(req.text)))
 
     message = "Sorry, I can't understand messages yet :/\n" + \
-              "I can only understand commands. \n\n" + \
+              "I can only understand commands that start with /. \n\n" + \
               "Type /faq or /help if you are stuck."
 
     helper.read_json()
@@ -56,18 +56,31 @@ bot.set_update_listener(listener)
 @bot.message_handler(commands=['help'])
 def help(m):
 
-    print('In help.')
+    helper.read_json()
+    global user_list
+    chat_id = m.chat.id
+
+    message = 'Here are the commands you can use: \n'
+    commands = helper.getCommands()
+    for c in commands:  
+        message += "/" + c + ", "
+        #message += commands[c] + "\n\n"
+    bot.send_message(chat_id, message)
+
+
+@bot.message_handler(commands=['faq'])
+def faq(m):
 
     helper.read_json()
     global user_list
     chat_id = m.chat.id
 
-    message = ''
+    message = '"How can I add an epxense? \n'
     commands = helper.getCommands()
     for c in commands:  
-        message += "/" + c + ": "
-        message += commands[c] + "\n\n"
-    bot.send_message(chat_id, text_intro)
+        message += "/" + c + ", "
+        #message += commands[c] + "\n\n"
+    bot.send_message(chat_id, message)
 
 
 # defines how the /start and /help commands have to be handled/processed
