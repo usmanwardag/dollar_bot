@@ -75,12 +75,16 @@ def faq(m):
     global user_list
     chat_id = m.chat.id
 
-    faq_message = '"How can I add an epxense?" \n' + \
+    faq_message = '"What does this bot do?"\n' + \
+              '>> DollarBot lets you manage your expenses so you can always stay on top of them! \n\n' + \
+              '"How can I add an epxense?" \n' + \
               '>> Type /add, then select a category to type the expense. \n\n' + \
               '"Can I see history of my expenses?" \n' + \
               '>> Yes! Use /display to get a graphical display, or /history to view detailed summary.\n\n' + \
               '"I added an incorrect expense. How can I edit it?"\n' + \
-              '>> Use /edit command.'
+              '>> Use /edit command. \n\n' + \
+              '"Can I check if my expenses have exceeded budget?"\n' + \
+              '>> Yes! Use /budget and then select the view category. \n\n' 
     bot.send_message(chat_id, faq_message)
 
 
