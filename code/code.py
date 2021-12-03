@@ -21,7 +21,6 @@ with open('user.properties', 'rb') as read_prop:
 
 api_token = str(configs.get('api_token').data)
 
-
 bot = telebot.TeleBot(api_token)
 
 telebot.logger.setLevel(logging.INFO)
@@ -57,11 +56,17 @@ def start_and_menu_command(m):
     global user_list
     chat_id = m.chat.id
 
-    text_intro = "Welcome to TrackMyDollar - a simple and easy to go solution is here to track your expenses! \nHere is a list of available commands, please enter a command of your choice so that I can assist you further: \n\n"
-    commands = helper.getCommands()
-    for c in commands:  # generate help text out of the commands dictionary defined at the top
-        text_intro += "/" + c + ": "
-        text_intro += commands[c] + "\n\n"
+    # print('receieved start or menu command.')
+    #text_into = "Welcome to the Dollar Bot!"
+
+    text_intro = "Welcome to the Dollar Bot! \n" + \
+                 "DollarBot can track all your expenses with simple and easy to use commands :) \n\n" + \
+                 "Type /faq or /help to get stated."
+                 
+    #commands = helper.getCommands()
+    #for c in commands:  # generate help text out of the commands dictionary defined at the top
+    #    text_intro += "/" + c + ": "
+    #    text_intro += commands[c] + "\n\n"
     bot.send_message(chat_id, text_intro)
     return True
 
