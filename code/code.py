@@ -40,6 +40,14 @@ def listener(user_requests):
             print("{} name:{} chat_id:{} \nmessage: {}\n".format(
                 str(datetime.now()), str(req.chat.first_name), str(req.chat.id), str(req.text)))
 
+    message = "Sorry, I can't understand messages yet :/\n" + \
+              "I can only understand commands. \n\n" + \
+              "Type /faq or /help if you are stuck."
+
+    helper.read_json()
+    global user_list
+    chat_id = user_requests[0].chat.id
+    bot.send_message(chat_id, message)
 
 bot.set_update_listener(listener)
 
