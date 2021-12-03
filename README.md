@@ -100,6 +100,10 @@ A successful run will generate a message on your terminal that says "TeleBot: St
 
 6. In the Telegram app, search for your newly created bot by entering the username and open the same. Now, on Telegram, enter the "/start" or "/menu" command, and you are all set to track your expenses!
 
+### Run Automatically at Startup
+
+To run the script automatically at start, simply add the `.run_forever.sh` script to your .bashrc, which executes whenever you reboot your system.
+
 ## Testing
 
 We use pytest to perform testing on all unit tests together. The command needs to be run from the home directory of the project. The command is:
