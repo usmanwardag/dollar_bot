@@ -47,9 +47,27 @@ def listener(user_requests):
     helper.read_json()
     global user_list
     chat_id = user_requests[0].chat.id
-    bot.send_message(chat_id, message)
+
+    if user_requests[0].text[0] != '/':
+        bot.send_message(chat_id, message)
 
 bot.set_update_listener(listener)
+
+@bot.message_handler(commands=['help'])
+def help(m):
+
+    print('In help.')
+
+    helper.read_json()
+    global user_list
+    chat_id = m.chat.id
+
+    message = ''
+    commands = helper.getCommands()
+    for c in commands:  
+        message += "/" + c + ": "
+        message += commands[c] + "\n\n"
+    bot.send_message(chat_id, text_intro)
 
 
 # defines how the /start and /help commands have to be handled/processed
