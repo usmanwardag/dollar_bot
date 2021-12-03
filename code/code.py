@@ -75,12 +75,13 @@ def faq(m):
     global user_list
     chat_id = m.chat.id
 
-    message = '"How can I add an epxense? \n'
-    commands = helper.getCommands()
-    for c in commands:  
-        message += "/" + c + ", "
-        #message += commands[c] + "\n\n"
-    bot.send_message(chat_id, message)
+    faq_message = '"How can I add an epxense?" \n' + \
+              '>> Type /add, then select a category to type the expense. \n\n' + \
+              '"Can I see history of my expenses?" \n' + \
+              '>> Yes! Use /display to get a graphical display, or /history to view detailed summary.\n\n' + \
+              '"I added an incorrect expense. How can I edit it?"\n' + \
+              '>> Use /edit command.'
+    bot.send_message(chat_id, faq_message)
 
 
 # defines how the /start and /help commands have to be handled/processed
