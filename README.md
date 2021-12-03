@@ -102,7 +102,7 @@ A successful run will generate a message on your terminal that says "TeleBot: St
 
 ### Run Automatically at Startup
 
-To run the script automatically at startup / reboot, simply add the `.run_forever.sh` script to your .bashrc, which executes whenever you reboot your system.
+To run the script automatically at startup / reboot, simply add the `.run_forever.sh` script to your `.bashrc` file, which executes whenever you reboot your system.
 
 ## Testing
 
