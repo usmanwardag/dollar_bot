@@ -135,6 +135,7 @@ Checkout the [docs](https://github.com/sak007/MyDollarBot-BOTGo/tree/main/docs)
 
 We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md)
 
+For any feedback, issues, or bug reports, please create an issue [here](https://github.com/usmanwardag/dollar_bot/issues/new).
 
 ## Future RoadMap
 
