@@ -20,7 +20,7 @@ def run(message, bot):
     option.pop(chat_id, None)  # remove temp choice
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = 2
-    m= bot.send_message(chat_id, "Do you want to add a new categories? Y/N")
+    m= bot.send_message(chat_id, "Do you want to add a new category? Y/N")
     bot.register_next_step_handler(
             m, post_user_def_category, bot)
 
@@ -29,7 +29,7 @@ def post_user_def_category(message,bot):
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = 2
     chat_id = message.chat.id
-    if str(message.text)=="Y":
+    if (str(message.text)=="Y" or str(message.text=="y")):
         message1=bot.send_message(chat_id, "Please enter your category")
         bot.register_next_step_handler(message1,post_append_spend, bot)
     else:
