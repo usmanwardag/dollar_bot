@@ -1,5 +1,6 @@
 import helper
 import logging
+import budget_view
 from telebot import types
 
 # === Documentation of budget_update.py ===
@@ -89,6 +90,7 @@ def post_overall_amount_input(message, bot):
         user_list[str(chat_id)]['budget']['overall'] = amount_value
         helper.write_json(user_list)
         bot.send_message(chat_id, 'Budget Updated!')
+        budget_view.display_overall_budget(message, bot)
         return user_list
     except Exception as e:
         helper.throw_exception(e, message, bot, logging)
@@ -164,7 +166,7 @@ def post_category_amount_input(message, bot, category):
         user_list[str(chat_id)]['budget']['category'][category] = amount_value
         helper.write_json(user_list)
         message = bot.send_message(
-            chat_id, 'Budget for ' + category + ' Created!')
+            chat_id, 'Budget for ' + category + ' is now: ' + amount_value)
         post_category_add(message, bot)
 
     except Exception as e:
