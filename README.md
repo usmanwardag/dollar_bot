@@ -98,7 +98,7 @@ The below instructions can be followed in order to set-up this bot at your end i
 ```Note```: It will ask you to paste the API token you received from Telegram in step 4.
 A successful run will generate a message on your terminal that says "TeleBot: Started polling." 
 
-6. In the Telegram app, search for your newly created bot by entering the username and open the same. Now, on Telegram, enter the "/start" or "/menu" command, and you are all set to track your expenses!
+5. In the Telegram app, search for your newly created bot by entering the username and open the same. Now, on Telegram, enter the "/start" or "menu" command, and you are all set to track your expenses!
 
 ### Run Automatically at Startup
 
