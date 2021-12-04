@@ -65,6 +65,7 @@ def help(m):
     for c in commands:  
         message += "/" + c + ", "
         #message += commands[c] + "\n\n"
+    message += '\nUse /menu for detailed instructions about these commands.'
     bot.send_message(chat_id, message)
 
 
@@ -104,13 +105,14 @@ def start_and_menu_command(m):
     #text_into = "Welcome to the Dollar Bot!"
 
     text_intro = "Welcome to the Dollar Bot! \n" + \
-                 "DollarBot can track all your expenses with simple and easy to use commands :) \n\n" + \
-                 "Type /faq or /help to get stated."
+                 "DollarBot can track all your expenses with simple and easy to use commands :) \n" + \
+                 "Here is the complete menu. \n\n"
+                 #"Type /faq or /help to get stated."
                  
-    #commands = helper.getCommands()
-    #for c in commands:  # generate help text out of the commands dictionary defined at the top
-    #    text_intro += "/" + c + ": "
-    #    text_intro += commands[c] + "\n\n"
+    commands = helper.getCommands()
+    for c in commands:  # generate help text out of the commands dictionary defined at the top
+        text_intro += "/" + c + ": "
+        text_intro += commands[c] + "\n\n"
     bot.send_message(chat_id, text_intro)
     return True
 
