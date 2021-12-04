@@ -1,4 +1,4 @@
-# HELLO! WELCOME TO CONTRIBUTING!
+# Contributing to MyDollarBot
 
 Follow the set of guidelines below to contribute to MyDollarBot!
 
