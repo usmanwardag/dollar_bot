@@ -100,6 +100,10 @@ A successful run will generate a message on your terminal that says "TeleBot: St
 
 6. In the Telegram app, search for your newly created bot by entering the username and open the same. Now, on Telegram, enter the "/start" or "/menu" command, and you are all set to track your expenses!
 
+### Run Automatically at Startup
+
+To run the script automatically at startup / reboot, simply add the `.run_forever.sh` script to your `.bashrc` file, which executes whenever you reboot your system.
+
 ## Testing
 
 We use pytest to perform testing on all unit tests together. The command needs to be run from the home directory of the project. The command is:
@@ -132,7 +136,7 @@ Checkout the [docs](https://github.com/sak007/MyDollarBot-BOTGo/tree/main/docs)
 To contribute to the project, please refer to the [CONTRIBUTING.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md)
 ## Future RoadMap
 
-## 💁🏻‍♀️ Contributors 💁🏻‍♂️
+## Contributors
 <table>
   <tr>
     <td align="center"><a href="https://github.com/usmanwardag"><img src="https://avatars.githubusercontent.com/u/8848723?v=4" width="75px;" alt=""/><br /><sub><b>Usman Khan</b></sub></a></td>
@@ -145,7 +149,7 @@ To contribute to the project, please refer to the [CONTRIBUTING.md](https://gith
 
 
 
-## 🙏🏻 Acknowledgements 🙏🏻
+## Acknowledgements
 
 - We would like to express our gratitude 🙏🏻 and a big thank you 😇 to Prof. Dr. Timothy Menzie for giving us the opportunity to get into the shoes of software building and learning new skills and development process throught the project building.
 - A big thank you 😊 to the Teaching Assistants for their support.

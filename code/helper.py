@@ -34,7 +34,7 @@ data_format = {
 
 # set of implemented commands and their description
 commands = {
-    'menu': 'This option is to displays the list of commands',
+    'help': 'Display the list of commands.',
     'add': 'This option is for adding your expenses \
        \n 1. It will give you the list of categories to choose from. \
        \n 2. You will be prompted to enter the amount corresponding to your spending \
