@@ -6,7 +6,7 @@
 |.5	| File CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up| Guidelines in [Contributing.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md) |	
 |.5	| Docs: doco generated , format not ugly|	[docs](https://github.com/usmanwardag/dollar_bot/tree/main/docs)|
 |.5	| evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people)	|[Requirement.txt](https://github.com/usmanwardag/dollar_bot/blob/main/requirements.txt) |
-|.5	| evidence that the members of the team are working across multiple places in the code base|	Refer[Contributors]https://github.com/sak007/MyDollarBot-BOTGo/graphs/contributors|
+|.5	| evidence that the members of the team are working across multiple places in the code base|	Refer[Contributors](https://github.com/usmanwardag/dollar_bot/graphs/contributors)|
 |1	| Docs: what: point descriptions of each class/function (in isolation)|	[docs](https://github.com/usmanwardag/dollar_bot/tree/main/docs)|
 |.5	| Number of commits: by different people| [Commit_activity](https://github.com/usmanwardag/dollar_bot/graphs/commit-activity)	|
 |1	| issues are being closed| [Closed_Issues](https://github.com/usmanwardag/dollar_bot/issues?q=is%3Aissue+is%3Aclosed) |
