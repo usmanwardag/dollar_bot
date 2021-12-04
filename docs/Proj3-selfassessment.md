@@ -3,7 +3,7 @@
 |.5	| Short release cycles|  |
 |.5	| Workload is spread over the whole team | Each memeber worked on a different [feature](https://github.com/usmanwardag/dollar_bot/issues) |
 |.5	| Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing	| [ReadMe.md](https://github.com/usmanwardag/dollar_bot/blob/main/README.md)|
-|.5	| File CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up| [Contributing.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md) |	
+|.5	| File CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up| Guidelines in [Contributing.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md) |	
 |.5	| Docs: doco generated , format not ugly|	[docs](https://github.com/usmanwardag/dollar_bot/tree/main/docs)|
 |.5	| evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people)	|[Requirement.txt](https://github.com/usmanwardag/dollar_bot/blob/main/requirements.txt) |
 |.5	| evidence that the members of the team are working across multiple places in the code base|	https://github.com/sak007/MyDollarBot-BOTGo/pulse|
