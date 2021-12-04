@@ -1,7 +1,7 @@
 |Score | Notes | Evidence |
 |-----|------|------|
 |.5	| Short release cycles|  |
-|.5	| Workload is spread over the whole team | Each memeber worked on a different [feature](https://github.com/usmanwardag/dollar_bot/issues) |
+|.5	| Workload is spread over the whole team | Each member worked on a different [feature](https://github.com/usmanwardag/dollar_bot/issues) |
 |.5	| Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing	| [ReadMe.md](https://github.com/usmanwardag/dollar_bot/blob/main/README.md)|
 |.5	| File CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up| Guidelines in [Contributing.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md) |	
 |.5	| Docs: doco generated , format not ugly|	[docs](https://github.com/usmanwardag/dollar_bot/tree/main/docs)|
