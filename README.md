@@ -41,7 +41,7 @@
 
 <hr>
 
-## Why should you use Dollar Bot?
+## Why should you use MyDollar Bot?
 
 Dollar Bot is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle.  
 With simple commands, this bot allows you to:
