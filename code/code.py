@@ -186,7 +186,6 @@ def command_delete(message):
 def command_budget(message):
     budget.run(message, bot)
 
-
 # not used
 def addUserHistory(chat_id, user_record):
     global user_list

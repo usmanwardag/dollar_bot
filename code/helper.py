@@ -3,6 +3,8 @@ import json
 import os
 from datetime import datetime
 
+from notify import notify
+
 spend_categories = ['Food', 'Groceries', 'Utilities',
                     'Transport', 'Shopping', 'Miscellaneous']
 choices = ['Date', 'Category', 'Cost']
@@ -189,6 +191,7 @@ def display_remaining_overall_budget(message, bot):
     else:
         msg = '\nBudget Exceded!\nExpenditure exceeds the budget by $' + \
             str(remaining_budget)[1:]
+        notify()
     bot.send_message(chat_id, msg)
 
 

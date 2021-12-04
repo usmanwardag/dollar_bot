@@ -1,56 +1,46 @@
-# Copyright 2021 sunehabose
-
 import requests
-from logging import Handler, Formatter
-import logging
+from jproperties import Properties
+
+configs = Properties()
 
 
-class RequestsHandler(Handler):
+class TelegramNotifier:
+    def __init__(self, token: str, parse_mode: str = None, chat_id: str = None):
+        self._token = token
+        self._parse_mode = parse_mode
+        if chat_id is None:
+            self._get_chat_id()
+        else:
+            self._chat_id = chat_id
 
-    def __init__(self, token_id, chat_id):
-        super().__init__()
-        self.token_id = token_id
-        self.chat_id = chat_id
+    def _get_chat_id(self):
+        try:
+            data = {
+                "offset": 0
+            }
+            response = requests.get(f"https://api.telegram.org/bot{self._token}/getUpdates", data=data, timeout=10)
+            if response.status_code == 200:
+                self._chat_id = response.json()['result'][-1]['message']['chat']['id']
+        except Exception as e:
+            self._chat_id = None
+            print("Couldn't get chat_id!\n\t", e)
 
-    def emit(self, record):
-        log_entry = self.format(record)
-        payload = {
-            'chat_id': self.chat_id,
-            'text': log_entry,
-            'parse_mode': 'HTML'
+    def send(self, msg: str):
+        if self._chat_id is None:
+            self._get_chat_id()
+            print("chat_id is none, nothing sent!")
+            return
+        data = {
+            "chat_id": self._chat_id,
+            "text": msg
         }
-        return requests.post("https://api.telegram.org/bot{token}/sendMessage".format(token=self.token_id),
-                             data=payload).content
-        
-
-class LogstashFormatter(Formatter):
-    def __init__(self):
-        super(LogstashFormatter, self).__init__()
-
-    def format(self, record):
-        # time = strftime("%d/%m/%Y, %H:%M:%S")
-        # return "<b>{datetime}</b>\n{message}".format(datetime=time, message=record.msg)
-        return "{message}".format(message=record.msg)
-
-
-def basic_notifier(logger_name, token_id, chat_id, message, level=logging.INFO):
-    logger = logging.getLogger(logger_name)
-    logger.setLevel(level)
-
-    handler = RequestsHandler(token_id=token_id, chat_id=chat_id)
-    formatter = LogstashFormatter()
-    handler.setFormatter(formatter)
-    logger.addHandler(handler)
-
-    logger.setLevel(level)
-    logger.info(message)
-
-
-if __name__ == '__main__':
-    l_name = 'trymeApp'
-    l_msg = 'We have a problem'
-    t_id = 'insert here your token id'
-    c_id = 'insert here your chat id'
-    basic_notifier(logger_name=l_name, token_id=t_id, chat_id=c_id, message=l_msg)
+        if self._parse_mode:
+            data["parse_mode"] = self._parse_mode
+        try:
+            response = requests.get(f"https://api.telegram.org/bot{self._token}/sendMessage", data=data, timeout=10)
+            if response.status_code != 200 or response.json()["ok"] is not True:
+                print(f"Failed to send notification:\n\tstatus_code={response.status_code}\n\tjson:\n\t{response.json()}")
+        except Exception as e:
+            print(f"Failed to send notification:\n\texception:\n\t{e}")
 
 
