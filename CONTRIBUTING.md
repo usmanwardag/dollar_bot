@@ -1,10 +1,10 @@
-# HELLO! WELCOME TO CONTRIBUTING!
+# Contributing to MyDollarBot
 
 Follow the set of guidelines below to contribute to MyDollarBot!
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the [Code of Conduct](https://github.com/usmanwardag/dollar_bot/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to sbose2@ncsu.edu.
+This project and everyone participating in it is governed by the [Code of Conduct](https://github.com/usmanwardag/dollar_bot/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to upload this code. Please report unacceptable behavior to sbose2@ncsu.edu.
 
 Prerequistes required before starting this project:
 

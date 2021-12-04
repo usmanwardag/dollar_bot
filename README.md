@@ -41,7 +41,7 @@
 
 <hr>
 
-## Why should you use Dollar Bot?
+## Why should you use MyDollar Bot?
 
 Dollar Bot is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle.  
 With simple commands, this bot allows you to:
@@ -98,7 +98,7 @@ The below instructions can be followed in order to set-up this bot at your end i
 ```Note```: It will ask you to paste the API token you received from Telegram in step 4.
 A successful run will generate a message on your terminal that says "TeleBot: Started polling." 
 
-6. In the Telegram app, search for your newly created bot by entering the username and open the same. Now, on Telegram, enter the "/start" or "/menu" command, and you are all set to track your expenses!
+5. In the Telegram app, search for your newly created bot by entering the username and open the same. Now, on Telegram, enter the "/start" or "menu" command, and you are all set to track your expenses!
 
 ### Run Automatically at Startup
 
@@ -133,7 +133,10 @@ Checkout the [docs](https://github.com/sak007/MyDollarBot-BOTGo/tree/main/docs)
 
 ## How to Contribute
 
-To contribute to the project, please refer to the [CONTRIBUTING.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md)
+We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md)
+
+For any feedback, issues, or bug reports, please create an issue [here](https://github.com/usmanwardag/dollar_bot/issues/new).
+
 ## Future RoadMap
 
 ## Contributors
@@ -155,8 +158,6 @@ To contribute to the project, please refer to the [CONTRIBUTING.md](https://gith
 - A big thank you 😊 to the Teaching Assistants for their support.
 - Thank you to the previous team 😊 for a thorough ReadMe and deatiled documentation.[MyDollarBot](https://github.com/sak007/MyDollarBot-BOTGo)
 - Thank you to the ⭐️[Telegram bot](https://github.com/python-telegram-bot/python-telegram-bot)
-
-
 
 
 

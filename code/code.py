@@ -44,12 +44,15 @@ def listener(user_requests):
               "I can only understand commands that start with /. \n\n" + \
               "Type /faq or /help if you are stuck."
 
-    helper.read_json()
-    global user_list
-    chat_id = user_requests[0].chat.id
+    try:
+        helper.read_json()
+        global user_list
+        chat_id = user_requests[0].chat.id
 
-    if user_requests[0].text[0] != '/':
-        bot.send_message(chat_id, message)
+        if user_requests[0].text[0] != '/':
+            bot.send_message(chat_id, message)
+    except:
+        pass
 
 bot.set_update_listener(listener)
 
@@ -71,6 +74,7 @@ def help(m):
 
 @bot.message_handler(commands=['faq'])
 def faq(m):
+
 
     helper.read_json()
     global user_list
