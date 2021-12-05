@@ -17,12 +17,12 @@ dummy_categ_val = {'Food': 10.0, 'Transport': 50.0, 'Shopping': 148.0,
 dummy_color = [(1.00, 0, 0, 0.6), (0.2, 0.4, 0.6, 0.6),
                (0, 1.00, 0, 0.6), (1.00, 1.00, 0, 1.00)]
 dummy_edgecolor = 'blue'
-dummy_monthly_budget = """Food $100.0
-Transport $150.0
-Shopping $150.0
-Miscellaneous $50
-Utilities $200.0
-Groceries $100\n"""
+dummy_monthly_budget = {'Food': 100.0,
+'Transport': 150.0,
+'Shopping': 150.0,
+'Miscellaneous': 50,
+'Utilities': 200.0,
+'Groceries': 100}
 
 def test_visualize(mocker):
     mocker.patch.object(graphing, 'plt')
