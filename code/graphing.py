@@ -17,7 +17,7 @@ def viewBudget(data):
     plt.title('Category Wise Budget')
     plt.legend(labels,loc="center")
     plt.savefig('budget.png', bbox_inches='tight')
-
+    plt.close()
 
 
 def addlabels(x, y):
@@ -74,3 +74,4 @@ def visualize(total_text, monthly_budget):
     plt.xticks(r1 + width/2, monthly_budget_categ_val.keys(), rotation=90)
     plt.legend()
     plt.savefig('expenditure.png', bbox_inches='tight')
+    plt.close()

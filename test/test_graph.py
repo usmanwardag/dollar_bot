@@ -17,11 +17,16 @@ dummy_categ_val = {'Food': 10.0, 'Transport': 50.0, 'Shopping': 148.0,
 dummy_color = [(1.00, 0, 0, 0.6), (0.2, 0.4, 0.6, 0.6),
                (0, 1.00, 0, 0.6), (1.00, 1.00, 0, 1.00)]
 dummy_edgecolor = 'blue'
-
+dummy_monthly_budget = """Food $100.0
+Transport $150.0
+Shopping $150.0
+Miscellaneous $50
+Utilities $200.0
+Groceries $100\n"""
 
 def test_visualize(mocker):
     mocker.patch.object(graphing, 'plt')
     graphing.plt.bar.return_value = True
-    graphing.visualize(dummy_total_text_data)
+    graphing.visualize(dummy_total_text_data, dummy_monthly_budget)
     graphing.plt.bar.assert_called_with(
         dummy_categ_val.keys(), ANY, color=dummy_color, edgecolor=dummy_edgecolor)
