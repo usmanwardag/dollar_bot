@@ -94,8 +94,8 @@ def test_edit_date(mock_telebot, mocker):
     message.text = DUMMY_DATE
     message.chat.id = MOCK_CHAT_ID
     selected_data = MOCK_USER_DATA[str(MOCK_CHAT_ID)]['data'][0]
-    edit.edit_date(message, mc, selected_data)
-    assert mc.reply_to.called
+    edit.edit_date(mc, selected_data, any, message.chat.id)
+    assert mc.edit_message_text.assert_called_with
 
 
 @patch('telebot.telebot')
