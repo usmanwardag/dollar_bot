@@ -2,6 +2,7 @@ import helper
 
 # === Documentation of delete.py ===
 
+
 def run(message, bot):
     """
     run(message, bot): This is the main function used to implement the delete feature. 
