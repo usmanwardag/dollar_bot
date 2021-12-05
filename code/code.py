@@ -50,9 +50,9 @@ def listener(user_requests):
             )
 
     message = (
-        "Sorry, I can't understand messages yet :/\n"
-        + "I can only understand commands that start with /. \n\n"
-        + "Type /faq or /help if you are stuck."
+        ("Sorry, I can't understand messages yet :/\n"
+         "I can only understand commands that start with /. \n\n"
+         "Type /faq or /help if you are stuck.")
     )
 
     try:
@@ -62,7 +62,7 @@ def listener(user_requests):
 
         if user_requests[0].text[0] != "/":
             bot.send_message(chat_id, message)
-    except:
+    except Exception:
         pass
 
 
@@ -93,16 +93,16 @@ def faq(m):
     chat_id = m.chat.id
 
     faq_message = (
-        '"What does this bot do?"\n'
-        + ">> DollarBot lets you manage your expenses so you can always stay on top of them! \n\n"
-        + '"How can I add an epxense?" \n'
-        + ">> Type /add, then select a category to type the expense. \n\n"
-        + '"Can I see history of my expenses?" \n'
-        + ">> Yes! Use /display to get a graphical display, or /history to view detailed summary.\n\n"
-        + '"I added an incorrect expense. How can I edit it?"\n'
-        + ">> Use /edit command. \n\n"
-        + '"Can I check if my expenses have exceeded budget?"\n'
-        + ">> Yes! Use /budget and then select the view category. \n\n"
+        ('"What does this bot do?"\n'
+         ">> DollarBot lets you manage your expenses so you can always stay on top of them! \n\n"
+         '"How can I add an epxense?" \n'
+         ">> Type /add, then select a category to type the expense. \n\n"
+         '"Can I see history of my expenses?" \n'
+         ">> Yes! Use /display to get a graphical display, or /history to view detailed summary.\n\n"
+         '"I added an incorrect expense. How can I edit it?"\n'
+         ">> Use /edit command. \n\n"
+         '"Can I check if my expenses have exceeded budget?"\n'
+         ">> Yes! Use /budget and then select the view category. \n\n")
     )
     bot.send_message(chat_id, faq_message)
 
@@ -123,9 +123,9 @@ def start_and_menu_command(m):
     # text_into = "Welcome to the Dollar Bot!"
 
     text_intro = (
-        "Welcome to the Dollar Bot! \n"
-        + "DollarBot can track all your expenses with simple and easy to use commands :) \n"
-        + "Here is the complete menu. \n\n"
+        ("Welcome to the Dollar Bot! \n"
+         "DollarBot can track all your expenses with simple and easy to use commands :) \n"
+         "Here is the complete menu. \n\n")
     )
     # "Type /faq or /help to get stated."
 

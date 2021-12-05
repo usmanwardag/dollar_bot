@@ -25,9 +25,7 @@ def run(message, bot):
             display_category_budget(message, bot)
         else:
             raise Exception(
-                "Budget does not exist. Use "
-                + helper.getBudgetOptions()["update"]
-                + " option to add/update the budget"
+                "Budget does not exist. Use " + helper.getBudgetOptions()["update"] + " option to add/update the budget"
             )
     except Exception as e:
         helper.throw_exception(e, message, bot, logging)

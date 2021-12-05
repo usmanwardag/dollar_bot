@@ -148,9 +148,7 @@ def post_category_selection(message, bot):
         else:
             message = bot.send_message(
                 chat_id,
-                "Enter monthly budget for "
-                + selected_category
-                + "\n(Enter numeric values only)",
+                "Enter monthly budget for " + selected_category + "\n(Enter numeric values only)",
             )
         bot.register_next_step_handler(
             message, post_category_amount_input, bot, selected_category

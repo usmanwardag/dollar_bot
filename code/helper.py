@@ -186,8 +186,7 @@ def display_remaining_overall_budget(message, bot):
         msg = "\nRemaining Overall Budget is $" + str(remaining_budget)
     else:
         msg = (
-            "\nBudget Exceded!\nExpenditure exceeds the budget by $"
-            + str(remaining_budget)[1:]
+            "\nBudget Exceded!\nExpenditure exceeds the budget by $" + str(remaining_budget)[1:]
         )
         # notify()
     bot.send_message(chat_id, msg)

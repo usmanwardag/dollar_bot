@@ -1,4 +1,3 @@
-import re
 import helper
 from telebot import types
 from telegram_bot_calendar import DetailedTelegramCalendar, LSTEP
@@ -101,9 +100,7 @@ def edit_date(bot, selected_data, result, chat_id):
         selected_category = selected_data[1].split("=")[1]
         selected_amount = selected_data[2].split("=")[1]
         if (
-            user_data[0] == selected_date
-            and user_data[1] == selected_category
-            and user_data[2] == selected_amount[1:]
+            user_data[0] == selected_date and user_data[1] == selected_category and user_data[2] == selected_amount[1:]
         ):
             data_edit[i] = (
                 new_date + "," + selected_category + "," + selected_amount[1:]
@@ -130,9 +127,7 @@ def edit_cat(m, bot, selected_data):
         selected_category = selected_data[1].split("=")[1]
         selected_amount = selected_data[2].split("=")[1]
         if (
-            user_data[0] == selected_date
-            and user_data[1] == selected_category
-            and user_data[2] == selected_amount[1:]
+            user_data[0] == selected_date and user_data[1] == selected_category and user_data[2] == selected_amount[1:]
         ):
             data_edit[i] = selected_date + "," + new_cat + "," + selected_amount[1:]
             break
@@ -160,9 +155,7 @@ def edit_cost(m, bot, selected_data):
             selected_category = selected_data[1].split("=")[1]
             selected_amount = selected_data[2].split("=")[1]
             if (
-                user_data[0] == selected_date
-                and user_data[1] == selected_category
-                and user_data[2] == selected_amount[1:]
+                user_data[0] == selected_date and user_data[1] == selected_category and user_data[2] == selected_amount[1:]
             ):
                 data_edit[i] = selected_date + "," + selected_category + "," + new_cost
                 break

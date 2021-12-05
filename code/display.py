@@ -1,5 +1,4 @@
 import time
-import os
 import helper
 import graphing
 import logging
