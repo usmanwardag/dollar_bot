@@ -386,7 +386,7 @@ def test_display_remaining_category_budget_exceeded(mock_telebot, mocker):
     helper.display_remaining_category_budget(message, mc, "Food")
 
     mc.send_message.assert_called_with(
-        11, '\nBudget for Food Exceded!\nExpenditure exceeds the budget by $90')
+        11, '\nRemaining Budget for Food is $-90.0')
 
 
 @patch('telebot.telebot')
