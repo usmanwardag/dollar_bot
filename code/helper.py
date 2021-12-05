@@ -37,6 +37,7 @@ data_format = {
 # set of implemented commands and their description
 commands = {
     'help': 'Display the list of commands.',
+    'pdf': 'Save history as PDF.',
     'add': 'This option is for adding your expenses \
        \n 1. It will give you the list of categories to choose from. \
        \n 2. You will be prompted to enter the amount corresponding to your spending \
