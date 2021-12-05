@@ -11,16 +11,16 @@
 |.5	| Number of commits: by different people| [Commit_activity](https://github.com/usmanwardag/dollar_bot/graphs/commit-activity)	|
 |1	| issues are being closed| [Closed_Issues](https://github.com/usmanwardag/dollar_bot/issues?q=is%3Aissue+is%3Aclosed) |
 |.5	| issues are discussed before they are closed|	Each issue updated with the discussion before closing and comments added -> https://github.com/usmanwardag/dollar_bot/issues|
-|.5	| Use of syntax checkers.| Use of Flake8, updated in travis.yml -> https://github.com/sak007/MyDollarBot-BOTGo/blob/main/.travis.yml|
+|.5	| Use of syntax checkers.|Python compiler + VS Code Syntax highlighting |
 |1	| Issues reports: |https://github.com/sak007/MyDollarBot-BOTGo/issues |
 |.5	| Use of code formatters.| config files in GH showing your this formatter's config| Use of Flake8, updated in travis.yml -> https://github.com/sak007/MyDollarBot-BOTGo/blob/main/.travis.yml |
-|	| Use of style checkers	config files in GH showing your config| |
+|.5	| Use of style checkers	config files in GH showing your config|Use of Flake8 |
 |.5	| Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.||
 |.5	| Test cases exist | [121 test cases](https://github.com/usmanwardag/dollar_bot/tree/main/test)|
 |.5	| Use of code coverage	|https://app.codecov.io/gh/usmanwardag/dollar_bot |
 |.5	| other automated analysis tools |https://app.travis-ci.com/github/usmanwardag/dollar_bot  |
 |.5	| Test cases:.a large proportion of the issues related to handling failing cases. (if a test case fails, open an issue and fix it| https://github.com/usmanwardag/dollar_bot/tree/main/test| 
-|.5	| Test cases are routinely executed	| |
+|.5	| Test cases are routinely executed	| https://app.travis-ci.com/github/usmanwardag/dollar_bot|
 |1	| Documentation describing how this version improves on the older version|[Updated_version](/home/aakriti/Desktop/project3/dollar_bot/docs/Proj3-selfassessment.md) 	|
 |3	| This version is a little(1), some(2), much(3) improved on the last version. | Tutor's assessment |
 |16	| Total	| |
