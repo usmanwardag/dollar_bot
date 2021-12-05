@@ -17,16 +17,16 @@ def test_display_overall_budget(mock_telebot, mocker):
     mc.send_message.called_with(11, ANY)
 
 
-@patch('telebot.telebot')
-def test_display_category_budget(mock_telebot, mocker):
-    mc = mock_telebot.return_value
-    mc.send_message.return_value = True
-    mocker.patch.object(budget_view, 'helper')
-    budget_view.helper.getCategoryBudget.return_value = {'items': ""}
-    message = create_message("hello from testing")
-    budget_view.display_category_budget(message, mc)
-    assert(mc.send_message.called)
-    mc.send_message.called_with(11, ANY)
+# @patch('telebot.telebot')
+# def test_display_category_budget(mock_telebot, mocker):
+#     mc = mock_telebot.return_value
+#     mc.send_message.return_value = True
+#     mocker.patch.object(budget_view, 'helper')
+#     budget_view.helper.getCategoryBudget.return_value = {'items': ""}
+#     message = create_message("hello from testing")
+#     budget_view.display_category_budget(message, mc)
+#     assert(mc.send_message.called)
+#     mc.send_message.called_with(11, ANY)
 
 
 @patch('telebot.telebot')
