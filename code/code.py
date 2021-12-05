@@ -6,6 +6,7 @@ import time
 import helper
 import edit
 import history
+import pdf
 import display
 import estimate
 import delete
@@ -130,6 +131,16 @@ def command_add(message):
     the add functionality. Commands used to run this: commands=['add']
     """
     add.run(message, bot)
+
+# function to fetch expenditure history of the user
+@bot.message_handler(commands=['pdf'])
+def command_pdf(message):
+    """
+    command_history(message): Takes 1 argument message which contains the message from 
+    the user along with the chat ID of the user chat. It then calls pdf.py to run to execute 
+    the add functionality. Commands used to run this: commands=['pdf']
+    """
+    pdf.run(message, bot)
 
 
 # function to fetch expenditure history of the user
