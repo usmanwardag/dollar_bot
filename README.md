@@ -140,6 +140,8 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 
 ## Future RoadMap
 
+More content can be added for the way notifications can be displayed on the user front. This can be done to make the UI more interactive.
+
 ## Contributors
 <table>
   <tr>
