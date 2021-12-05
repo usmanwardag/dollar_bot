@@ -29,7 +29,7 @@ def post_user_def_category(message,bot):
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = 2
     chat_id = message.chat.id
-    if (str(message.text)=="Y" or str(message.text=="y")):
+    if (str(message.text)=="Y" or str(message.text)=="y"):
         message1=bot.send_message(chat_id, "Please enter your category")
         bot.register_next_step_handler(message1,post_append_spend, bot)
     else:
