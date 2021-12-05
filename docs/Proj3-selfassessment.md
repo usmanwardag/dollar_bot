@@ -14,13 +14,13 @@
 |.5	| Use of syntax checkers.| Use of Flake8, updated in travis.yml -> https://github.com/sak007/MyDollarBot-BOTGo/blob/main/.travis.yml|
 |1	| Issues reports: |https://github.com/sak007/MyDollarBot-BOTGo/issues |
 |.5	| Use of code formatters.| config files in GH showing your this formatter's config| Use of Flake8, updated in travis.yml -> https://github.com/sak007/MyDollarBot-BOTGo/blob/main/.travis.yml |
-|.5	| Use of style checkers	config files in GH showing your config| |
+|	| Use of style checkers	config files in GH showing your config| |
 |.5	| Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.||
-|.5	| Test cases exist | |
-|.5	| Use of code coverage	| |
-|.5	| other automated analysis tools |  |
-|.5	| Test cases:.a large proportion of the issues related to handling failing cases. (if a test case fails, open an issue and fix it| | 
+|.5	| Test cases exist | [121 test cases](https://github.com/usmanwardag/dollar_bot/tree/main/test)|
+|.5	| Use of code coverage	|https://app.codecov.io/gh/usmanwardag/dollar_bot |
+|.5	| other automated analysis tools |https://app.travis-ci.com/github/usmanwardag/dollar_bot  |
+|.5	| Test cases:.a large proportion of the issues related to handling failing cases. (if a test case fails, open an issue and fix it| https://github.com/usmanwardag/dollar_bot/tree/main/test| 
 |.5	| Test cases are routinely executed	| |
-|1	| Documentation describing how this version improves on the older version| 	|
+|1	| Documentation describing how this version improves on the older version|[Updated_version](/home/aakriti/Desktop/project3/dollar_bot/docs/Proj3-selfassessment.md) 	|
 |3	| This version is a little(1), some(2), much(3) improved on the last version. | Tutor's assessment |
 |16	| Total	| |
