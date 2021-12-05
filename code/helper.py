@@ -63,6 +63,8 @@ monthFormat = '%b-%Y'
 # === Documentation of helper.py ===
 
 # function to load .json expense record data
+
+
 def read_json():
     """
     read_json(): Function to load .json expense record data
@@ -193,7 +195,7 @@ def display_remaining_overall_budget(message, bot):
     else:
         msg = '\nBudget Exceded!\nExpenditure exceeds the budget by $' + \
             str(remaining_budget)[1:]
-        #notify()
+        # notify()
     bot.send_message(chat_id, msg)
 
 
@@ -224,7 +226,7 @@ def display_remaining_category_budget(message, bot, cat):
     else:
         rem_amount = ''
         rem_amount = str(abs(remaining_budget))
-        notify(chat_id,cat,rem_amount)
+        notify(chat_id, cat, rem_amount)
         msg = '\nRemaining Budget for ' + cat + ' is $' + str(remaining_budget)
     bot.send_message(chat_id, msg)
 

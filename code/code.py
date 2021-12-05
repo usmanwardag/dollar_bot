@@ -31,6 +31,8 @@ option = {}
 # === Documentation of code.py ===
 
 # Define listener for requests by user
+
+
 def listener(user_requests):
     """
     listener(user_requests): Takes 1 argument user_requests and logs all user 
@@ -55,7 +57,9 @@ def listener(user_requests):
     except:
         pass
 
+
 bot.set_update_listener(listener)
+
 
 @bot.message_handler(commands=['help'])
 def help(m):
@@ -66,7 +70,7 @@ def help(m):
 
     message = 'Here are the commands you can use: \n'
     commands = helper.getCommands()
-    for c in commands:  
+    for c in commands:
         message += "/" + c + ", "
         #message += commands[c] + "\n\n"
     message += '\nUse /menu for detailed instructions about these commands.'
@@ -76,21 +80,20 @@ def help(m):
 @bot.message_handler(commands=['faq'])
 def faq(m):
 
-
     helper.read_json()
     global user_list
     chat_id = m.chat.id
 
     faq_message = '"What does this bot do?"\n' + \
-              '>> DollarBot lets you manage your expenses so you can always stay on top of them! \n\n' + \
-              '"How can I add an epxense?" \n' + \
-              '>> Type /add, then select a category to type the expense. \n\n' + \
-              '"Can I see history of my expenses?" \n' + \
-              '>> Yes! Use /display to get a graphical display, or /history to view detailed summary.\n\n' + \
-              '"I added an incorrect expense. How can I edit it?"\n' + \
-              '>> Use /edit command. \n\n' + \
-              '"Can I check if my expenses have exceeded budget?"\n' + \
-              '>> Yes! Use /budget and then select the view category. \n\n' 
+        '>> DollarBot lets you manage your expenses so you can always stay on top of them! \n\n' + \
+        '"How can I add an epxense?" \n' + \
+        '>> Type /add, then select a category to type the expense. \n\n' + \
+        '"Can I see history of my expenses?" \n' + \
+        '>> Yes! Use /display to get a graphical display, or /history to view detailed summary.\n\n' + \
+        '"I added an incorrect expense. How can I edit it?"\n' + \
+        '>> Use /edit command. \n\n' + \
+        '"Can I check if my expenses have exceeded budget?"\n' + \
+        '>> Yes! Use /budget and then select the view category. \n\n'
     bot.send_message(chat_id, faq_message)
 
 
@@ -112,8 +115,8 @@ def start_and_menu_command(m):
     text_intro = "Welcome to the Dollar Bot! \n" + \
                  "DollarBot can track all your expenses with simple and easy to use commands :) \n" + \
                  "Here is the complete menu. \n\n"
-                 #"Type /faq or /help to get stated."
-                 
+    #"Type /faq or /help to get stated."
+
     commands = helper.getCommands()
     for c in commands:  # generate help text out of the commands dictionary defined at the top
         text_intro += "/" + c + ": "
@@ -133,6 +136,8 @@ def command_add(message):
     add.run(message, bot)
 
 # function to fetch expenditure history of the user
+
+
 @bot.message_handler(commands=['pdf'])
 def command_pdf(message):
     """
@@ -198,6 +203,8 @@ def command_budget(message):
     budget.run(message, bot)
 
 # not used
+
+
 def addUserHistory(chat_id, user_record):
     global user_list
     if(not(str(chat_id) in user_list)):

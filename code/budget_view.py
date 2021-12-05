@@ -5,6 +5,7 @@ import os
 
 # === Documentation of budget_view.py ===
 
+
 def run(message, bot):
     """
     run(message, bot): This is the main function used to implement the budget feature. 

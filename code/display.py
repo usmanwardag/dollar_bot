@@ -8,6 +8,7 @@ from datetime import datetime
 
 # === Documentation of display.py ===
 
+
 def run(message, bot):
     """
     run(message, bot): This is the main function used to implement the delete feature. 
@@ -85,7 +86,7 @@ def display_total(message, bot):
                 DayWeekMonth.lower(), total_text)
             graphing.visualize(total_text, monthly_budget)
             bot.send_photo(chat_id, photo=open('expenditure.png', 'rb'))
-            #os.remove('expenditure.png')
+            # os.remove('expenditure.png')
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, str(e))

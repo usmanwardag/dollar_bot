@@ -10,7 +10,6 @@ def notify(chat_id, cat, amount):
         configs.load(read_prop)
     token = str(configs.get('api_token').data)
     print(token)
-    notifier = TelegramNotifier(token, parse_mode ="HTML"
-, chat_id=chat_id)
+    notifier = TelegramNotifier(token, parse_mode="HTML", chat_id=chat_id)
     msg = "<b>Budget for " + cat + " exceeded by $" + amount + " !!!!</b>"
     notifier.send(msg)
