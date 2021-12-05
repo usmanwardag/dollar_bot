@@ -116,7 +116,6 @@ def post_amount_input(message, bot, selected_category):
 
         bot.send_message(chat_id, 'The following expenditure has been recorded: You have spent ${} for {} on {}'.format(
             amount_str, category_str, date_str))
-
         helper.display_remaining_budget(message, bot, selected_category)
     except Exception as e:
         logging.exception(str(e))
