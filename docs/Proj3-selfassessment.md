@@ -1,6 +1,6 @@
 |Score | Notes | Evidence |
 |-----|------|------|
-|.5	| Short release cycles|  Commits on multiple days over time from start to the beginning of project|
+|.5	| Short release cycles|  Commits on multiple days over time from start to the beginning of project [Traffic](https://github.com/usmanwardag/dollar_bot/graphs/traffic)|
 |.5	| Workload is spread over the whole team | Each member worked on a different [feature](https://github.com/usmanwardag/dollar_bot/issues) |
 |.5	| Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing	| [ReadMe.md](https://github.com/usmanwardag/dollar_bot/blob/main/README.md)|
 |.5	| File CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up| Guidelines in [Contributing.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md) |	
@@ -15,7 +15,7 @@
 |1	| Issues reports: |https://github.com/sak007/MyDollarBot-BOTGo/issues |
 |.5	| Use of code formatters.| config files in GH showing your this formatter's config| Use of Flake8, updated in travis.yml -> https://github.com/sak007/MyDollarBot-BOTGo/blob/main/.travis.yml |
 |.5	| Use of style checkers	config files in GH showing your config|Use of Flake8 |
-|.5	| Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.||
+|.5	| Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.|[Youtube Video Link](https://www.youtube.com/watch?v=aCjcT1CHAzU)|
 |.5	| Test cases exist | [121 test cases](https://github.com/usmanwardag/dollar_bot/tree/main/test)|
 |.5	| Use of code coverage	|https://app.codecov.io/gh/usmanwardag/dollar_bot |
 |.5	| other automated analysis tools |https://app.travis-ci.com/github/usmanwardag/dollar_bot  |
