@@ -1,5 +1,6 @@
 from code import graphing
 from mock import ANY
+import numpy as np
 
 dummy_total_text_none = ""
 dummy_total_text_data = """Food $10.0
@@ -24,9 +25,13 @@ dummy_monthly_budget = {'Food': 100.0,
 'Utilities': 200.0,
 'Groceries': 100}
 
+n2 = len(dummy_x)
+r2 = np.arange(n2)
+width = 0.45
+    
 def test_visualize(mocker):
     mocker.patch.object(graphing, 'plt')
     graphing.plt.bar.return_value = True
     graphing.visualize(dummy_total_text_data, dummy_monthly_budget)
-    graphing.plt.bar.assert_called_with(
-        dummy_categ_val.keys(), ANY, color=dummy_color, edgecolor=dummy_edgecolor)
+    graphing.plt.bar.assert_called_with(r2,
+        dummy_categ_val.keys(), width=width, label='your spendings')
