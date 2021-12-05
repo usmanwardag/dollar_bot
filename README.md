@@ -21,8 +21,8 @@
 
 <hr>
 <p align="center">
-<a><img  height=360 width=550 
-  src="docs/88caf8a73ae04c5b8638e2180dd07811.jpeg" alt="Dollar BoT"></a>
+<a><img  height=350 width=350 
+  src="https://s1.mzstatic.com/us/r30/Purple1/v4/de/ab/45/deab454d-8881-b37d-9513-b0e26424cc57/pr_source.png?downloadKey=1425248837_8a393efcc4a821cbf9639d5570f8e966" alt="Dollar BoT"></a>
 </p>
 <hr>
 
