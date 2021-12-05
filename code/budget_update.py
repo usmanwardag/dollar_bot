@@ -167,7 +167,7 @@ def post_category_amount_input(message, bot, category):
         user_list[str(chat_id)]['budget']['category'][category] = amount_value
         helper.write_json(user_list)
         message = bot.send_message(
-            chat_id, 'Budget for ' + category + ' is now: ' + amount_value)
+            chat_id, 'Budget for ' + category + ' is now: $' + amount_value)
         post_category_add(message, bot)
 
     except Exception as e:
