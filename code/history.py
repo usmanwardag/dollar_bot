@@ -6,10 +6,10 @@ import logging
 
 def run(message, bot):
     """
-    run(message, bot): This is the main function used to implement the delete feature. 
-    It takes 2 arguments for processing - message which is the message from the user, and bot which 
-    is the telegram bot object from the main code.py function. It calls helper.py to get the user's 
-    historical data and based on whether there is data available, it either prints an error message or 
+    run(message, bot): This is the main function used to implement the delete feature.
+    It takes 2 arguments for processing - message which is the message from the user, and bot which
+    is the telegram bot object from the main code.py function. It calls helper.py to get the user's
+    historical data and based on whether there is data available, it either prints an error message or
     displays the user's historical data.
     """
     try:
