@@ -13,18 +13,13 @@ def run(message, bot):
     is the telegram bot object from the main code.py function.
     """
     chat_id = message.chat.id
-    if helper.isOverallBudgetAvailable(chat_id):
-        update_overall_budget(chat_id, bot)
-    elif helper.isCategoryBudgetAvailable(chat_id):
-        update_category_budget(message, bot)
-    else:
-        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
-        options = helper.getBudgetTypes()
-        markup.row_width = 2
-        for c in options.values():
-            markup.add(c)
-        msg = bot.reply_to(message, "Select Budget Type", reply_markup=markup)
-        bot.register_next_step_handler(msg, post_type_selection, bot)
+    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+    options = helper.getBudgetTypes()
+    markup.row_width = 2
+    for c in options.values():
+        markup.add(c)
+    msg = bot.reply_to(message, "Select Budget Type", reply_markup=markup)
+    bot.register_next_step_handler(msg, post_type_selection, bot)
 
 
 def post_type_selection(message, bot):
@@ -174,10 +169,15 @@ def post_category_amount_input(message, bot, category):
         if user_list[str(chat_id)]["budget"]["category"] is None:
             user_list[str(chat_id)]["budget"]["category"] = {}
         user_list[str(chat_id)]["budget"]["category"][category] = amount_value
+        if(user_list[str(chat_id)]["budget"]["overall"]):
+            user_list[str(chat_id)]["budget"]["overall"] = str(round(float(user_list[str(chat_id)]["budget"]["overall"]) + float(amount_value),2))
+        else:
+            user_list[str(chat_id)]["budget"]["overall"] = amount_value
         helper.write_json(user_list)
         message = bot.send_message(
             chat_id, "Budget for " + category + " is now: $" + amount_value
         )
+        budget_view.display_overall_budget(message, bot)
         post_category_add(message, bot)
 
     except Exception as e:
