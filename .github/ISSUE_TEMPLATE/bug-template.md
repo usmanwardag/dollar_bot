@@ -1,8 +1,8 @@
 ---
-name: Bug Issue Template
-about: To make contributors familiar with the structure for reporting or opening issues
-title: 'to-do '
-labels: ''
+name: Bug Issue Reports
+about: Create a bug report to help DollarBot improve!
+title: 'Bug in <feature>: describe the bug in a few words>'
+labels: 'bug'
 assignees: ''
 
 ---
