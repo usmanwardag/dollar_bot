@@ -106,6 +106,7 @@ def update_category_budget(message, bot):
     markup.row_width = 2
     for c in categories:
         markup.add(c)
+    markup.add("Add new category")
     msg = bot.reply_to(message, "Select Category", reply_markup=markup)
     bot.register_next_step_handler(msg, post_category_selection, bot)
 
@@ -123,33 +124,48 @@ def post_category_selection(message, bot):
     try:
         chat_id = message.chat.id
         selected_category = message.text
-        categories = helper.getSpendCategories()
-        if selected_category not in categories:
-            bot.send_message(
-                chat_id, "Invalid", reply_markup=types.ReplyKeyboardRemove()
-            )
-            raise Exception(
-                'Sorry I don\'t recognise this category "{}"!'.format(selected_category)
-            )
-        if helper.isCategoryBudgetByCategoryAvailable(chat_id, selected_category):
-            currentBudget = helper.getCategoryBudgetByCategory(
-                chat_id, selected_category
-            )
-            msg_string = "Current monthly budget for {} is {}\n\nEnter monthly budget for {}\n(Enter numeric values only)"
-            message = bot.send_message(
-                chat_id,
-                msg_string.format(selected_category, currentBudget, selected_category),
-            )
+        if selected_category == "Add new category":
+            message1 = bot.send_message(chat_id, "Please enter your category")
+            bot.register_next_step_handler(message1, add_new_category, bot)
         else:
-            message = bot.send_message(
-                chat_id,
-                "Enter monthly budget for " + selected_category + "\n(Enter numeric values only)",
+            categories = helper.getSpendCategories()
+            if selected_category not in categories:
+                bot.send_message(
+                    chat_id, "Invalid", reply_markup=types.ReplyKeyboardRemove()
+                )
+                raise Exception(
+                    'Sorry I don\'t recognise this category "{}"!'.format(selected_category)
+                )
+            if helper.isCategoryBudgetByCategoryAvailable(chat_id, selected_category):
+                currentBudget = helper.getCategoryBudgetByCategory(
+                    chat_id, selected_category
+                )
+                msg_string = "Current monthly budget for {} is {}\n\nEnter monthly budget for {}\n(Enter numeric values only)"
+                message = bot.send_message(
+                    chat_id,
+                    msg_string.format(selected_category, currentBudget, selected_category),
+                )
+            else:
+                message = bot.send_message(
+                    chat_id,
+                    "Enter monthly budget for " + selected_category + "\n(Enter numeric values only)",
+                )
+            bot.register_next_step_handler(
+                message, post_category_amount_input, bot, selected_category
             )
-        bot.register_next_step_handler(
-            message, post_category_amount_input, bot, selected_category
-        )
     except Exception as e:
         helper.throw_exception(e, message, bot, logging)
+
+def add_new_category(message,bot):
+    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+    markup.row_width = 2
+    new_category = message.text
+    helper.spend_categories.append(new_category)
+    for c in helper.getSpendCategories():
+        markup.add(c)
+    msg = bot.reply_to(message, "Select Category", reply_markup=markup)
+    bot.register_next_step_handler(msg, post_category_selection, bot)
+
 
 
 def post_category_amount_input(message, bot, category):
