@@ -85,9 +85,20 @@ def post_overall_amount_input(message, bot):
         if str(chat_id) not in user_list:
             user_list[str(chat_id)] = helper.createNewUserRecord()
         user_list[str(chat_id)]["budget"]["overall"] = amount_value
+        total_budget = 0
+        for c in helper.getCategoryBudget(chat_id).values():
+            total_budget += float(c)
+        if total_budget > float(amount_value):
+            raise Exception("Overall budget cannot be less than " + str(total_budget))
+        uncategorized_budget = helper.get_uncategorized_amount(chat_id, amount_value)
+        if float(uncategorized_budget) > 0:
+            if user_list[str(chat_id)]["budget"]["category"] is None:
+                user_list[str(chat_id)]["budget"]["category"] = {}
+            user_list[str(chat_id)]["budget"]["category"]["uncategorized"] = uncategorized_budget
         helper.write_json(user_list)
         bot.send_message(chat_id, "Budget Updated!")
         budget_view.display_overall_budget(message, bot)
+        print(user_list)
         return user_list
     except Exception as e:
         helper.throw_exception(e, message, bot, logging)
@@ -186,7 +197,16 @@ def post_category_amount_input(message, bot, category):
             user_list[str(chat_id)]["budget"]["category"] = {}
         user_list[str(chat_id)]["budget"]["category"][category] = amount_value
         if(user_list[str(chat_id)]["budget"]["overall"]):
-            user_list[str(chat_id)]["budget"]["overall"] = str(round(float(user_list[str(chat_id)]["budget"]["overall"]) + float(amount_value),2))
+            if round(float(user_list[str(chat_id)]["budget"]["category"]["uncategorized"]) - float(amount_value),2) > 0:
+                user_list[str(chat_id)]["budget"]["category"]["uncategorized"] = str(round(float(user_list[str(chat_id)]["budget"]["category"]["uncategorized"]) - float(amount_value),2))
+            else:
+                user_list[str(chat_id)]["budget"]["category"]["uncategorized"] = str(0)
+            helper.write_json(user_list)
+            total_budget = 0
+            for c in helper.getCategoryBudget(chat_id).values():
+                total_budget += float(c)
+            print(total_budget)
+            user_list[str(chat_id)]["budget"]["overall"] = str(total_budget)
         else:
             user_list[str(chat_id)]["budget"]["overall"] = amount_value
         helper.write_json(user_list)
@@ -194,6 +214,7 @@ def post_category_amount_input(message, bot, category):
             chat_id, "Budget for " + category + " is now: $" + amount_value
         )
         budget_view.display_overall_budget(message, bot)
+        print(user_list)
         post_category_add(message, bot)
 
     except Exception as e:

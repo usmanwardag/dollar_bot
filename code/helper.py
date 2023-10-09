@@ -167,6 +167,18 @@ def isCategoryBudgetByCategoryAvailable(chatId, cat):
         return False
     return cat in data.keys()
 
+def get_uncategorized_amount(chatId, amount):
+    overall_budget = float(amount)
+    category_budget_data = getCategoryBudget(chatId)
+    if category_budget_data is None:
+        return amount
+    category_budget = 0
+    for c in category_budget_data.values():
+        category_budget += float(c)
+    uncategorized_budget = overall_budget - category_budget
+    return str(round(uncategorized_budget,2))
+
+
 
 def display_remaining_budget(message, bot, cat):
     print("inside")
