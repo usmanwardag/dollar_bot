@@ -4,7 +4,7 @@ import logging
 import telebot
 import time
 import helper
-import edits
+import edit
 import history
 import pdf
 import display
