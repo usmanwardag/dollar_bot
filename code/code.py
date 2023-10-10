@@ -4,7 +4,7 @@ import logging
 import telebot
 import time
 import helper
-import edit
+import edits
 import history
 import pdf
 import display
@@ -14,6 +14,8 @@ import add
 import budget
 from datetime import datetime
 from jproperties import Properties
+from expense import process_expense_command
+
 
 configs = Properties()
 
@@ -213,6 +215,13 @@ def command_delete(message):
     Commands used to run this: commands=['display']
     """
     delete.run(message, bot)
+
+
+@bot.message_handler(commands=['expense'])
+def handle_expense_command(message):
+    process_expense_command(message, bot)
+
+ 
 
 
 @bot.message_handler(commands=["budget"])
