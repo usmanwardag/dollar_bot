@@ -45,6 +45,10 @@ def post_append_spend(message, bot):
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = 2
     selected_category = message.text
+    chat_id = message.chat.id
+    allocated_categories = helper.getCategoryBudget(chat_id)
+    if selected_category not in allocated_categories.keys():
+        helper.updateBudgetCategory(chat_id,selected_category)
     helper.spend_categories.append(selected_category)
     for c in helper.getSpendCategories():
         markup.add(c)

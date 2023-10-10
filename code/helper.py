@@ -183,10 +183,8 @@ def get_uncategorized_amount(chatId, amount):
 def display_remaining_budget(message, bot, cat):
     print("inside")
     chat_id = message.chat.id
-    if isOverallBudgetAvailable(chat_id):
-        display_remaining_overall_budget(message, bot)
-    elif isCategoryBudgetByCategoryAvailable(chat_id, cat):
-        display_remaining_category_budget(message, bot, cat)
+    display_remaining_category_budget(message, bot, cat)
+    display_remaining_overall_budget(message, bot)
 
 
 def display_remaining_overall_budget(message, bot):
@@ -253,6 +251,10 @@ def calculate_total_spendings_for_category(queryResult, cat):
             total = total + float(s[2])
     return total
 
+def updateBudgetCategory(chatId, category):
+    user_list = read_json()
+    user_list[str(chatId)]["budget"]["category"][category] = str(0)
+    write_json(user_list)
 
 def getSpendCategories():
     """
