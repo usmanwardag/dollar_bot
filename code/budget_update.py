@@ -86,10 +86,11 @@ def post_overall_amount_input(message, bot):
             user_list[str(chat_id)] = helper.createNewUserRecord()
         user_list[str(chat_id)]["budget"]["overall"] = amount_value
         total_budget = 0
-        for c in helper.getCategoryBudget(chat_id).values():
-            total_budget += float(c)
-        if total_budget > float(amount_value):
-            raise Exception("Overall budget cannot be less than " + str(total_budget))
+        if helper.isCategoryBudgetAvailable(chat_id):
+            for c in helper.getCategoryBudget(chat_id).values():
+                total_budget += float(c)
+            if total_budget > float(amount_value):
+                raise Exception("Overall budget cannot be less than " + str(total_budget))
         uncategorized_budget = helper.get_uncategorized_amount(chat_id, amount_value)
         if float(uncategorized_budget) > 0:
             if user_list[str(chat_id)]["budget"]["category"] is None:
