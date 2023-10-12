@@ -4,9 +4,10 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#why-should-you-use-dollar-bot">Why should you use Dollar Bot?</a></li>
-    <li><a href="#check-out-the-video">Check out the video!</a></li>
-    <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
+    <li><a href="#what-is-dollarbot">What's DollarBot?
+    <li><a href="#why-use-dollarbot">Why use DollarBot?</a></li>
+<!--     <li><a href="#check-out-the-video">Check out the video!</a></li> -->
+    <li><a href="#whats-new">What is new in this version?</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#testing">Testing</a></li>
     <li><a href="#code-coverage">Code Coverage</a></li>
