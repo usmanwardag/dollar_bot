@@ -1,4 +1,4 @@
-# 💰 MyDollar Bot 💰
+# 💰 Dollar Bot 💰
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -23,7 +23,7 @@
 <hr>
 <p align="center">
 <a><img  height=350 width=350 
-  src="https://s1.mzstatic.com/us/r30/Purple1/v4/de/ab/45/deab454d-8881-b37d-9513-b0e26424cc57/pr_source.png?downloadKey=1425248837_8a393efcc4a821cbf9639d5570f8e966" alt="Dollar BoT"></a>
+  src="https://s1.mzstatic.com/us/r30/Purple1/v4/de/ab/45/deab454d-8881-b37d-9513-b0e26424cc57/pr_source.png?downloadKey=1425248837_8a393efcc4a821cbf9639d5570f8e966" alt="Dollar Bot"></a>
 </p>
 <hr>
 
@@ -43,9 +43,9 @@
 
 <hr>
 
-## Why should you use MyDollar Bot?
+## Why use DollarBot?
 
-Dollar Bot is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle.  
+DollarBot is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle.  
 With simple commands, this bot allows you to:
 - Add/Record new spendings
 - Display your spendings through bar graph
@@ -58,24 +58,47 @@ With simple commands, this bot allows you to:
 
 [![Demo Video](https://i9.ytimg.com/vi/aCjcT1CHAzU/mq3.jpg?sqp=COSotI0G&rs=AOn4CLD34jFIlq6GRdmTnK6p3F8O2F-Yig)](https://youtu.be/aCjcT1CHAzU)
 
-## What is new in this version?
+## What's new?
+
+<#TODO: short description here>
 
 Checkout the [this documentation](https://github.com/usmanwardag/dollar_bot/blob/main/docs/Updated_version.pdf)
+
 ## Installation
 
-The below instructions can be followed in order to set-up this bot at your end in a span of few minutes! Let's get started:
+#### Pre-requisite: The Telegram Desktop App
 
-1. Clone this repository to your local system.
+Since DollarBot is built on top of Telegram, you'll first need:
+1. Download the Telegram Desktop Application <a href="https://desktop.telegram.org/">here.</a>
+```https://desktop.telegram.org/```
+2. Create a Telegram account or Sign in.
 
-2. Start a terminal session in the directory where the project has been cloned. Run the following command to install the required dependencies:
+Open up your terminal and let's get started:
+
+### MacOS / Ubuntu Users
+
+1. Clone this repository to your local system. 
 ```
-  pip install -r requirements.txt
-
+   git clone https://github.com/aditikilledar/dollar_bot_SE23/
 ```
-3. Download and install the Telegram desktop application for your system from the following site:
- ```
- https://desktop.telegram.org/
- ```
+2. Start a terminal session in the directory where the project has been cloned. Run the following command and follow the instructions on-screen to complete the installation.
+```
+  bash setup.sh
+```
+
+There, all done!
+
+Our bash scripts for installation are easy to run on MacOS or on UNIX terminals. 
+
+### Windows
+
+With Windows, you'll need to use <a href="https://www.cygwin.com/">Cygwin.</a>
+Cygwin is:
+    a large collection of GNU and Open Source tools which provide functionality similar to a Linux distribution on Windows.
+    a DLL (cygwin1.dll) which provides substantial POSIX API functionality.
+(source: cygwin.com)
+
+Additionally, find more hints on installation <a href="https://stackoverflow.com/questions/6413377/is-there-a-way-to-run-bash-scripts-on-windows">here.</a>
 ## How to run?
 
 1. In Telegram, search for "BotFather". Click on "Start", and enter the following command:
