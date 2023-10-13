@@ -1,6 +1,6 @@
 import helper
 import logging
-import types
+from telebot import types
 import get_analysis
 
 def run(message, bot):
@@ -12,11 +12,11 @@ def run(message, bot):
     telegram bot object from the main code.py function.
     """
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
-    options = helper.getBudgetOptions()
+    options = helper.getAnalyticsOptions()
     markup.row_width = 2
     for c in options.values():
         markup.add(c)
-    msg = bot.reply_to(message, "Select the type of analysis (grouped by catefgory):", reply_markup=markup)
+    msg = bot.reply_to(message, "Select the type of analysis (grouped by category):", reply_markup=markup)
     bot.register_next_step_handler(msg, post_operation_selection, bot)
 
 def post_operation_selection(message, bot):
