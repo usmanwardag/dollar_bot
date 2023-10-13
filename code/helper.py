@@ -32,6 +32,10 @@ commands = {
        \n 1. It will give you the list of categories to choose from. \
        \n 2. You will be prompted to enter the amount corresponding to your spending \
        \n 3.The message will be prompted to notify the addition of your expense with the amount,date, time and category ",
+    "add_category": "This option is for adding new category \
+       \n 1. You will be prompted to enter a new category \
+       \n 2.The message will be prompted to notify the addition of your category ",
+
     "display": "This option gives user a graphical representation(bar graph) of their expenditures \
         \n You will get an option to choose from day or month for better analysis of the expenses.",
     "estimate": "This option gives you the estimate of expenditure for the next day/month. It calcuates based on your recorded spendings",
