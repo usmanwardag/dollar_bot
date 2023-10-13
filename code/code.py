@@ -12,6 +12,7 @@ import estimate
 import delete
 import add
 import budget
+import analytics
 from datetime import datetime
 from jproperties import Properties
 
@@ -218,6 +219,15 @@ def command_delete(message):
 @bot.message_handler(commands=["budget"])
 def command_budget(message):
     budget.run(message, bot)
+
+# handles analytics command
+@bot.message_handler(commands=["analytics"])
+def command_analytics(message):
+    """
+    command_analytics(message): Take an argument message with content and chat ID. Calls analytics to 
+    run analytics. Commands to run this commands=["analytics"]
+    """
+    analytics.run(message, bot)
 
 
 # not used

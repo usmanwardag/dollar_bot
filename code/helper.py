@@ -24,6 +24,8 @@ budget_types = {"overall": "Overall Budget", "category": "Category-Wise Budget"}
 
 data_format = {"data": [], "budget": {"overall": None, "category": None}}
 
+analytics_options = {"overall": "Overall budget split", "spend": "Split of current spend", "remaining": "Remaining value"}
+
 # set of implemented commands and their description
 commands = {
     "help": "Display the list of commands.",
@@ -316,3 +318,6 @@ def getBudgetTypes():
 
 def getUpdateOptions():
     return update_options
+
+def getAnalyticsOptions():
+    return analytics_options
