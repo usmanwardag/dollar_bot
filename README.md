@@ -9,6 +9,7 @@
 <!--     <li><a href="#check-out-the-video">Check out the video!</a></li> -->
     <li><a href="#whats-new">What is new in this version?</a></li>
     <li><a href="#installation">Installation</a></li>
+      <li><a href="">For Developers and Future Contributors</a></li>
     <li><a href="#testing">Testing</a></li>
     <li><a href="#code-coverage">Code Coverage</a></li>
     <li><a href="#License">License</a></li>
@@ -32,7 +33,6 @@
 
 [![GitHub issues](https://img.shields.io/github/issues/sak007/MyDollarBot-BOTGo)](https://github.com/sak007/MyDollarBot-BOTGo/issues?q=is%3Aopen+is%3Aissue)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/sak007/MyDollarBot-BOTGo)](https://github.com/sak007/MyDollarBot-BOTGo/issues?q=is%3Aissue+is%3Aclosed)
-![Lines of code](https://img.shields.io/tokei/lines/github/sak007/MyDollarBot-BOTGo)
 
 <hr>
 
@@ -126,6 +126,7 @@ A successful run will generate a message on your terminal that says "TeleBot: St
 ### Run Automatically at Startup
 
 To run the script automatically at startup / reboot, simply add the `.run_forever.sh` script to your `.bashrc` file, which executes whenever you reboot your system.
+<a href="https://stackoverflow.com/questions/49083789/how-to-add-new-line-in-bashrc-file-in-ubuntu">Click here for help adding to .bashrc files.</a>
 
 ## Testing
 
