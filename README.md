@@ -20,13 +20,6 @@
   </ol>
 </details>
 
-<hr>
-<p align="center">
-<a><img  height=350 width=350 
-  src="https://s1.mzstatic.com/us/r30/Purple1/v4/de/ab/45/deab454d-8881-b37d-9513-b0e26424cc57/pr_source.png?downloadKey=1425248837_8a393efcc4a821cbf9639d5570f8e966" alt="Dollar Bot"></a>
-</p>
-<hr>
-
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/usmanwardag/auto_anki)
 
 ![MIT license](https://img.shields.io/badge/License-MIT-green.svg)
@@ -42,6 +35,11 @@
 ![Lines of code](https://img.shields.io/tokei/lines/github/sak007/MyDollarBot-BOTGo)
 
 <hr>
+
+## What's DollarBot?
+
+<TODO>
+TODO
 
 ## Why use DollarBot?
 
