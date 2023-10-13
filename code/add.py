@@ -28,21 +28,6 @@ def run(message, bot):
     bot.register_next_step_handler(msg, post_category_selection, bot)
 
 
-
-# def post_user_def_category(message, bot):
-#     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
-#     markup.row_width = 2
-#     chat_id = message.chat.id
-#     if str(message.text) == "Y" or str(message.text) == "y":
-#         message1 = bot.send_message(chat_id, "Please enter your category")
-#         bot.register_next_step_handler(message1, post_append_spend, bot)
-#     else:
-#         for c in helper.getSpendCategories():
-#             markup.add(c)
-#         msg = bot.reply_to(message, "Select Category", reply_markup=markup)
-#         bot.register_next_step_handler(msg, post_category_selection, bot)
-
-
 def post_append_spend(message, bot):
 
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
@@ -79,13 +64,13 @@ def post_category_selection(message, bot):
                     chat_id, "Invalid", reply_markup=types.ReplyKeyboardRemove()
                 )
                 raise Exception(
-                    'Sorry I don\'t recognise this category "{}"!'.format(selected_category)
+                    'Sorry, I don\'t recognise this category "{}"!'.format(selected_category)
                 )
 
             option[chat_id] = selected_category
             message = bot.send_message(
                 chat_id,
-                "How much did you spend on {}? \n(Enter numeric values only)".format(
+                "How much did you spend on {}? \n(Numeric values only)".format(
                     str(option[chat_id])
                 ),
             )
