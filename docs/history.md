@@ -13,23 +13,11 @@ This is the main function used to implement the delete feature. It takes 2 argum
 # How to run this feature?
 Once the project is running(please follow the instructions given in the main README.md for this), please type /add into the telegram bot.
 
-Below you can see an example in text format:
-
-Sri Athithya Kruth, [20.10.21 20:33]
-/display
-
-Sri Athithya Kruth, [20.10.21 20:33]
-Day
-
-mydollarbot20102021, [20.10.21 20:33]
-Hold on! Calculating...
-
-Sri Athithya Kruth, [20.10.21 20:53]
+AGM, [13-10-2023 05:48 PM]
 /history
 
-mydollarbot20102021, [20.10.21 20:53]
-Here is your spending history : 
-DATE, CATEGORY, AMOUNT
-----------------------
-20-Oct-2021 20:33,Transport,1022.0
-20-Oct-2021 20:33,Groceries,12.0
+agmalpur, [13-10-2023 05:48 PM]
+|     DATE          |    CATEGORY       |   AMOUNT    |
++-------------------+-------------------+-------------+
+| 13-Oct-2023 16:55 | Transport         | 8.0         |
++-------------------+-------------------+-------------+
