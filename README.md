@@ -9,11 +9,13 @@
 <!--     <li><a href="#check-out-the-video">Check out the video!</a></li> -->
     <li><a href="#whats-new">What is new in this version?</a></li>
     <li><a href="#installation">Installation</a></li>
-   <li><a href="../Developer_ReadMe.md">For Developers and Future Contributors</a></li>
+<!--    <li><a href="../Developer_ReadMe.md">For Developers and Future Contributors</a></li> -->
    <li><a href="#contributors">Contributors</a></li>
    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
+
+Are you a developer? <a href="../Developer_ReadMe.md">Click here: For Developers and Future Contributors</a>
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/usmanwardag/auto_anki)
 
@@ -121,44 +123,6 @@ A successful run will generate a message on your terminal that says "TeleBot: St
 
 To run the script automatically at startup / reboot, simply add the `.run_forever.sh` script to your `.bashrc` file, which executes whenever you reboot your system.
 <a href="https://stackoverflow.com/questions/49083789/how-to-add-new-line-in-bashrc-file-in-ubuntu">Click here for help adding to .bashrc files.</a>
-
-## Testing
-
-We use pytest to perform testing on all unit tests together. The command needs to be run from the home directory of the project. The command is:
-```
-python run -m pytest test/
-```
-
-## Code Coverage
-
-Code coverage is part of the build. Every time new code is pushed to the repository, the build is run, and along with it, code coverage is computed. This can be viewed by selecting the build, and then choosing the codecov pop-up on hover.
-
-Locally, we use the coverage package in python for code coverage. The commands to check code coverage in python are as follows:
-
-```
-coverage run -m pytest test/
-coverage report
-```
-
-## License
-
-This project is licensed under the terms of the MIT license. Please check [License](https://github.com/usmanwardag/dollar_bot/blob/main/LICENSE) for more details.
-
-
-## Code Documentation
-
-Checkout the [docs](https://github.com/sak007/MyDollarBot-BOTGo/tree/main/docs)
-
-## How to Contribute
-
-We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md)
-
-For any feedback, issues, or bug reports, please create an issue [here](https://github.com/usmanwardag/dollar_bot/issues/new).
-
-## Future RoadMap
-
-- More content can be added for the way notifications can be displayed on the user front. This can be done to make the UI more interactive.
-- Recurring expenses feature can be added for faster addition of expenses instead of following the whole process of everytime.
 
 ## Contributors
 <table>
