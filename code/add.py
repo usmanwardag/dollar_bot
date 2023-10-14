@@ -18,26 +18,14 @@ def run(message, bot):
     and bot which is the telegram bot object from the main code.py function.
     """
     helper.read_json()
-    chat_id = message.chat.id
-    option.pop(chat_id, None)  # remove temp choice
-    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
-    markup.row_width = 2
-    m = bot.send_message(chat_id, "Do you want to add a new category? Y/N")
-    bot.register_next_step_handler(m, post_user_def_category, bot)
-
-
-def post_user_def_category(message, bot):
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = 2
     chat_id = message.chat.id
-    if str(message.text) == "Y" or str(message.text) == "y":
-        message1 = bot.send_message(chat_id, "Please enter your category")
-        bot.register_next_step_handler(message1, post_append_spend, bot)
-    else:
-        for c in helper.getSpendCategories():
-            markup.add(c)
-        msg = bot.reply_to(message, "Select Category", reply_markup=markup)
-        bot.register_next_step_handler(msg, post_category_selection, bot)
+    for c in helper.getSpendCategories():
+        markup.add(c)
+    markup.add("Add new category")
+    msg = bot.reply_to(message, "Select Category", reply_markup=markup)
+    bot.register_next_step_handler(msg, post_category_selection, bot)
 
 
 def post_append_spend(message, bot):
@@ -67,24 +55,28 @@ def post_category_selection(message, bot):
     try:
         chat_id = message.chat.id
         selected_category = message.text
-        if selected_category not in helper.getSpendCategories():
-            bot.send_message(
-                chat_id, "Invalid", reply_markup=types.ReplyKeyboardRemove()
-            )
-            raise Exception(
-                'Sorry I don\'t recognise this category "{}"!'.format(selected_category)
-            )
+        if selected_category == "Add new category":
+            message1 = bot.send_message(chat_id, "Please enter your category")
+            bot.register_next_step_handler(message1, post_append_spend, bot)
+        else:
+            if selected_category not in helper.getSpendCategories():
+                bot.send_message(
+                    chat_id, "Invalid", reply_markup=types.ReplyKeyboardRemove()
+                )
+                raise Exception(
+                    'Sorry, I don\'t recognise this category "{}"!'.format(selected_category)
+                )
 
-        option[chat_id] = selected_category
-        message = bot.send_message(
-            chat_id,
-            "How much did you spend on {}? \n(Enter numeric values only)".format(
-                str(option[chat_id])
-            ),
-        )
-        bot.register_next_step_handler(
-            message, post_amount_input, bot, selected_category
-        )
+            option[chat_id] = selected_category
+            message = bot.send_message(
+                chat_id,
+                "How much did you spend on {}? \n(Numeric values only)".format(
+                    str(option[chat_id])
+                ),
+            )
+            bot.register_next_step_handler(
+                message, post_amount_input, bot, selected_category
+            )
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, "Oh no! " + str(e))
