@@ -37,7 +37,7 @@ def post_append_spend(message, bot):
     allocated_categories = helper.getCategoryBudget(chat_id)
     if selected_category not in allocated_categories.keys():
         helper.updateBudgetCategory(chat_id,selected_category)
-    helper.spend_categories.append(selected_category)
+    helper.spend_categories.insert(0,selected_category)
     for c in helper.getSpendCategories():
         markup.add(c)
     msg = bot.reply_to(message, "Select Category", reply_markup=markup)
@@ -68,15 +68,18 @@ def post_category_selection(message, bot):
                 )
 
             option[chat_id] = selected_category
-            message = bot.send_message(
+            expense_history = helper.getUserHistoryByCategory(chat_id,selected_category)
+            if expense_history:
+                recur_msg = bot.send_message(chat_id,"You have previously recorded expenses in this category. Do you want to repeat one of these expenses?(Y/N)")
+                bot.register_next_step_handler(recur_msg, record_expense, bot, expense_history)
+            else:
+                message = bot.send_message(
                 chat_id,
                 "How much did you spend on {}? \n(Numeric values only)".format(
                     str(option[chat_id])
                 ),
             )
-            bot.register_next_step_handler(
-                message, post_amount_input, bot, selected_category
-            )
+                bot.register_next_step_handler(message, post_amount_input, bot, selected_category)
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, "Oh no! " + str(e))
@@ -92,6 +95,69 @@ def post_category_selection(message, bot):
         bot.send_message(chat_id, "Please select a menu option from below:")
         bot.send_message(chat_id, display_text)
 
+
+def record_expense(message, bot, previous_expenses=None, category=None):
+    print("In function to record expense")
+    chat_id = message.chat.id
+    selection = message.text
+    print(selection)
+    if selection == "Y" or selection == "y":
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        markup.row_width = 2
+        chat_id = message.chat.id
+        for record in previous_expenses:
+            markup.add(record)
+        msg = bot.reply_to(message, "Select the expense you want to repeat", reply_markup=markup)
+        bot.register_next_step_handler(msg, post_expense_selection, bot)
+    else:
+        message = bot.send_message(
+            chat_id,
+            "How much did you spend on {}? \n(Numeric values only)".format(
+                str(option[chat_id])
+            ),
+        )
+        bot.register_next_step_handler(
+            message, post_amount_input, bot, category
+        )
+
+def post_expense_selection(message,bot):
+    chat_id = message.chat.id
+    expense_record = message.text
+    expense_data = expense_record.split(",")
+    amount = expense_data[2]
+    category = expense_data[1]
+    print(amount)
+    amount_value = helper.validate_entered_amount(amount)  # validate
+    try:
+        if amount_value == 0:  # cannot be $0 spending
+            raise Exception("Spent amount has to be a non-zero number.")
+
+        date_of_entry = datetime.today().strftime(
+            helper.getDateFormat() + " " + helper.getTimeFormat()
+        )
+
+        date_str, category_str, amount_str = (
+            str(date_of_entry),
+            str(category),
+            str(amount_value),
+        )
+
+        helper.write_json(
+            add_user_record(
+                chat_id, "{},{},{}".format(date_str, category_str, amount_str)
+            )
+        )
+
+        bot.send_message(
+            chat_id,
+            "The following expenditure has been recorded: You have spent ${} for {} on {}".format(
+                amount_str, category_str, date_str
+            ),
+        )
+        helper.display_remaining_budget(message, bot, category)
+    except Exception as e:
+        logging.exception(str(e))
+        bot.reply_to(message, "Oh no. " + str(e))
 
 def post_amount_input(message, bot, selected_category):
     """
