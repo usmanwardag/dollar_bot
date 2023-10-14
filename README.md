@@ -1,8 +1,7 @@
 # 💰 Dollar Bot 💰
 
 <!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
+<b><h3>Table of Contents</h3></b>
   <ol>
     <li><a href="#whats-dollarbot">What's DollarBot?
     <li><a href="#why-use-dollarbot">Why use DollarBot?</a></li>
@@ -13,7 +12,6 @@
    <li><a href="#contributors">Contributors</a></li>
    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
-</details>
 
 Are you a developer? <a href="../Developer_ReadMe.md">Click here: For Developers and Future Contributors</a>
 
