@@ -111,6 +111,14 @@ def getUserHistory(chat_id):
         return data["data"]
     return None
 
+def getUserHistoryByCategory(chat_id, category):
+    data = getUserHistory(chat_id)
+    previous_expenses = []
+    for record in data:
+        if f",{category}," in record:
+            previous_expenses.append(record)
+    return previous_expenses
+
 
 def getUserData(chat_id):
     user_list = read_json()
@@ -224,6 +232,8 @@ def calculate_total_spendings(queryResult):
 
 def display_remaining_category_budget(message, bot, cat):
     chat_id = message.chat.id
+    if not getCategoryBudgetByCategory(chat_id,cat):
+        updateBudgetCategory(chat_id, cat)
     remaining_budget = calculateRemainingCategoryBudget(chat_id, cat)
     if remaining_budget >= 0:
         msg = "\nRemaining Budget for " + cat + " is $" + str(remaining_budget)
