@@ -109,6 +109,14 @@ def getUserHistory(chat_id):
         return data["data"]
     return None
 
+def getUserHistoryByCategory(chat_id, category):
+    data = getUserHistory(chat_id)
+    previous_expenses = []
+    for record in data:
+        if f",{category}," in record:
+            previous_expenses.append(record)
+    return previous_expenses
+
 
 def getUserData(chat_id):
     user_list = read_json()
