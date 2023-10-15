@@ -1,30 +1,19 @@
-# 💰 MyDollar Bot 💰
+# 💰 Dollar Bot 💰
 
 <!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
+<b><h3>Table of Contents</h3></b>
   <ol>
-    <li><a href="#why-should-you-use-dollar-bot">Why should you use Dollar Bot?</a></li>
-    <li><a href="#check-out-the-video">Check out the video!</a></li>
-    <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
+    <li><a href="#whats-dollarbot">What's DollarBot?
+    <li><a href="#why-use-dollarbot">Why use DollarBot?</a></li>
+<!--     <li><a href="#check-out-the-video">Check out the video!</a></li> -->
+    <li><a href="#whats-new">What is new in this version?</a></li>
     <li><a href="#installation">Installation</a></li>
-    <li><a href="#testing">Testing</a></li>
-    <li><a href="#code-coverage">Code Coverage</a></li>
-    <li><a href="#License">License</a></li>
-    <li><a href="#code-documentation">Code Documentation</a></li>
-    <li><a href="#how-to-contribute">How to Contribute</a></li>
-    <li><a href="#future-roadmap">Future RoadMap</a></li>
+<!--    <li><a href="../Developer_ReadMe.md">For Developers and Future Contributors</a></li> -->
    <li><a href="#contributors">Contributors</a></li>
    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
-</details>
 
-<hr>
-<p align="center">
-<a><img  height=350 width=350 
-  src="https://s1.mzstatic.com/us/r30/Purple1/v4/de/ab/45/deab454d-8881-b37d-9513-b0e26424cc57/pr_source.png?downloadKey=1425248837_8a393efcc4a821cbf9639d5570f8e966" alt="Dollar BoT"></a>
-</p>
-<hr>
+Are you a developer? <a href="../Developer_ReadMe.md">Click here: For Developers and Future Contributors</a>
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/usmanwardag/auto_anki)
 
@@ -38,110 +27,117 @@
 
 [![GitHub issues](https://img.shields.io/github/issues/sak007/MyDollarBot-BOTGo)](https://github.com/sak007/MyDollarBot-BOTGo/issues?q=is%3Aopen+is%3Aissue)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/sak007/MyDollarBot-BOTGo)](https://github.com/sak007/MyDollarBot-BOTGo/issues?q=is%3Aissue+is%3Aclosed)
-![Lines of code](https://img.shields.io/tokei/lines/github/sak007/MyDollarBot-BOTGo)
 
 <hr>
 
-## Why should you use MyDollar Bot?
+## What's DollarBot?
 
-Dollar Bot is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle.  
-With simple commands, this bot allows you to:
+DollarBot is a handy little bot built on top of Telegram, to help you with daily expense tracking and analytics on your past spends. 
+
+It's easy to setup, run and use on a daily basis!
+
+## Why use DollarBot?
+
+With simple in-chat commands, this bot helps you:
 - Add/Record new spendings
-- Display your spendings through bar graph
+- Display your spendings through engaging graphs
 - Show the sum of your expenditure for the current day/month
 - Display your spending history
 - Clear/Erase all your records
 - Edit/Change any spending details if you wish to
+- View Analytics and export as csv
 
 ## Check out the video!
 
 [![Demo Video](https://i9.ytimg.com/vi/aCjcT1CHAzU/mq3.jpg?sqp=COSotI0G&rs=AOn4CLD34jFIlq6GRdmTnK6p3F8O2F-Yig)](https://youtu.be/aCjcT1CHAzU)
 
-## What is new in this version?
+## What's new?
 
-Checkout the [this documentation](https://github.com/usmanwardag/dollar_bot/blob/main/docs/Updated_version.pdf)
-## Installation
+We've considerably extended this project to make using DollarBot easy and engaging.
+1. Clearer wording in the documentation.
+2. Expressive Graphs
+3. Budget Creation Updated
+4. Analytics
+5. Clearer PDF Reports
+6. CSV Reports for Analytics use
 
-The below instructions can be followed in order to set-up this bot at your end in a span of few minutes! Let's get started:
+Check [this documentation out](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/Whats_new.pdf) for an in-depth depiction of our changes. :)
 
-1. Clone this repository to your local system.
+## Installation & Setup
 
-2. Start a terminal session in the directory where the project has been cloned. Run the following command to install the required dependencies:
+### Pre-requisite: The Telegram Desktop App
+
+Since DollarBot is built on top of Telegram, you'll first need:
+1. Download the Telegram Desktop Application <a href="https://desktop.telegram.org/">here.</a>
+```https://desktop.telegram.org/```
+2. Create a Telegram account or Sign in.
+
+Open up your terminal and let's get started:
+
+### MacOS / Ubuntu Users
+
+1. Clone this repository to your local system. 
 ```
-  pip install -r requirements.txt
-
+   git clone https://github.com/aditikilledar/dollar_bot_SE23/
 ```
-3. Download and install the Telegram desktop application for your system from the following site:
- ```
- https://desktop.telegram.org/
- ```
-## How to run?
+2. Start a terminal session in the directory where the project has been cloned. Run the following commands and follow the instructions on-screen to complete the installation.
+```
+  chmod a+x setup.sh
+  bash setup.sh
+```
+There, all done!
 
-1. In Telegram, search for "BotFather". Click on "Start", and enter the following command:
+The installation is easy for MacOS or on UNIX terminals. 
+
+### Windows
+
+With Windows, you'll need to use a platform to execute UNIX-like commands in order to execute the setup.sh bash script. Once in the platform, use the steps in the MacOS/Unix Section above to setup DollarBot.
+
+We've used <a href="https://www.cygwin.com/">Cygwin,</a> but there are more options like WSL that you can explore.
+
+Additionally, find more hints on Cygwin installation <a href="https://stackoverflow.com/questions/6413377/is-there-a-way-to-run-bash-scripts-on-windows">here.</a>
+
+## Running DollarBot:
+
+Once you've executed setup.sh, and all dependencies have been installed, you can start running DollarBot by following these instructions.
+
+1. Open the Telegram Desktop Application and sign in. Once inside Telegram, search for "BotFather". Click on "Start", and enter the following command:
 ```
   /newbot
 ```
-2. Follow the instructions on screen and choose a name for your bot (e.g., `dollarbot`). After this, select a username for your bot that ends with "bot". The username has to be unique. 
+2. Follow the instructions on screen and choose a name for your bot (e.g., `dollarbot`). After this, select a UNIQUE username for your bot that ends with "bot", for example: `dollarbot_<your_nickname>`.
 
-3. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use.
+3. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use. Make sure you save this token– don't lose it!
 
-4. In the repo directory (where you cloned it), run these commands to (i) grant execution access to a bash script, and (ii) execute that bash script to run the Telegram Bot:
-```
-   chmod a+x run.sh
-   ./run.sh
-```
+4. In the repo directory (where you cloned it), run these commands.
+
+(a) grant execution access to a bash script
+  ```
+  chmod a+x run.sh
+  ```
+
+(b) execute the run.sh bash script to start DollarBot
    
-(OR)
+###### MacOS / Unix
 ```
-   chmod a+x run.sh
    bash run.sh
 ```
-```Note```: It will ask you to paste the API token you received from Telegram in step 4.
+###### Windows
+```
+   ./run.sh
+```
+
+```Note```: It will ask you to paste the API token you received from Telegram while creating your bot (Step 3), so keep that handy.
 A successful run will generate a message on your terminal that says "TeleBot: Started polling." 
 
-5. In the Telegram app, search for your newly created bot by entering the username and open the same. Now, on Telegram, enter the "/start" or "menu" command, and you are all set to track your expenses!
+5. In the Telegram app, search for your newly created bot by entering your UNIQUE username and open the bot you created.
+
+6. Now, on Telegram, enter the "/start" or "menu" command, and you are all set to track your expenses!
 
 ### Run Automatically at Startup
 
 To run the script automatically at startup / reboot, simply add the `.run_forever.sh` script to your `.bashrc` file, which executes whenever you reboot your system.
-
-## Testing
-
-We use pytest to perform testing on all unit tests together. The command needs to be run from the home directory of the project. The command is:
-```
-python run -m pytest test/
-```
-
-## Code Coverage
-
-Code coverage is part of the build. Every time new code is pushed to the repository, the build is run, and along with it, code coverage is computed. This can be viewed by selecting the build, and then choosing the codecov pop-up on hover.
-
-Locally, we use the coverage package in python for code coverage. The commands to check code coverage in python are as follows:
-
-```
-coverage run -m pytest test/
-coverage report
-```
-
-## License
-
-This project is licensed under the terms of the MIT license. Please check [License](https://github.com/usmanwardag/dollar_bot/blob/main/LICENSE) for more details.
-
-
-## Code Documentation
-
-Checkout the [docs](https://github.com/sak007/MyDollarBot-BOTGo/tree/main/docs)
-
-## How to Contribute
-
-We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md)
-
-For any feedback, issues, or bug reports, please create an issue [here](https://github.com/usmanwardag/dollar_bot/issues/new).
-
-## Future RoadMap
-
-- More content can be added for the way notifications can be displayed on the user front. This can be done to make the UI more interactive.
-- Recurring expenses feature can be added for faster addition of expenses instead of following the whole process of everytime.
+<a href="https://stackoverflow.com/questions/49083789/how-to-add-new-line-in-bashrc-file-in-ubuntu">Click here for help adding to .bashrc files.</a>
 
 ## Contributors
 <table>
