@@ -4,7 +4,6 @@ import os
 from datetime import datetime
 
 from notify import notify
-
 spend_categories = [
     "Food",
     "Groceries",
@@ -41,6 +40,7 @@ commands = {
     "estimate": "This option gives you the estimate of expenditure for the next day/month. It calcuates based on your recorded spendings",
     "history": "This option is to give you the detailed summary of your expenditure with Date, time ,category and amount. A quick lookup into your spendings",
     "delete": "This option is to Clear/Erase all your records",
+    "delete_expense": "This option is to Clear/Erase individual record from expense history records.",
     "edit": "This option helps you to go back and correct/update the missing details \
         \n 1. It will give you the list of your expenses you wish to edit \
         \n 2. It will let you change the specific field based on your requirements like amount/date/category",
@@ -112,7 +112,6 @@ def getUserHistory(chat_id):
     if data is not None:
         return data["data"]
     return None
-
 
 def getUserData(chat_id):
     user_list = read_json()
