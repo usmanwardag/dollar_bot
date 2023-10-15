@@ -98,4 +98,4 @@ def run(message, bot):
 
     except Exception as e:
         logging.exception(str(e))
-        bot.reply_to(message, "Oops!" + str(e))
+        bot.send_message(message, "Oops!" + str(e))
