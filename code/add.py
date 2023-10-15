@@ -186,3 +186,5 @@ def add_user_record(chat_id, record_to_be_added,amount_value,owed_by, paid_by):
             user_list[str(chat_id)]["owing"][user][paid_by] += owed_amount
         else:
             user_list[str(chat_id)]["owing"][user][paid_by] = owed_amount
+    print("################",user_list)
+    return user_list
