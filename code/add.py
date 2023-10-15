@@ -96,7 +96,7 @@ def post_category_selection(message, bot):
         bot.send_message(chat_id, display_text)
 
 
-def record_expense(message, bot, previous_expenses=None, category=None):
+def record_expense(message, bot, previous_expenses):
     print("In function to record expense")
     chat_id = message.chat.id
     selection = message.text
@@ -117,7 +117,7 @@ def record_expense(message, bot, previous_expenses=None, category=None):
             ),
         )
         bot.register_next_step_handler(
-            message, post_amount_input, bot, category
+            message, post_amount_input, bot, option[chat_id]
         )
 
 def post_expense_selection(message,bot):
