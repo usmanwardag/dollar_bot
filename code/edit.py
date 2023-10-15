@@ -33,10 +33,11 @@ def select_category_to_be_updated(m, bot):
     for c in selected_data:
         markup.add(c.strip())
     choice = bot.reply_to(m, "What do you want to update?", reply_markup=markup)
-    bot.register_next_step_handler(choice, enter_updated_data, bot, selected_data)
+    updated = []
+    bot.register_next_step_handler(choice, enter_updated_data, bot, selected_data, updated)
 
 
-def enter_updated_data(m, bot, selected_data):
+def enter_updated_data(m, bot, selected_data, updated):
 
     choice1 = "" if m.text is None else m.text
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
@@ -62,27 +63,38 @@ def enter_updated_data(m, bot, selected_data):
                 )
             elif result:
 
-                edit_date(bot, selected_data, result, c.message.chat.id)
+                edit_date(bot, selected_data, result, c, updated)
 
                 bot.edit_message_text(
                     f"Date is updated: {result}",
                     c.message.chat.id,
                     c.message.message_id,
                 )
+            
 
     if "Category" in choice1:
-
         new_cat = bot.reply_to(m, "Please select the new category", reply_markup=markup)
-        bot.register_next_step_handler(new_cat, edit_cat, bot, selected_data)
+        bot.register_next_step_handler(new_cat, edit_cat, bot, selected_data, updated)
 
     if "Amount" in choice1:
         new_cost = bot.reply_to(
             m, "Please type the new cost\n(Enter only numerical value)"
         )
-        bot.register_next_step_handler(new_cost, edit_cost, bot, selected_data)
+        bot.register_next_step_handler(new_cost, edit_cost, bot, selected_data, updated)
+
+def update_different_category(m, bot, selected_data, updated):
+    response = m.text
+    if response == "Y" or response == "y":
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        markup.row_width = 2
+        for c in selected_data:
+            if c not in updated:
+                markup.add(c.strip())
+        choice = bot.reply_to(m, "What do you want to update?", reply_markup=markup)
+        bot.register_next_step_handler(choice, enter_updated_data, bot, selected_data, updated)
 
 
-def edit_date(bot, selected_data, result, chat_id):
+def edit_date(bot, selected_data, result, c, updated):
     """
     def edit_date(m, bot): It takes 2 arguments for processing - message which is
     the message from the user, and bot which is the telegram bot object from the
@@ -90,8 +102,8 @@ def edit_date(bot, selected_data, result, chat_id):
     """
     user_list = helper.read_json()
     new_date = str(result)
-
-    chat_id = chat_id
+    chat_id = c.message.chat.id
+    m = c.message
     data_edit = helper.getUserHistory(chat_id)
 
     for i in range(len(data_edit)):
@@ -109,9 +121,17 @@ def edit_date(bot, selected_data, result, chat_id):
 
     user_list[str(chat_id)]["data"] = data_edit
     helper.write_json(user_list)
+    new_date_str = "Date=" + new_date
+    updated.append(new_date_str)
+    selected_data[0] = new_date_str
+    if len(updated) == 3:
+        bot.send_message(m.chat.id, "You have updated all the categories for this expense")
+        return
+    resp = bot.send_message(m.chat.id, "Do you want to update another category in this expense?(Y/N)")
+    bot.register_next_step_handler(resp, update_different_category, bot, selected_data ,updated)
 
 
-def edit_cat(m, bot, selected_data):
+def edit_cat(m, bot, selected_data, updated):
     """
     def edit_cat(m, bot): It takes 2 arguments for processing - message which is the message
     from the user, and bot which is the telegram bot object from the edit3(m, bot):: function in the
@@ -134,10 +154,18 @@ def edit_cat(m, bot, selected_data):
 
     user_list[str(chat_id)]["data"] = data_edit
     helper.write_json(user_list)
+    new_cat_str = "Category=" + new_cat
+    updated.append(new_cat_str)
+    selected_data[1] = new_cat_str
     bot.reply_to(m, "Category is updated")
+    if len(updated) == 3:
+        bot.send_message(m.chat.id, "You have updated all the categories for this expense")
+        return
+    resp = bot.send_message(m.chat.id, "Do you want to update another category in this expense?(Y/N)")
+    bot.register_next_step_handler(resp, update_different_category, bot, selected_data, updated)
 
 
-def edit_cost(m, bot, selected_data):
+def edit_cost(m, bot, selected_data, updated):
     """
     def edit_cost(m, bot): It takes 2 arguments for processing - message which is the
     message from the user, and bot which is the telegram bot object from the
@@ -164,4 +192,11 @@ def edit_cost(m, bot, selected_data):
         bot.reply_to(m, "Expense amount is updated")
     else:
         bot.reply_to(m, "The cost is invalid")
+    new_cost_str = "Category=" + new_cost
+    updated.append(new_cost_str)
+    selected_data[1] = new_cost_str
+    if len(updated) == 3:
+        bot.send_message(m.chat.id, "You have updated all the categories for this expense")
         return
+    resp = bot.send_message(m.chat.id, "Do you want to update another category in this expense?(Y/N)")
+    bot.register_next_step_handler(resp, update_different_category, bot, selected_data, updated)
