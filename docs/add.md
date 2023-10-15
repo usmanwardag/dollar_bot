@@ -1,4 +1,5 @@
 # About MyDollarBot's /add Feature
+#TO-DO
 This feature enables the user to add a new expense to their expense tracker.
 Currently we have the following expense categories set by default:
 

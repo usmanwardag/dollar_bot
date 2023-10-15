@@ -22,8 +22,12 @@ def run(message, bot):
     option.pop(chat_id, None)  # remove temp choice
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = 2
-    m = bot.send_message(chat_id, "Do you want to add a new category? Y/N")
+    categories = []
+    for c in helper.getSpendCategories():
+        categories.append(c)
+    m = bot.send_message(chat_id, f"Following are the list of categories:\n{categories}\n Do you want to add new category? Y/N")
     bot.register_next_step_handler(m, post_user_def_category, bot)
+
 
 
 def post_user_def_category(message, bot):

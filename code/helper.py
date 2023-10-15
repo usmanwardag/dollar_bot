@@ -4,7 +4,6 @@ import os
 from datetime import datetime
 
 from notify import notify
-
 spend_categories = [
     "Food",
     "Groceries",
@@ -28,15 +27,21 @@ data_format = {"data": [], "budget": {"overall": None, "category": None}}
 commands = {
     "help": "Display the list of commands.",
     "pdf": "Save history as PDF.",
+    "add_user": "Add users to expense tracker",
     "add": "This option is for adding your expenses \
        \n 1. It will give you the list of categories to choose from. \
        \n 2. You will be prompted to enter the amount corresponding to your spending \
        \n 3.The message will be prompted to notify the addition of your expense with the amount,date, time and category ",
+    "add_category": "This option is for adding new category \
+       \n 1. You will be prompted to enter a new category \
+       \n 2.The message will be prompted to notify the addition of your category ",
+
     "display": "This option gives user a graphical representation(bar graph) of their expenditures \
         \n You will get an option to choose from day or month for better analysis of the expenses.",
     "estimate": "This option gives you the estimate of expenditure for the next day/month. It calcuates based on your recorded spendings",
     "history": "This option is to give you the detailed summary of your expenditure with Date, time ,category and amount. A quick lookup into your spendings",
     "delete": "This option is to Clear/Erase all your records",
+    "delete_expense": "This option is to Clear/Erase individual record from expense history records.",
     "edit": "This option helps you to go back and correct/update the missing details \
         \n 1. It will give you the list of your expenses you wish to edit \
         \n 2. It will let you change the specific field based on your requirements like amount/date/category",
@@ -108,7 +113,6 @@ def getUserHistory(chat_id):
     if data is not None:
         return data["data"]
     return None
-
 
 def getUserData(chat_id):
     user_list = read_json()
