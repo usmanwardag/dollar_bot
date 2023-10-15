@@ -13,6 +13,7 @@ import delete
 import add
 import add_category
 import budget
+import add_user
 from datetime import datetime
 from jproperties import Properties
 
@@ -152,6 +153,12 @@ def command_add(message):
     the add functionality. Commands used to run this: commands=['add']
     """
     add.run(message, bot)
+
+
+@bot.message_handler(commands=["add_user"])
+def command_add_user(message):
+    chat_id = message.chat.id
+    add_user.register_people(message,bot)
 
 @bot.message_handler(commands=["add_category"])
 def command_add_category(message):
