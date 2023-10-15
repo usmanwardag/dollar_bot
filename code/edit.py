@@ -15,7 +15,11 @@ def run(m, bot):
     chat_id = m.chat.id
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = 2
-    for c in helper.getUserHistory(chat_id):
+    user_history = helper.getUserHistory(chat_id)
+    if not user_history:
+        bot.send_message(chat_id,"You have no previously recorded expenses to modify")
+        return
+    for c in user_history:
         expense_data = c.split(",")
         str_date = "Date=" + expense_data[0]
         str_category = ",\t\tCategory=" + expense_data[1]
