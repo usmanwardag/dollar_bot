@@ -91,13 +91,12 @@ Our bash scripts for installation are easy to run on MacOS or on UNIX terminals.
 
 ### Windows
 
-With Windows, you'll need to use <a href="https://www.cygwin.com/">Cygwin.</a>
-Cygwin is:
-    a large collection of GNU and Open Source tools which provide functionality similar to a Linux distribution on Windows.
-    a DLL (cygwin1.dll) which provides substantial POSIX API functionality.
-(source: cygwin.com)
+With Windows, you'll need to use a platform to execute UNIX-like commands in order to execute the setup.sh bash script.
 
-Additionally, find more hints on installation <a href="https://stackoverflow.com/questions/6413377/is-there-a-way-to-run-bash-scripts-on-windows">here.</a>
+We've used <a href="https://www.cygwin.com/">Cygwin,</a> but there are more options like WSL that you can explore.
+
+Additionally, find more hints on Cygwin installation <a href="https://stackoverflow.com/questions/6413377/is-there-a-way-to-run-bash-scripts-on-windows">here.</a>
+
 ## How to run?
 
 1. In Telegram, search for "BotFather". Click on "Start", and enter the following command:
