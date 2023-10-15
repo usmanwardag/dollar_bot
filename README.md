@@ -6,14 +6,14 @@
     <li><a href="#whats-dollarbot">What's DollarBot?
     <li><a href="#why-use-dollarbot">Why use DollarBot?</a></li>
 <!--     <li><a href="#check-out-the-video">Check out the video!</a></li> -->
-    <li><a href="#whats-new">What is new in this version?</a></li>
-    <li><a href="#installation">Installation</a></li>
+    <li><a href="#whats-new">What's new in this version?</a></li>
+    <li><a href="#installation-and-setup">Installation and Setup</a></li>
 <!--    <li><a href="../Developer_ReadMe.md">For Developers and Future Contributors</a></li> -->
    <li><a href="#contributors">Contributors</a></li>
    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 
-Are you a developer? <a href="../Developer_ReadMe.md">Click here: For Developers and Future Contributors</a>
+Are you a developer? <a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/Developer_ReadMe.md">Click here: For Developers and Future Contributors</a>
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/usmanwardag/auto_anki)
 
@@ -63,7 +63,7 @@ We've considerably extended this project to make using DollarBot easy and engagi
 
 Check [this documentation out](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/Whats_new.pdf) for an in-depth depiction of our changes. :)
 
-## Installation & Setup
+## Installation and Setup
 
 ### Pre-requisite: The Telegram Desktop App
 
