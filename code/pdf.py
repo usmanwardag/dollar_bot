@@ -2,6 +2,10 @@ import helper
 import logging
 from matplotlib import pyplot as plt
 
+#Issue 15 - Added tabulate and fpdf libraries
+from tabulate import tabulate
+from fpdf import FPDF
+
 # === Documentation of pdf.py ===
 
 
@@ -33,26 +37,46 @@ def run(message, bot):
                     transform=ax.transAxes,
                     fontsize=20,
                 )
-            for rec in user_history:
-                date, category, amount = rec.split(",")
-                date, time = date.split(" ")
-                print(date, category, amount)
-                rec_str = f"{amount}$ {category} expense on {date} at {time}"
-                plt.text(
-                    0,
-                    top,
-                    rec_str,
-                    horizontalalignment="left",
-                    verticalalignment="center",
-                    transform=ax.transAxes,
-                    fontsize=14,
-                    bbox=dict(facecolor="red", alpha=0.3),
-                )
-                top -= 0.15
-            plt.axis("off")
-            plt.savefig("expense_history.pdf")
-            plt.close()
-            bot.send_document(chat_id, open("expense_history.pdf", "rb"))
+
+            #issue 15 - modified the format of pdf document - start
+            table_data = [entry.split(',') for entry in user_history]
+
+            # Create a PDF document
+            pdf = FPDF()
+            pdf.add_page()
+
+            # Set font
+            pdf.set_font("helvetica", size=12)
+
+            # Define the table columns
+            columns = ["Date & Time", "Category", "Amount"]
+
+            # Create a table and set its properties
+            pdf.set_fill_color(135, 206, 235)  # Light blue
+            pdf.set_font(style="B")
+            pdf.cell(0, 10, "Expense Report", ln=1, align="C", fill=True)
+            pdf.set_fill_color(255, 255, 255)  # White
+            pdf.ln()
+            pdf.ln()
+            # Add table headers
+            pdf.set_font("helvetica", size=12, style="B")
+            for col in columns:
+                pdf.cell(64, 10, col, border=1, align="C", fill=True)
+            pdf.ln()
+
+            # Add table data
+            pdf.set_font("helvetica", size=10)
+            for row in table_data:
+                for item in row:
+                    pdf.cell(64, 10, item, border=1, align="C", fill=True)
+                pdf.ln()
+
+            # Save the PDF
+            pdf.output("expense_report.pdf")
+            bot.send_document(chat_id, open("expense_report.pdf", "rb"))
+            print("PDF generated successfully.")
+            #issue 15 - modified the format of pdf document - start
+            
         
         #Issue 3 - added the else condition - start
         else:
