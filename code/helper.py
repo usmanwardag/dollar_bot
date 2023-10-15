@@ -24,6 +24,8 @@ budget_types = {"overall": "Overall Budget", "category": "Category-Wise Budget"}
 
 data_format = {"data": [], "budget": {"overall": None, "category": None}}
 
+analytics_options = {"overall": "Overall budget split", "spend": "Split of current spend", "remaining": "Remaining value"}
+
 # set of implemented commands and their description
 commands = {
     "help": "Display the list of commands.",
@@ -251,6 +253,13 @@ def calculateRemainingCategoryBudget(chat_id, cat):
 
     return float(budget) - calculate_total_spendings_for_category(queryResult, cat)
 
+def calculateRemainingCateogryBudgetPercent(chat_id, cat):
+    budget = getCategoryBudgetByCategory(chat_id, cat)
+    history = getUserHistory(chat_id)
+    query = datetime.now().today().strftime(getMonthFormat())
+    queryResult = [value for index, value in enumerate(history) if str(query) in value]
+
+    return (calculate_total_spendings_for_category(queryResult, cat)/float(budget))*100
 
 def calculate_total_spendings_for_category(queryResult, cat):
     total = 0
@@ -260,6 +269,12 @@ def calculate_total_spendings_for_category(queryResult, cat):
         if cat == s[1]:
             total = total + float(s[2])
     return total
+
+def calculate_total_spendings_for_cateogory_chat_id(chat_id, cat):
+    history = getUserHistory(chat_id)
+    query = datetime.now().today().strftime(getMonthFormat())
+    queryResult = [value for index, value in enumerate(history) if str(query) in value]
+    return calculate_total_spendings_for_category(queryResult, cat)
 
 def updateBudgetCategory(chatId, category):
     user_list = read_json()
@@ -326,3 +341,6 @@ def getBudgetTypes():
 
 def getUpdateOptions():
     return update_options
+
+def getAnalyticsOptions():
+    return analytics_options
