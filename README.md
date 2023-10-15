@@ -63,7 +63,7 @@ We've considerably extended this project to make using DollarBot easy and engagi
 
 Check [this documentation out](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/Whats_new.pdf) for an in-depth depiction of our changes. :)
 
-## Installation
+## Installation & Setup
 
 ### Pre-requisite: The Telegram Desktop App
 
@@ -80,48 +80,59 @@ Open up your terminal and let's get started:
 ```
    git clone https://github.com/aditikilledar/dollar_bot_SE23/
 ```
-2. Start a terminal session in the directory where the project has been cloned. Run the following command and follow the instructions on-screen to complete the installation.
+2. Start a terminal session in the directory where the project has been cloned. Run the following commands and follow the instructions on-screen to complete the installation.
 ```
+  chmod a+x setup.sh
   bash setup.sh
 ```
-
 There, all done!
 
-Our bash scripts for installation are easy to run on MacOS or on UNIX terminals. 
+The installation is easy for MacOS or on UNIX terminals. 
 
 ### Windows
 
-With Windows, you'll need to use a platform to execute UNIX-like commands in order to execute the setup.sh bash script.
+With Windows, you'll need to use a platform to execute UNIX-like commands in order to execute the setup.sh bash script. Once in the platform, use the steps in the MacOS/Unix Section above to setup DollarBot.
 
 We've used <a href="https://www.cygwin.com/">Cygwin,</a> but there are more options like WSL that you can explore.
 
 Additionally, find more hints on Cygwin installation <a href="https://stackoverflow.com/questions/6413377/is-there-a-way-to-run-bash-scripts-on-windows">here.</a>
 
-## How to run?
+## Running DollarBot:
 
-1. In Telegram, search for "BotFather". Click on "Start", and enter the following command:
+Once you've executed setup.sh, and all dependencies have been installed, you can start running DollarBot by following these instructions.
+
+1. Open the Telegram Desktop Application and sign in. Once inside Telegram, search for "BotFather". Click on "Start", and enter the following command:
 ```
   /newbot
 ```
-2. Follow the instructions on screen and choose a name for your bot (e.g., `dollarbot`). After this, select a username for your bot that ends with "bot". The username has to be unique. 
+2. Follow the instructions on screen and choose a name for your bot (e.g., `dollarbot`). After this, select a UNIQUE username for your bot that ends with "bot", for example: `dollarbot_<your_nickname>`.
 
-3. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use.
+3. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use. Make sure you save this token– don't lose it!
 
-4. In the repo directory (where you cloned it), run these commands to (i) grant execution access to a bash script, and (ii) execute that bash script to run the Telegram Bot:
-```
-   chmod a+x run.sh
-   ./run.sh
-```
+4. In the repo directory (where you cloned it), run these commands.
+
+(a) grant execution access to a bash script
+  ```
+  chmod a+x run.sh
+  ```
+
+(b) execute the run.sh bash script to start DollarBot
    
-(OR)
+###### MacOS / Unix
 ```
-   chmod a+x run.sh
    bash run.sh
 ```
-```Note```: It will ask you to paste the API token you received from Telegram in step 4.
+###### Windows
+```
+   ./run.sh
+```
+
+```Note```: It will ask you to paste the API token you received from Telegram while creating your bot (Step 3), so keep that handy.
 A successful run will generate a message on your terminal that says "TeleBot: Started polling." 
 
-5. In the Telegram app, search for your newly created bot by entering the username and open the same. Now, on Telegram, enter the "/start" or "menu" command, and you are all set to track your expenses!
+5. In the Telegram app, search for your newly created bot by entering your UNIQUE username and open the bot you created.
+
+6. Now, on Telegram, enter the "/start" or "menu" command, and you are all set to track your expenses!
 
 ### Run Automatically at Startup
 
