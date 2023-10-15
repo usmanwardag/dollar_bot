@@ -32,19 +32,20 @@ Are you a developer? <a href="../Developer_ReadMe.md">Click here: For Developers
 
 ## What's DollarBot?
 
-<TODO>
-TODO
+DollarBot is a handy little bot built on top of Telegram, to help you with daily expense tracking and analytics on your past spends. 
+
+It's easy to setup, run and use on a daily basis!
 
 ## Why use DollarBot?
 
-DollarBot is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle.  
-With simple commands, this bot allows you to:
+With simple in-chat commands, this bot helps you:
 - Add/Record new spendings
-- Display your spendings through bar graph
+- Display your spendings through engaging graphs
 - Show the sum of your expenditure for the current day/month
 - Display your spending history
 - Clear/Erase all your records
 - Edit/Change any spending details if you wish to
+- View Analytics and export as csv
 
 ## Check out the video!
 
@@ -52,13 +53,19 @@ With simple commands, this bot allows you to:
 
 ## What's new?
 
-<#TODO: short description here>
+We've considerably extended this project to make using DollarBot easy and engaging.
+1. Clearer wording in the documentation.
+2. Expressive Graphs
+3. Budget Creation Updated
+4. Analytics
+5. Clearer PDF Reports
+6. CSV Reports for Analytics use
 
-Checkout the [this documentation](https://github.com/usmanwardag/dollar_bot/blob/main/docs/Updated_version.pdf)
+Check [this documentation out](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/Whats_new.pdf) for an in-depth depiction of our changes. :)
 
 ## Installation
 
-#### Pre-requisite: The Telegram Desktop App
+### Pre-requisite: The Telegram Desktop App
 
 Since DollarBot is built on top of Telegram, you'll first need:
 1. Download the Telegram Desktop Application <a href="https://desktop.telegram.org/">here.</a>

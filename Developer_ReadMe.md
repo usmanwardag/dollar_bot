@@ -37,13 +37,13 @@ This project is licensed under the terms of the MIT license. Please check [Licen
 
 ## Code Documentation
 
-Checkout the [docs](https://github.com/sak007/MyDollarBot-BOTGo/tree/main/docs)
+Checkout the [docs](https://github.com/aditikilledar/dollar_bot_SE23/tree/main/docs) for a detailed explanation of each functionality and the expected working along with code file location.
 
 ## How to Contribute
 
-We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md)
+We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/CONTRIBUTING.md)
 
-For any feedback, issues, or bug reports, please create an issue [here](https://github.com/usmanwardag/dollar_bot/issues/new).
+For any feedback, issues, or bug reports, please create an issue [here](https://github.com/aditikilledar/dollar_bot_SE23/issues/new/choose).
 
 ## Future RoadMap
 
