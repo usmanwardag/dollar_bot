@@ -22,7 +22,7 @@ configs = Properties()
 
 with open("user.properties", "rb") as read_prop:
     configs.load(read_prop)
-
+user_list = helper.read_json()
 api_token = str(configs.get("api_token").data)
 
 bot = telebot.TeleBot(api_token)
@@ -83,7 +83,6 @@ def help(m):
     commands = helper.getCommands()
     for c in commands:
         message += "/" + c + ", "
-        # message += commands[c] + "\n\n"
     message += "\nUse /menu for detailed instructions about these commands."
     bot.send_message(chat_id, message)
 
@@ -119,9 +118,17 @@ def start_and_menu_command(m):
     bot offers and the corresponding commands to be run from the Telegram UI to use these features.
     Commands used to run this: commands=['start', 'menu']
     """
-    helper.read_json()
-    global user_list
+    global user_list 
+    user_list = helper.read_json()
     chat_id = m.chat.id
+    print(user_list)
+    if (str(chat_id) in user_list.keys()) and ("users" in user_list[str(chat_id)].keys()):
+        user_list[str(chat_id)]["users"].insert(0,m.from_user.first_name)
+        user_list[str(chat_id)]["owed"][m.from_user.first_name] = 0
+        user_list[str(chat_id)]["owing"][m.from_user.first_name] = {}
+    else:
+        user_list[str(chat_id)] = {"users" : [m.from_user.first_name],"owed": {m.from_user.first_name: 0},"owing": {m.from_user.first_name: {}}}
+
 
     # print('receieved start or menu command.')
     # text_into = "Welcome to the Dollar Bot!"
@@ -158,8 +165,7 @@ def command_add(message):
 
 @bot.message_handler(commands=["add_user"])
 def command_add_user(message):
-    chat_id = message.chat.id
-    add_user.register_people(message,bot)
+    add_user.register_people(message,bot,user_list)
 
 @bot.message_handler(commands=["add_category"])
 def command_add_category(message):
