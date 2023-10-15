@@ -12,6 +12,7 @@ import estimate
 import delete
 import add
 import add_category
+import delete_expense
 import budget
 import add_user
 from datetime import datetime
@@ -229,6 +230,16 @@ def command_delete(message):
     Commands used to run this: commands=['display']
     """
     delete.run(message, bot)
+
+# handles "/delete_expense" command
+@bot.message_handler(commands=["delete_expense"])
+def command_delete(message):
+    """
+    command_delete(message): Takes 1 argument message which contains the message from the user
+    along with the chat ID of the user chat. It then calls delete_expense.py to run to execute the add functionality.
+    Commands used to run this: commands=['display']
+    """
+    delete_expense.run(message, bot)
 
 
 @bot.message_handler(commands=["budget"])
