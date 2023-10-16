@@ -17,20 +17,24 @@ def run(message, bot):
     It takes 2 arguments for processing - message which is the message from the user,
     and bot which is the telegram bot object from the main code.py function.
     """
-    user_list=helper.read_json()
-    chat_id = message.chat.id
-    owed_by =[]
-    chat_id = message.chat.id
-    option.pop(chat_id, None)  # remove temp choice
+    try:
+        user_list=helper.read_json()
+        chat_id = message.chat.id
+        owed_by =[]
+        chat_id = message.chat.id
+        option.pop(chat_id, None)  # remove temp choice
 
-    if str(chat_id) not in user_list:
-        user_list[str(chat_id)] = helper.createNewUserRecord()
-    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
-    markup.row_width = len(user_list[str(chat_id)]["users"])
-    for c in user_list[str(chat_id)]["users"]:
-            markup.add(c)
-    m = bot.send_message(chat_id, "Select who paid for the Expense",reply_markup=markup)
-    bot.register_next_step_handler(m, select_user, bot,owed_by,user_list,None)
+        if str(chat_id) not in user_list:
+            user_list[str(chat_id)] = helper.createNewUserRecord()
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        markup.row_width = len(user_list[str(chat_id)]["users"])
+        for c in user_list[str(chat_id)]["users"]:
+                markup.add(c)
+        m = bot.send_message(chat_id, "Select who paid for the Expense",reply_markup=markup)
+        bot.register_next_step_handler(m, select_user, bot,owed_by,user_list,None)
+    except:
+        bot.send_message(chat_id,"First add users to add an expense!")
+
 
 
 def select_user(message,bot,owed_by,user_list,paid_by):
@@ -59,9 +63,9 @@ def add_shared_user(message,bot,owed_by,user_list,paid_by):
 def user_choice(message, bot,owed_by, user_list,paid_by):
     chat_id = message.chat.id
     Choice = message.text
-    if Choice == "Y":
+    if Choice == "Y" or Choice == 'y':
         select_user(message,bot,owed_by,user_list,paid_by)
-    elif Choice == "N":
+    elif Choice == "N" or Choice == 'n':
         post_append_spend(message,bot,owed_by,paid_by)
 
 
@@ -188,3 +192,5 @@ def add_user_record(chat_id, record_to_be_added,amount_value,owed_by, paid_by):
             user_list[str(chat_id)]["owing"][user][paid_by] = owed_amount
     print("################",user_list)
     return user_list
+
+

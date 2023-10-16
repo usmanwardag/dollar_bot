@@ -130,5 +130,3 @@ def pdfGeneration(message, bot, user_list, user_history):
         elif choice == 'PDF showing who owes whom how much':
             print('abcd')
             bot.send_message(chat_id, "Shutup!!!")
-
-            

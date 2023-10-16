@@ -15,6 +15,7 @@ import add_category
 import delete_expense
 import budget
 import add_user
+import delete_user
 from datetime import datetime
 from jproperties import Properties
 
@@ -166,6 +167,12 @@ def command_add(message):
 @bot.message_handler(commands=["add_user"])
 def command_add_user(message):
     add_user.register_people(message,bot,user_list)
+
+@bot.message_handler(commands=["delete_user"])
+def command_delete_user(message):
+    # Call the delete_user function from the delete_user module
+    registered_users=user_list[str(message.chat.id)]["users"]
+    delete_user.delete_user(message, bot, user_list)
 
 @bot.message_handler(commands=["add_category"])
 def command_add_category(message):
