@@ -4,9 +4,11 @@ from telebot import types
 
 # Initialize a dictionary to store registered users
 registered_users = {}
-user_list=helper.read_json()
-def register_people(message, bot):
+# user_list=helper.read_json()
+def register_people(message, bot,user_list):
     chat_id = message.chat.id
+    if str(chat_id) not in user_list:
+        user_list[str(chat_id)] = helper.createNewUserRecord()
     if "users" in user_list[str(chat_id)].keys():
         registered_users={chat_id : user_list[str(chat_id)]["users"]}
     else:
@@ -14,9 +16,9 @@ def register_people(message, bot):
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = 2
     msg = bot.send_message(chat_id, "Enter the name of the person you want to register:")
-    bot.register_next_step_handler(msg, add_person, bot,registered_users)
+    bot.register_next_step_handler(msg, add_person, bot,registered_users,user_list)
 
-def add_person(message, bot,registered_users):
+def add_person(message, bot,registered_users,user_list):
     chat_id = message.chat.id
     name = message.text
 
@@ -36,20 +38,32 @@ def add_person(message, bot,registered_users):
         markup.add("Register Another Person", "Finish Registration")
         msg = bot.send_message(chat_id, "What would you like to do next?", reply_markup=markup)
 
-        bot.register_next_step_handler(msg, handle_registration_choice, bot,registered_users)
+        bot.register_next_step_handler(msg, handle_registration_choice, bot,registered_users,user_list)
 
-def handle_registration_choice(message, bot,registered_users):
+def handle_registration_choice(message, bot,registered_users,user_list):
     chat_id = message.chat.id
     choice = message.text
 
     if choice == "Register Another Person":
         msg = bot.send_message(chat_id, "Enter the name of the person you want to register:")
-        bot.register_next_step_handler(msg, add_person, bot,registered_users)
+        bot.register_next_step_handler(msg, add_person, bot,registered_users,user_list)
     elif choice == "Finish Registration":
         # Display the names of registered users
         if chat_id in registered_users:
             users = registered_users[chat_id]
             user_list[str(chat_id)]["users"]=users
+            for user in users:
+                if str(chat_id) in user_list:
+                    if "owed" in user_list[str(chat_id)]:
+                        user_list[str(chat_id)]["owed"][user] = 0
+                    else:
+                        user_list[str(chat_id)]["owed"] = {user: 0}
+                    if "owing" in user_list[str(chat_id)]:
+                        user_list[str(chat_id)]["owing"][user] = {}
+                    else:
+                        user_list[str(chat_id)]["owing"] = {user: {}}
+                else:
+                    user_list[str(chat_id)] = {"owed": {user: 0},"owing": {user: {}}}
             helper.write_json(user_list)
             if users:
                 bot.send_message(chat_id, "Registered Users:\n" + '\n'.join(registered_users[chat_id]))
