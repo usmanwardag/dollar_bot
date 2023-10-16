@@ -139,23 +139,30 @@ A successful run will generate a message on your terminal that says "TeleBot: St
 To run the script automatically at startup / reboot, simply add the `.run_forever.sh` script to your `.bashrc` file, which executes whenever you reboot your system.
 <a href="https://stackoverflow.com/questions/49083789/how-to-add-new-line-in-bashrc-file-in-ubuntu">Click here for help adding to .bashrc files.</a>
 
-### Functionalities
+## Functionalities
 
-#### Add
+Here's a quick overview of how each of the commands work. Also see: Link at the end of each example for a more detailed version of the documentation.
 
-#### Budget
+### Add
 
-#### Delete
+``` add example add code here ``` 
+[insert a GIF showing how to run here]
 
-#### Edit
+(More here.)[https://github.com/aditikilledar/dollar_bot_SE23/blob/docu-merging-scattered-docs/docs/add.md]
 
-#### Estimate
+### Budget
 
-#### Graphing and Analytics
+### Delete
 
-#### Helper
+### Edit
 
-#### History
+### Estimate
+
+### Graphing and Analytics
+
+### Helper
+
+### History
 
 
 ## Contributors
