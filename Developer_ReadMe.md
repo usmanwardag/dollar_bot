@@ -1,4 +1,4 @@
-# For Developers: By the Developers of DollarBot
+# For Developers: From the Developers of DollarBot
 
 <details open="open">
   <summary>Table of Contents</summary>
