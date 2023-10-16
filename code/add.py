@@ -63,9 +63,9 @@ def add_shared_user(message,bot,owed_by,user_list,paid_by):
 def user_choice(message, bot,owed_by, user_list,paid_by):
     chat_id = message.chat.id
     Choice = message.text
-    if Choice == "Y":
+    if Choice == "Y" or Choice == 'y':
         select_user(message,bot,owed_by,user_list,paid_by)
-    elif Choice == "N":
+    elif Choice == "N" or Choice == 'n':
         post_append_spend(message,bot,owed_by,paid_by)
 
 
