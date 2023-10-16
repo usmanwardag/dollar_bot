@@ -160,27 +160,35 @@ def getCategoryBudgetByCategory(chatId, cat):
 
 
 def canAddBudget(chatId):
-    return (getOverallBudget(chatId) is None) and (getCategoryBudget(chatId) is None)
+    overall_budget = getOverallBudget(chatId)
+    category_budget = getCategoryBudget(chatId)
+    return (overall_budget is None and overall_budget != '0') and (category_budget is None and category_budget != {})
 
 
 def isOverallBudgetAvailable(chatId):
-    return getOverallBudget(chatId) is not None
+    overall_budget = getOverallBudget(chatId)
+    if overall_budget is not None and overall_budget != '0':
+        return True
+    return False
 
 
 def isCategoryBudgetAvailable(chatId):
-    return getCategoryBudget(chatId) is not None
+    category_budget = getCategoryBudget(chatId)
+    if category_budget is not None and category_budget != {}:
+        return True
+    return False
 
 
 def isCategoryBudgetByCategoryAvailable(chatId, cat):
     data = getCategoryBudget(chatId)
-    if data is None:
+    if data is None or data == {}:
         return False
     return cat in data.keys()
 
 def get_uncategorized_amount(chatId, amount):
     overall_budget = float(amount)
     category_budget_data = getCategoryBudget(chatId)
-    if category_budget_data is None:
+    if category_budget_data is None or category_budget_data == {}:
         return amount
     category_budget = 0
     for c in category_budget_data.values():
