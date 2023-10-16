@@ -4,16 +4,9 @@ Follow the set of guidelines below to contribute to DollarBot!
 
 ## Code of Conduct
 
-<<<<<<< HEAD
-This project and everyone participating in it is governed by the [Code of Conduct](https://github.com/usmanwardag/dollar_bot/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to upload this code. Please report unacceptable behavior to akilled@ncsu.edu.
-
-If you like our project and would like to contribue otherwise, please note:
-2. Reach out to the maintainers before creating a branch, to confirm if we're still maintaining the repo.
-3. Have the pre-requisites: Knowledge of Python and working with Telegram Bots.
-=======
 This project and everyone participating in it is governed by the [Code of Conduct](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to upload this code. Please report unacceptable behavior to akilled@ncsu.edu.
 
-Note that this project is created as part of CSC510 Coursework at NC State for Fall'21.
+Note that this project is created as part of CSC 510 Coursework at NC State University for Fall'23.
 
 Prerequistes required before starting this project:
 - Working Python Knowledge
@@ -21,7 +14,6 @@ Prerequistes required before starting this project:
 
 If you like our project and would like to contribue otherwise, please note:
 Before creating a branch, reach out to the maintainers to confirm if the reposityory is still being actively maintained.
->>>>>>> b7845db (Incorporated review recommendations)
 
 ## How can I Contribute -
 
