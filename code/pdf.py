@@ -84,7 +84,7 @@ def pdfGeneration(message, bot, user_list, user_history):
 
                 # Create a table and set its properties
                 pdf.set_fill_color(135, 206, 235)  # Light blue
-                pdf.set_font(style="B")
+                pdf.set_font(family="helvetica",style="B")
                 pdf.cell(0, 10, "Expense Report", ln=1, align="C", fill=True)
                 pdf.set_fill_color(255, 255, 255)  # White
                 pdf.ln()
