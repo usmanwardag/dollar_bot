@@ -8,7 +8,7 @@
 <!--     <li><a href="#check-out-the-video">Check out the video!</a></li> -->
     <li><a href="#whats-new">What's new in this version?</a></li>
     <li><a href="#installation-and-setup">Installation and Setup</a></li>
-   <li><a href="#functionalities">Functionalities</a></li>
+   <li><a href="#how-to-use">How to use?</a></li>
    <li><a href="#contributors">Contributors</a></li>
    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -143,7 +143,7 @@ A successful run will generate a message on your terminal that says "TeleBot: St
 To run the script automatically at startup / reboot, simply add the `.run_forever.sh` script to your `.bashrc` file, which executes whenever you reboot your system.
 <a href="https://stackoverflow.com/questions/49083789/how-to-add-new-line-in-bashrc-file-in-ubuntu">Click here for help adding to .bashrc files.</a>
 
-## Functionalities
+## How to Use
 
 Here's a quick overview of how each of the commands work. Also see: Link at the end of each example for a more detailed version of the documentation.
 
