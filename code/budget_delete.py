@@ -1,22 +1,21 @@
 import helper
-
-# === Documentation of budget_delete.py ===
-
+from telebot import types
+import logging
 
 def run(message, bot):
-    """
-    run(message, bot): This is the main function used to implement the budget delete feature.
-    It takes 2 arguments for processing - message which is the message from the user, and bot
-    which is the telegram bot object from the main code.py function. It gets the user's chat ID
-    from the message object, and reads all user data through the read_json method from the helper module.
-    It then proceeds to empty the budget data for the particular user based on the user ID provided from the UI.
-    It returns a simple message indicating that this operation has been done to the UI.
-    """
     chat_id = message.chat.id
     user_list = helper.read_json()
-    print(user_list)
-    if str(chat_id) in user_list:
-        user_list[str(chat_id)]["budget"]["overall"] = None
-        user_list[str(chat_id)]["budget"]["category"] = None
+
+    if str(chat_id) not in user_list:
+        bot.send_message(chat_id, "You don't have budget data to delete.")
+    else:
+        if "budget" in user_list[str(chat_id)]:
+            # The 'budget' dictionary exists; you can proceed with deleting it
+            user_list[str(chat_id)]["budget"] = {"overall": None, "category": {}}
+        else:
+            bot.send_message(chat_id, "No budget data to delete.")
+        
         helper.write_json(user_list)
-    bot.send_message(chat_id, "Budget deleted!")
+        bot.send_message(chat_id, "Budget data deleted successfully.")
+
+    helper.write_json(user_list)

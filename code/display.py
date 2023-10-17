@@ -116,6 +116,7 @@ def display_total(message, bot):
                 value for index, value in enumerate(history) if str(query) in value
             ]
         total_text = calculate_spendings(queryResult)
+        print("###########",total_text)
         monthly_budget = helper.getCategoryBudget(chat_id)
         if monthly_budget == None:
             message = "Looks like you have not entered any category-wise budget yet. Please enter your budget and then try to display the expenses."
@@ -159,7 +160,7 @@ def calculate_spendings(queryResult):
     It parses the query result and turns it into a form suitable for display on the UI by the user.
     """
     total_dict = {}
-
+    print("!!!!!!",queryResult)
     for row in queryResult:
         # date,cat,money
         s = row.split(",")

@@ -18,11 +18,10 @@ def run(message, bot):
     user_list=helper.read_json()
     chat_id = message.chat.id
     owed_by =[]
-    option.pop(chat_id, None)  # remove temp choice
+    # option.pop(chat_id, None)  # remove temp choice
 
     if str(chat_id) not in user_list:
         user_list[str(chat_id)] = helper.createNewUserRecord(message)
-    helper.write_json(user_list)
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = len(user_list[str(chat_id)]["users"])
     for c in user_list[str(chat_id)]["users"]:
