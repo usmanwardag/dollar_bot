@@ -10,9 +10,11 @@ from fpdf import FPDF
 #Issue 23 - Added Tabula library
 #import tabula
 
-from reportlab.lib import colors
-from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+#from reportlab.lib import colors
+#from reportlab.lib.pagesizes import letter
+#from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+
+#Issue - 33
 
 # === Documentation of pdf.py ===
 
@@ -128,5 +130,60 @@ def pdfGeneration(message, bot, user_list, user_history):
             #Issue 3 - added the else condition - end
         #Issue 23 - added code for generating pdf showing who owes whom how much
         elif choice == 'PDF showing who owes whom how much':
-            print('abcd')
-            bot.send_message(chat_id, "Shutup!!!")
+            message = "Alright. I just created a pdf of your expense history!"
+            bot.send_message(chat_id, message)
+
+            if user_history != None:
+                pdf = FPDF()
+                pdf.add_page()
+
+                pdf.set_font("Arial", size=12)
+                pdf.set_fill_color(135, 206, 235)  # Light blue
+                pdf.set_font(style="B")
+                pdf.cell(0, 10, "Expense Report", ln=1, align="C", fill=True)
+                pdf.set_fill_color(255, 255, 255)  # White
+                pdf.ln()
+                pdf.ln()
+
+                pdf.set_font("helvetica", size=12, style="B")
+                pdf.cell(50, 10, "User", border=1, align="C", fill=True)
+                pdf.cell(50, 10, "Gets back", border=1, align="C", fill=True)
+                pdf.cell(50, 10, "Gives to", border=1, align="C", fill=True)
+                pdf.cell(40, 10, "Gives Amount", border=1, align="C", fill=True)
+                #pdf.cell(40, 10, "Data", border=1)
+                pdf.ln()
+
+                pdf.set_font("helvetica", size=12)
+                for user, details in user_list.items():
+                    #print('User! ', user)
+                    #print('details! ', details)
+                    for i, user_name in enumerate(details["users"]):
+                        #amounts = ''
+                        pdf.cell(50, 10, user_name, border=1, align="C", fill=True)
+                        pdf.cell(50, 10, str(round(details["owed"][user_name], 2)), border=1, align="C", fill=True)
+                        pdf.cell(50, 10, ', '.join(details["owing"][user_name].keys()), border=1, align="C", fill=True)
+                        if details["owing"][user_name].values() != []:
+                            pdf.cell(40, 10, ', '.join([str(round(x,2)) for x in details["owing"][user_name].values()]), border=1, align="C", fill=True)
+                        else:
+                            pdf.cell(40, 10, "None", border=1, align="C", fill=True)
+                        pdf.ln()
+
+                pdf.output("OwingTable.pdf")
+                bot.send_document(chat_id, open("OwingTable.pdf", "rb"))
+                print("PDF table created successfully.")
+
+            else:
+                message = "Looks like you have not entered any data yet. Please enter some data and then try creating a pdf."
+                bot.send_message(chat_id, message)
+
+                display_text = ""
+                commands = helper.getCommands()
+                for (
+                c
+                ) in (
+                    commands
+                ):  # generate help text out of the commands dictionary defined at the top
+                    display_text += "/" + c + ": "
+                    display_text += commands[c] + "\n"
+                bot.send_message(chat_id, "Please select a menu option from below:")
+                bot.send_message(chat_id, display_text)
