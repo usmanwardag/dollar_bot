@@ -16,6 +16,7 @@ def viewOverallBudget(chat_id, bot):
     
     _, ax = plt.subplots()
     ax.pie(category_budget.values(), labels=category_budget.keys(), autopct='%1.1f%%')
+    ax.set_title("Budget split")
     random_time = time.time()
     img_name = str(random_time)+".png"
     plt.savefig(img_name)
@@ -33,6 +34,7 @@ def viewSpendWise(chat_id, bot):
         return
     _, ax = plt.subplots()
     ax.pie(category_spend.values(), labels=category_spend.keys(), autopct='%1.1f%%')
+    ax.set_title("Category-wise spend")
     random_time = time.time()
     img_name = str(random_time)+".png"
     plt.savefig(img_name)
@@ -74,8 +76,26 @@ def viewRemaining(chat_id, bot):
         bottom += weight_count
 
     ax.set_title("Category-wise budget consumed")
+    plt.xlabel("Categories")
+    plt.ylabel("Percentage")
     ax.legend(loc="upper right")
 
+    random_time = time.time()
+    img_name = str(random_time)+".png"
+    plt.savefig(img_name)
+    bot.send_photo(chat_id, photo=open(img_name, 'rb'), reply_markup=types.ReplyKeyboardRemove())
+
+def viewHistory(chat_id, bot):
+    if not helper.getUserHistory(chat_id):
+        bot.send_message(chat_id, "No history available", reply_markup=types.ReplyKeyboardRemove())
+        return
+    
+    cat_spend_dict = helper.getUserHistoryDateExpense(chat_id)
+
+    plt.plot(cat_spend_dict.keys(), cat_spend_dict.values(), marker='o')
+    plt.title("Time-series of expenses")
+    plt.xlabel("Time")
+    plt.ylabel("Expense")
     random_time = time.time()
     img_name = str(random_time)+".png"
     plt.savefig(img_name)

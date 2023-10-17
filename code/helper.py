@@ -24,7 +24,7 @@ budget_types = {"overall": "Overall Budget", "category": "Category-Wise Budget"}
 
 data_format = {"data": [], "budget": {"overall": None, "category": None}}
 
-analytics_options = {"overall": "Overall budget split", "spend": "Split of current spend", "remaining": "Remaining value"}
+analytics_options = {"overall": "Overall budget split", "spend": "Split of current spend", "remaining": "Remaining value", "history": "Time series graph of spend history"}
 
 # set of implemented commands and their description
 commands = {
@@ -119,6 +119,13 @@ def getUserHistoryByCategory(chat_id, category):
             previous_expenses.append(record)
     return previous_expenses
 
+def getUserHistoryDateExpense(chat_id):
+    data = getUserHistory(chat_id)
+    cat_spend_dict = {}
+    for record in data:
+        split_vals = record.split(",")
+        cat_spend_dict[split_vals[0]] = split_vals[2]
+    return cat_spend_dict
 
 def getUserData(chat_id):
     user_list = read_json()
@@ -140,7 +147,7 @@ def createNewUserRecord():
 
 def getOverallBudget(chatId):
     data = getUserData(chatId)
-    if data is None:
+    if data is None or data == {}:
         return None
     return data["budget"]["overall"]
 
