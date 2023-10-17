@@ -5,7 +5,7 @@ import get_analysis
 
 def run(message, bot):
     """
-    run(message, bot): This is the main function used to implement the budget feature.
+    run(message, bot): This is the main function used to implement the analytics feature.
     It pop ups a menu on the bot asking the user to choose to view analytics
     after which control is given to post_operation_selection(message, bot) for further proccessing.
     It takes 2 arguments for processing - message which is the message from the user, and bot which is the

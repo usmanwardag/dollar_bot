@@ -5,7 +5,6 @@ from telebot import types
 
 # === Documentation of estimate.py ===
 
-
 def run(message, bot):
     """
     run(message, bot): This is the main function used to implement the estimate feature.
@@ -24,12 +23,10 @@ def run(message, bot):
         markup.row_width = 2
         for mode in helper.getSpendEstimateOptions():
             markup.add(mode)
-        # markup.add('Day', 'Month')
         msg = bot.reply_to(
             message, "Please select the period to estimate", reply_markup=markup
         )
         bot.register_next_step_handler(msg, estimate_total, bot)
-
 
 def estimate_total(message, bot):
     """
@@ -67,7 +64,6 @@ def estimate_total(message, bot):
             # query all that contains today's date
         # query all that contains all history
         queryResult = [value for index, value in enumerate(history)]
-
         total_text = calculate_estimate(queryResult, days_to_estimate)
 
         spending_text = ""
@@ -83,7 +79,6 @@ def estimate_total(message, bot):
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, str(e))
-
 
 def calculate_estimate(queryResult, days_to_estimate):
     """
