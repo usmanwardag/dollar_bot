@@ -289,6 +289,23 @@ def updateBudgetCategory(chatId, category):
     user_list[str(chatId)]["budget"]["category"][category] = str(0)
     write_json(user_list)
 
+def getAvailableCategories(history):
+    available_categories = set()
+    for record in history:
+        available_categories.add(record.split(',')[1])
+    return available_categories
+
+def getCategoryWiseSpendings(available_categories, history):
+    category_wise_history = {}
+    for cat in available_categories:
+        for record in history:
+            if cat in record:
+                if cat in category_wise_history.keys():
+                    category_wise_history[cat].append(record)
+                else:
+                    category_wise_history[cat] = [record]
+    return category_wise_history
+
 def getSpendCategories():
     """
     getSpendCategories(): This functions returns the spend categories used in the bot. These are defined the same file.
