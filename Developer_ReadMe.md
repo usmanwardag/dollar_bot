@@ -13,8 +13,24 @@
   </ol>
 </details>
 
-## Function Documentation
+## Code Documentation by Functionality
 
+For a detailed explanation of the code, follow the links below:
+
+<ol>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/code.md">Main Code File</a></li>
+    <b> Features: </b>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/add.md">Add</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/budget_delete.md">Budget Delete</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/budget_update.md">Budget Update</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/budget_view.md">Budget View</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/delete.md">Delete</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/display.md">Display</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/estimate.md">Estimate</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/graphing.md">Graphing</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/helper.md">Helper</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/history.md">History</a></li>
+  </ol>
 
 
 ## Testing
@@ -39,10 +55,6 @@ coverage report
 
 This project is licensed under the terms of the MIT license. Please check [License](https://github.com/usmanwardag/dollar_bot/blob/main/LICENSE) for more details.
 
-
-## Code Documentation
-
-Checkout the [docs](https://github.com/aditikilledar/dollar_bot_SE23/tree/main/docs) for a detailed explanation of each functionality and the expected working along with code file location.
 
 ## How to Contribute
 
