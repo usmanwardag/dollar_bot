@@ -100,7 +100,7 @@ def faq(m):
          '"How can I add an epxense?" \n'
          ">> Type /add, then select a category to type the expense. \n\n"
          '"Can I see history of my expenses?" \n'
-         ">> Yes! Use /display to get a graphical display, or /history to view detailed summary.\n\n"
+         ">> Yes! Use /analytics to get a graphical display, or /history to view detailed summary.\n\n"
          '"I added an incorrect expense. How can I edit it?"\n'
          ">> Use /edit command. \n\n"
          '"Can I check if my expenses have exceeded budget?"\n'
