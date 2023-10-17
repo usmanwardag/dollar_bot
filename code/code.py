@@ -13,6 +13,7 @@ import delete
 import add
 import add_category
 import delete_expense
+import send_mail
 import budget
 import csvfile
 import add_user
@@ -265,6 +266,10 @@ def command_delete(message):
 @bot.message_handler(commands=["budget"])
 def command_budget(message):
     budget.run(message, bot)
+
+@bot.message_handler(commands=["send_mail"])
+def command_send_mail(message):
+    send_mail.run(message, bot)
 
 
 # not used
