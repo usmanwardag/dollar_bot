@@ -12,9 +12,11 @@ def viewOverallBudget(chat_id, bot):
         bot.send_message(chat_id, "No category budget available", reply_markup=types.ReplyKeyboardRemove())
         return
     category_budget = {}
-    for cat in helper.spend_categories:
+    for cat in helper.getCategoryBudget(chat_id):
         if helper.isCategoryBudgetByCategoryAvailable(chat_id, cat):
-            category_budget[cat] = helper.getCategoryBudgetByCategory(chat_id, cat)
+            cat_budget = helper.getCategoryBudgetByCategory(chat_id,cat)
+            if cat_budget != '0':
+                category_budget[cat] = cat_budget
     
     graphing.overall_split(category_budget)
     bot.send_photo(chat_id, photo=open("overall_split.png", 'rb'), reply_markup=types.ReplyKeyboardRemove())
@@ -22,7 +24,7 @@ def viewOverallBudget(chat_id, bot):
 
 def viewSpendWise(chat_id, bot):
     category_spend = {}
-    for cat in helper.spend_categories:
+    for cat in helper.getCategoryBudget(chat_id):
         spend = helper.calculate_total_spendings_for_cateogory_chat_id(chat_id,cat)
         if spend != 0:
             category_spend[cat] = spend

@@ -197,11 +197,18 @@ def post_category_amount_input(message, bot, category):
         if user_list[str(chat_id)]["budget"]["category"] is None:
             user_list[str(chat_id)]["budget"]["category"] = {}
         user_list[str(chat_id)]["budget"]["category"][category] = amount_value
-        if(user_list[str(chat_id)]["budget"]["overall"]):
-            if round(float(user_list[str(chat_id)]["budget"]["category"]["uncategorized"]) - float(amount_value),2) > 0:
-                user_list[str(chat_id)]["budget"]["category"]["uncategorized"] = str(round(float(user_list[str(chat_id)]["budget"]["category"]["uncategorized"]) - float(amount_value),2))
-            else:
-                user_list[str(chat_id)]["budget"]["category"]["uncategorized"] = str(0)
+        message = bot.send_message(
+            chat_id, "Budget for " + category + " is now: $" + amount_value
+        )
+        if helper.isCategoryBudgetByCategoryAvailable(chat_id, category):
+                currentBudget = helper.getCategoryBudgetByCategory(chat_id, category)
+                amount_value = str(float(amount_value) - float(currentBudget))
+        if(user_list[str(chat_id)]["budget"]["overall"]) and user_list[str(chat_id)]["budget"]["overall"] != '0':
+            if 'uncategorized' in user_list[str(chat_id)]["budget"]["category"].keys():
+                if round(float(user_list[str(chat_id)]["budget"]["category"]["uncategorized"]) - float(amount_value),2) > 0:
+                    user_list[str(chat_id)]["budget"]["category"]["uncategorized"] = str(round(float(user_list[str(chat_id)]["budget"]["category"]["uncategorized"]) - float(amount_value),2))
+                else:
+                    user_list[str(chat_id)]["budget"]["category"]["uncategorized"] = str(0)
             helper.write_json(user_list)
             total_budget = 0
             for c in helper.getCategoryBudget(chat_id).values():
@@ -211,9 +218,6 @@ def post_category_amount_input(message, bot, category):
         else:
             user_list[str(chat_id)]["budget"]["overall"] = amount_value
         helper.write_json(user_list)
-        message = bot.send_message(
-            chat_id, "Budget for " + category + " is now: $" + amount_value
-        )
         budget_view.display_overall_budget(message, bot)
         print(user_list)
         post_category_add(message, bot)
