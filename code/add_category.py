@@ -41,6 +41,9 @@ def post_append_spend(message, bot):
 
     else:
         helper.spend_categories.append(selected_category)
+        user_list = helper.read_json()
+        user_list[str(chat_id)]["budget"]["category"][selected_category] = '0'
+        helper.write_json(user_list)
         for c in helper.getSpendCategories():
             markup.add(c)
         bot.send_message(
