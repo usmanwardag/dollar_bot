@@ -13,7 +13,9 @@ import delete
 import add
 import add_category
 import delete_expense
+import send_mail
 import budget
+import csvfile
 import add_user
 import delete_user
 from datetime import datetime
@@ -123,12 +125,9 @@ def start_and_menu_command(m):
     user_list = helper.read_json()
     chat_id = m.chat.id
     print(user_list)
-    if (str(chat_id) in user_list.keys()) and ("users" in user_list[str(chat_id)].keys()):
-        user_list[str(chat_id)]["users"].insert(0,m.from_user.first_name)
-        user_list[str(chat_id)]["owed"][m.from_user.first_name] = 0
-        user_list[str(chat_id)]["owing"][m.from_user.first_name] = {}
-    else:
-        user_list[str(chat_id)] = {"users" : [m.from_user.first_name],"owed": {m.from_user.first_name: 0},"owing": {m.from_user.first_name: {}}}
+    if str(chat_id) not in user_list:
+        user_list[str(chat_id)] = helper.createNewUserRecord(m)
+
 
 
     # print('receieved start or menu command.')
@@ -195,6 +194,15 @@ def command_pdf(message):
     pdf.run(message, bot)
 
 
+@bot.message_handler(commands=["csv"])
+def command_csv(message):
+    """
+    command_history(message): Takes 1 argument message which contains the message from
+    the user along with the chat ID of the user chat. It then calls csv.py to run to execute
+    the add functionality. Commands used to run this: commands=['csv']
+    """
+    csvfile.run(message, bot)
+
 # function to fetch expenditure history of the user
 @bot.message_handler(commands=["history"])
 def command_history(message):
@@ -258,6 +266,10 @@ def command_delete(message):
 @bot.message_handler(commands=["budget"])
 def command_budget(message):
     budget.run(message, bot)
+
+@bot.message_handler(commands=["send_mail"])
+def command_send_mail(message):
+    send_mail.run(message, bot)
 
 
 # not used
