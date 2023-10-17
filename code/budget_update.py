@@ -5,14 +5,12 @@ from telebot import types
 
 # === Documentation of budget_update.py ===
 
-
 def run(message, bot):
     """
     run(message, bot): This is the main function used to implement the budget add/update features.
     It takes 2 arguments for processing - message which is the message from the user, and bot which
     is the telegram bot object from the main code.py function.
     """
-    chat_id = message.chat.id
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     options = helper.getBudgetTypes()
     markup.row_width = 2
@@ -20,7 +18,6 @@ def run(message, bot):
         markup.add(c)
     msg = bot.reply_to(message, "Select Budget Type", reply_markup=markup)
     bot.register_next_step_handler(msg, post_type_selection, bot)
-
 
 def post_type_selection(message, bot):
     """
@@ -45,7 +42,6 @@ def post_type_selection(message, bot):
     except Exception as e:
         helper.throw_exception(e, message, bot, logging)
 
-
 def update_overall_budget(chat_id, bot):
     """
     update_overall_budget(message, bot): It takes 2 arguments for processing - message which is the
@@ -64,7 +60,6 @@ def update_overall_budget(chat_id, bot):
             chat_id, "How much is your monthly budget? \n(Enter numeric values only)"
         )
     bot.register_next_step_handler(message, post_overall_amount_input, bot)
-
 
 def post_overall_amount_input(message, bot):
     """
@@ -178,8 +173,6 @@ def add_new_category(message,bot):
     msg = bot.reply_to(message, "Select Category", reply_markup=markup)
     bot.register_next_step_handler(msg, post_category_selection, bot)
 
-
-
 def post_category_amount_input(message, bot, category):
     """
     post_category_amount_input(message, bot, category): It takes 2 arguments for
@@ -241,7 +234,6 @@ def post_category_add(message, bot):
         markup.add(c)
     msg = bot.reply_to(message, "Select Option", reply_markup=markup)
     bot.register_next_step_handler(msg, post_option_selection, bot)
-
 
 def post_option_selection(message, bot):
     """

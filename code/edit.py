@@ -5,7 +5,6 @@ from datetime import datetime
 
 # === Documentation of edit.py ===
 
-
 def run(m, bot):
     """
     run(message, bot): This is the main function used to implement the delete feature.
@@ -29,7 +28,6 @@ def run(m, bot):
     info = bot.reply_to(m, "Select expense to be edited:", reply_markup=markup)
     bot.register_next_step_handler(info, select_category_to_be_updated, bot)
 
-
 def select_category_to_be_updated(m, bot):
     info = m.text
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
@@ -41,9 +39,7 @@ def select_category_to_be_updated(m, bot):
     updated = []
     bot.register_next_step_handler(choice, enter_updated_data, bot, selected_data, updated)
 
-
 def enter_updated_data(m, bot, selected_data, updated):
-
     choice1 = "" if m.text is None else m.text
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = 2
@@ -51,7 +47,6 @@ def enter_updated_data(m, bot, selected_data, updated):
         markup.add(cat)
 
     if "Date" in choice1:
-
         calendar, step = DetailedTelegramCalendar().build()
         bot.send_message(m.chat.id, f"Select {LSTEP[step]}", reply_markup=calendar)
 
@@ -67,15 +62,12 @@ def enter_updated_data(m, bot, selected_data, updated):
                     reply_markup=key,
                 )
             elif result:
-
                 edit_date(bot, selected_data, result, c, updated)
-
                 bot.edit_message_text(
                     f"Date is updated: {result}",
                     c.message.chat.id,
                     c.message.message_id,
                 )
-            
 
     if "Category" in choice1:
         new_cat = bot.reply_to(m, "Please select the new category", reply_markup=markup)
@@ -97,7 +89,6 @@ def update_different_category(m, bot, selected_data, updated):
                 markup.add(c.strip())
         choice = bot.reply_to(m, "What do you want to update?", reply_markup=markup)
         bot.register_next_step_handler(choice, enter_updated_data, bot, selected_data, updated)
-
 
 def edit_date(bot, selected_data, result, c, updated):
     """
@@ -135,7 +126,6 @@ def edit_date(bot, selected_data, result, c, updated):
     resp = bot.send_message(m.chat.id, "Do you want to update another category in this expense?(Y/N)")
     bot.register_next_step_handler(resp, update_different_category, bot, selected_data ,updated)
 
-
 def edit_cat(m, bot, selected_data, updated):
     """
     def edit_cat(m, bot): It takes 2 arguments for processing - message which is the message
@@ -168,7 +158,6 @@ def edit_cat(m, bot, selected_data, updated):
         return
     resp = bot.send_message(m.chat.id, "Do you want to update another category in this expense?(Y/N)")
     bot.register_next_step_handler(resp, update_different_category, bot, selected_data, updated)
-
 
 def edit_cost(m, bot, selected_data, updated):
     """

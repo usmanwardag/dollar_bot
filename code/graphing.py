@@ -1,15 +1,10 @@
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
-import helper
-import logging
-from telebot import types
-import time
 
 matplotlib.use("Agg")
 
 # === Documentation of graphing.py ===
-
 
 def viewBudget(data):
     sorted_data = {}
@@ -25,7 +20,6 @@ def viewBudget(data):
     plt.savefig("budget.png", bbox_inches="tight")
     plt.close()
 
-
 def addlabels(x, y):
     """
     addlabels(x, y): This function is used to add the labels to the graph.
@@ -33,7 +27,6 @@ def addlabels(x, y):
     """
     for i in range(len(x)):
         plt.text(i, y[i] // 2, y[i], ha="center")
-
 
 def visualize(total_text, monthly_budget):
     """
@@ -87,7 +80,6 @@ def overall_split(category_budget):
     _, ax = plt.subplots()
     ax.pie(category_budget.values(), labels=category_budget.keys(), autopct='%1.1f%%')
     ax.set_title("Budget split")
-    random_time = time.time()
     img_name = "overall_split.png"
     plt.savefig(img_name)
     plt.close()
@@ -96,14 +88,12 @@ def spend_wise_split(category_spend):
     _, ax = plt.subplots()
     ax.pie(category_spend.values(), labels=category_spend.keys(), autopct='%1.1f%%')
     ax.set_title("Category-wise spend")
-    random_time = time.time()
     img_name = "spend_wise.png"
     plt.savefig(img_name)
     plt.close()
 
 def remaining(category_spend_percent):
     labels = tuple(category_spend_percent.keys())
-
     remaining_val_list = [100 - x for x in list(category_spend_percent.values())]
 
     weight_counts = {
@@ -111,11 +101,7 @@ def remaining(category_spend_percent):
         "Remaining": remaining_val_list,
     }
     width = 0.5
-
     _, ax = plt.subplots()
-    # simply impossible to submit anything other than an np ndarray here
-    # matplotlib simply fails to recognize shape of any other "array-like"
-    #object
     bottom = np.zeros(len(list(category_spend_percent.values())))
 
     for boolean, weight_count in weight_counts.items():
@@ -133,7 +119,6 @@ def remaining(category_spend_percent):
     plt.close()
 
 def time_series(cat_spend_dict):
-    _, ax = plt.subplots()
     plt.plot(cat_spend_dict.keys(), cat_spend_dict.values(), marker='o')
     plt.title("Time-series of expenses")
     plt.xlabel("Time")

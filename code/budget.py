@@ -7,7 +7,6 @@ from telebot import types
 
 # === Documentation of budget.py ===
 
-
 def run(message, bot):
     """
     run(message, bot): This is the main function used to implement the budget feature.
@@ -23,7 +22,6 @@ def run(message, bot):
         markup.add(c)
     msg = bot.reply_to(message, "Select Operation", reply_markup=markup)
     bot.register_next_step_handler(msg, post_operation_selection, bot)
-
 
 def post_operation_selection(message, bot):
     """
@@ -48,5 +46,4 @@ def post_operation_selection(message, bot):
         elif op == options["delete"]:
             budget_delete.run(message, bot)
     except Exception as e:
-        # print("hit exception")
         helper.throw_exception(e, message, bot, logging)

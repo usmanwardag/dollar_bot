@@ -1,10 +1,6 @@
 import helper
-import logging
 import graphing
 from telebot import types
-import matplotlib.pyplot as plt
-import time
-import numpy as np
 import os
 
 def viewOverallBudget(chat_id, bot):
@@ -17,7 +13,6 @@ def viewOverallBudget(chat_id, bot):
             cat_budget = helper.getCategoryBudgetByCategory(chat_id,cat)
             if cat_budget != '0':
                 category_budget[cat] = cat_budget
-    
     graphing.overall_split(category_budget)
     bot.send_photo(chat_id, photo=open("overall_split.png", 'rb'), reply_markup=types.ReplyKeyboardRemove())
     os.remove("overall_split.png")
@@ -53,7 +48,7 @@ def viewHistory(chat_id, bot):
     if not helper.getUserHistory(chat_id):
         bot.send_message(chat_id, "No history available", reply_markup=types.ReplyKeyboardRemove())
         return
-    
+
     cat_spend_dict = helper.getUserHistoryDateExpense(chat_id)
 
     graphing.time_series(cat_spend_dict)
