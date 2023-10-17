@@ -1,16 +1,15 @@
-# average expenses by max no. of days between expenes, extrapolate to one month
-# minimum 2 expenses in category to predict category wise
-# minimum 2 expenses overall to predict overall budget
-# factor in savings after extrapolation
-
 import time
 import helper
 import logging
-from telebot import types
 from datetime import datetime
 
 # === Documentation of predict.py ===
-
+"""
+average expenses by max no. of days between expenes, extrapolate to one month
+minimum 2 expenses in category to predict category wise
+minimum 2 expenses overall to predict overall budget
+factor in savings after extrapolation
+"""
 
 def run(message, bot):
     """
@@ -27,7 +26,6 @@ def run(message, bot):
         )
     else:
         predict_total(message,bot)
-
 
 def predict_total(message, bot):
     """
@@ -47,7 +45,6 @@ def predict_total(message, bot):
         # show the bot "typing" (max. 5 secs)
         bot.send_chat_action(chat_id, "typing")
         time.sleep(0.5)
-        budget = helper.getOverallBudget(chat_id)
         category_spendings = {}
         for category in available_categories:
             category_spendings[category] = predict_category_spending(category_wise_history[category])
@@ -58,7 +55,6 @@ def predict_total(message, bot):
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, str(e))
-
 
 def predict_category_spending(category_history):
     """
@@ -95,4 +91,3 @@ def predict_overall_spending(chat_id, category_wise_spending):
         history = helper.getUserHistory(chat_id)
         overall_spending = predict_category_spending(history)
         return overall_spending
-
