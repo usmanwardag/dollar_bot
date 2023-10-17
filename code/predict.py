@@ -7,6 +7,7 @@ import time
 import helper
 import logging
 from telebot import types
+from datetime import datetime
 
 # === Documentation of predict.py ===
 
@@ -25,7 +26,7 @@ def run(message, bot):
             chat_id, "Sorry, you do not have sufficient spending records to predict a future budget"
         )
     else:
-        bot.register_next_step_handler(message, predict_total, bot)
+        predict_total(message,bot)
 
 
 def predict_total(message, bot):
@@ -39,27 +40,41 @@ def predict_total(message, bot):
     """
     try:
         chat_id = message.chat.id
-
         history = helper.getUserHistory(chat_id)
-
+        available_categories = helper.getAvailableCategories(history)
+        category_wise_history = helper.getCategoryWiseSpendings(available_categories,history)
         bot.send_message(chat_id, "Hold on! Calculating...")
         # show the bot "typing" (max. 5 secs)
         bot.send_chat_action(chat_id, "typing")
         time.sleep(0.5)
         budget = helper.getOverallBudget(chat_id)
+        category_spendings = {}
+        for category in available_categories:
+            category_spendings[category] = predict_category_spending(category_wise_history[category])
 
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, str(e))
 
 
-def predict_category_spending(history):
+def predict_category_spending(category_history):
     """
-    predict_category_spending(history): Takes 1 arguments for processing - history
+    predict_category_spending(history): Takes 1 arguments for processing - category_history
     which is the record of all expenses from a category. It parses the history
     and turns it into a form suitable for display on the UI by the user.
     """
-    #todo
+    if len(category_history) < 2:
+        return 'Not enough records to predict spendings'
+    total_spent = 0
+    recorded_days = []
+    for record in category_history:
+        total_spent += float(record.split(',')[2])
+        date = datetime.strptime(record.split(',')[0].split(' ')[0], helper.getDateFormat())
+        recorded_days.append(date)
+    day_difference = int((recorded_days[0] - recorded_days[-1]).days) + 1
+    avg_per_day = total_spent/day_difference
+    predicted_spending = avg_per_day * 30
+    return round(predicted_spending,2)
 
 def predict_overall_spending(history):
     """
