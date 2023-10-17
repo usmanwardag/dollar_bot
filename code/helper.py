@@ -21,7 +21,7 @@ budget_options = {"add":"Add","update": "Update", "view": "View", "delete": "Del
 
 budget_types = {"overall": "Overall Budget", "category": "Category-Wise Budget"}
 
-data_format = {"users":[],"owed":{},"owing":{},"data": [], 
+data_format = {"users":[],"owed":{},"owing":{},"data": [],"csv_data":[], 
     "budget": {"overall": '0', "category": {"Food": '0',
                                             "Groceries": '0',
                                             "Utilities": '0',
@@ -35,6 +35,7 @@ data_format = {"users":[],"owed":{},"owing":{},"data": [],
 commands = {
     "help": "Display the list of commands.",
     "pdf": "Save history as PDF.",
+    "csv": "Save history as a cv file.",
     "add_user": "Add users to expense tracker",
     "delete_user":"Delete user from the registered users",
     "add": "This option is for adding your expenses \
@@ -139,9 +140,10 @@ def throw_exception(e, message, bot, logging):
 
 def createNewUserRecord(message):
     user_lst = data_format
-    user_lst["users"].insert(0,message.from_user.first_name)
-    user_lst["owed"][message.from_user.first_name] = 0
-    user_lst["owing"][message.from_user.first_name] = {}
+    if len(user_lst["users"]) == 0:
+        user_lst["users"].insert(0,message.from_user.first_name)
+        user_lst["owed"][message.from_user.first_name] = 0
+        user_lst["owing"][message.from_user.first_name] = {}
     return user_lst
 
 

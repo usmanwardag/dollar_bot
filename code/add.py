@@ -62,11 +62,11 @@ def user_choice(message, bot,owed_by, user_list,paid_by):
     if Choice == "Y" or Choice == 'y':
         select_user(message,bot,owed_by,user_list,paid_by)
     elif Choice == "N" or Choice == 'n':
-        post_append_spend(message,bot,owed_by,paid_by)
+        post_append_spend(message,bot,owed_by,user_list,paid_by)
 
 
 
-def post_append_spend(message, bot,owed_by,paid_by):
+def post_append_spend(message, bot,owed_by,user_list,paid_by):
     chat_id = message.chat.id
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = 2
@@ -74,10 +74,10 @@ def post_append_spend(message, bot,owed_by,paid_by):
     for c in helper.getSpendCategories():
             markup.add(c)
     msg = bot.reply_to(message, "Select Category", reply_markup=markup)
-    bot.register_next_step_handler(msg, post_category_selection, bot,owed_by,paid_by)
+    bot.register_next_step_handler(msg, post_category_selection, bot,owed_by,paid_by,user_list)
 
 
-def post_category_selection(message, bot,owed_by,paid_by):
+def post_category_selection(message, bot,owed_by,paid_by,user_list):
     """
     post_category_selection(message, bot): It takes 2 arguments for processing -
     message which is the message from the user, and bot which is the telegram bot object
@@ -104,7 +104,7 @@ def post_category_selection(message, bot,owed_by,paid_by):
             ),
         )
         bot.register_next_step_handler(
-            message, post_amount_input, bot, selected_category,owed_by,paid_by
+            message, post_amount_input, bot, selected_category,owed_by,paid_by,user_list
         )
     except Exception as e:
         logging.exception(str(e))
@@ -122,7 +122,7 @@ def post_category_selection(message, bot,owed_by,paid_by):
         bot.send_message(chat_id, display_text)
 
 
-def post_amount_input(message, bot, selected_category,owed_by,paid_by):
+def post_amount_input(message, bot, selected_category,owed_by,paid_by,user_list):
     """
     post_amount_input(message, bot): It takes 2 arguments for processing -
     message which is the message from the user, and bot which is the telegram bot
@@ -149,7 +149,7 @@ def post_amount_input(message, bot, selected_category,owed_by,paid_by):
 
         helper.write_json(
             add_user_record(
-                message,chat_id, "{},{},{}".format(date_str, category_str, amount_str),amount_value,owed_by,paid_by
+                user_list,message,chat_id, "{},{},{}".format(date_str, category_str, amount_str),amount_value,owed_by,paid_by
             )
         )
 
@@ -164,13 +164,12 @@ def post_amount_input(message, bot, selected_category,owed_by,paid_by):
         bot.reply_to(message, "Oh no. " + str(e))
 
 
-def add_user_record(message,chat_id, record_to_be_added,amount_value,owed_by, paid_by):
+def add_user_record(user_list,message,chat_id, record_to_be_added,amount_value,owed_by, paid_by):
     """
     add_user_record(chat_id, record_to_be_added): Takes 2 arguments -
     chat_id or the chat_id of the user's chat, and record_to_be_added which
     is the expense record to be added to the store. It then stores this expense record in the store.
     """
-    user_list = helper.read_json()
     if str(chat_id) not in user_list:
         user_list[str(chat_id)] = helper.createNewUserRecord(message)
     owed_amount = float(amount_value)/len(set(owed_by))
@@ -186,6 +185,9 @@ def add_user_record(message,chat_id, record_to_be_added,amount_value,owed_by, pa
             user_list[str(chat_id)]["owing"][user][paid_by] += owed_amount
         else:
             user_list[str(chat_id)]["owing"][user][paid_by] = owed_amount
+    record_to_be_added+=",{},{}".format(paid_by,' & '.join(owed_by))
+    user_list[str(chat_id)]["csv_data"].append(record_to_be_added)
+    print("####",user_list)
     return user_list
 
 

@@ -14,6 +14,7 @@ import add
 import add_category
 import delete_expense
 import budget
+import csvfile
 import add_user
 import delete_user
 from datetime import datetime
@@ -191,6 +192,15 @@ def command_pdf(message):
     """
     pdf.run(message, bot)
 
+
+@bot.message_handler(commands=["csv"])
+def command_csv(message):
+    """
+    command_history(message): Takes 1 argument message which contains the message from
+    the user along with the chat ID of the user chat. It then calls csv.py to run to execute
+    the add functionality. Commands used to run this: commands=['csv']
+    """
+    csvfile.run(message, bot)
 
 # function to fetch expenditure history of the user
 @bot.message_handler(commands=["history"])
