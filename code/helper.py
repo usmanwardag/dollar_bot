@@ -43,6 +43,7 @@ commands = {
     "history": "This option is to give you the detailed summary of your expenditure with Date, time ,category and amount. A quick lookup into your spendings",
     "delete": "This option is to Clear/Erase all your records",
     "delete_expense": "This option is to Clear/Erase individual record from expense history records.",
+    "send_mail": "This option is to send mail of calculate owings",
     "edit": "This option helps you to go back and correct/update the missing details \
         \n 1. It will give you the list of your expenses you wish to edit \
         \n 2. It will let you change the specific field based on your requirements like amount/date/category",
