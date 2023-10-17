@@ -51,7 +51,10 @@ def predict_total(message, bot):
         category_spendings = {}
         for category in available_categories:
             category_spendings[category] = predict_category_spending(category_wise_history[category])
-
+        overall_spending = predict_overall_spending(chat_id,category_spendings)
+        bot.send_message(chat_id, "Your overall budget for next month can be: ${}".format(overall_spending))
+        category_budgets = helper.getFormattedPredictions(category_spendings)
+        bot.send_message(chat_id,category_budgets)
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, str(e))
@@ -71,15 +74,25 @@ def predict_category_spending(category_history):
         total_spent += float(record.split(',')[2])
         date = datetime.strptime(record.split(',')[0].split(' ')[0], helper.getDateFormat())
         recorded_days.append(date)
-    day_difference = int((recorded_days[0] - recorded_days[-1]).days) + 1
+    day_difference = abs(int((recorded_days[0] - recorded_days[-1]).days)) + 1
     avg_per_day = total_spent/day_difference
     predicted_spending = avg_per_day * 30
     return round(predicted_spending,2)
 
-def predict_overall_spending(history):
+def predict_overall_spending(chat_id, category_wise_spending):
     """
-    predict_overall_spending(history): Takes 1 arguments for processing - history
-    which is the record of all expenses of the user. It parses the history
+    predict_overall_spending(chat_id, category_wise_spending): Takes 2 arguments for processing
+    chatId and category_wise_spending. It parses the history
     and turns it into a form suitable for display on the UI by the user.
     """
-    #todo
+    overall_spending = 0
+    for category in category_wise_spending.keys():
+        if type(category_wise_spending[category]) == float:
+            overall_spending += category_wise_spending[category]
+    if overall_spending != 0:
+        return overall_spending
+    else:
+        history = helper.getUserHistory(chat_id)
+        overall_spending = predict_category_spending(history)
+        return overall_spending
+

@@ -306,6 +306,18 @@ def getCategoryWiseSpendings(available_categories, history):
                     category_wise_history[cat] = [record]
     return category_wise_history
 
+def getFormattedPredictions(category_predictions):
+    category_budgets = ""
+    for key,value in category_predictions.items():
+        if type(value) == float:
+            category_budgets += str(key) + ": $" + str(value) + "\n"
+        else:
+            category_budgets += str(key) + ": " + value + "\n"
+    predicted_budget = "Here are your predicted budgets"
+    predicted_budget += " for the next month \n"
+    predicted_budget += category_budgets
+    return predicted_budget
+
 def getSpendCategories():
     """
     getSpendCategories(): This functions returns the spend categories used in the bot. These are defined the same file.
