@@ -24,11 +24,11 @@ def post_operation_selection(message, bot):
         if op not in options.values():
             bot.send_message(chat_id, "Invalid", reply_markup=types.ReplyKeyboardRemove())
             raise Exception('Sorry I don\'t recognise this operation "{}"!'.format(op))
-
         if str(chat_id) not in user_list:
             # Initialize the user's data with an empty budget dictionary
-            user_list[str(chat_id)] = {"budget": {"overall": None, "category": {}}}
-
+            user_list[str(chat_id)] = helper.createNewUserRecord(message)
+        if op == options["add"]:
+            budget_update.run(message, bot)
         if op == options["update"]:
             budget_update.run(message, bot)
         elif op == options["view"]:

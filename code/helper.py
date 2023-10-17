@@ -17,16 +17,25 @@ spend_display_option = ["Day", "Month"]
 spend_estimate_option = ["Next day", "Next month"]
 update_options = {"continue": "Continue", "exit": "Exit"}
 
-budget_options = {"update": "Add/Update", "view": "View", "delete": "Delete"}
+budget_options = {"add":"Add","update": "Update", "view": "View", "delete": "Delete"}
 
 budget_types = {"overall": "Overall Budget", "category": "Category-Wise Budget"}
 
-data_format = {"data": [], "budget": {"overall": None, "category": None}}
+data_format = {"users":[],"owed":{},"owing":{},"data": [],"csv_data":[], 
+    "budget": {"overall": '0', "category": {"Food": '0',
+                                            "Groceries": '0',
+                                            "Utilities": '0',
+                                            "Transport": '0',
+                                            "Shopping": '0',
+                                            "Miscellaneous": '0'}
+                }
+}
 
 # set of implemented commands and their description
 commands = {
     "help": "Display the list of commands.",
     "pdf": "Save history as PDF.",
+    "csv": "Save history as a cv file.",
     "add_user": "Add users to expense tracker",
     "delete_user":"Delete user from the registered users",
     "add": "This option is for adding your expenses \
@@ -130,22 +139,32 @@ def throw_exception(e, message, bot, logging):
     bot.reply_to(message, "Oh no! " + str(e))
 
 
-def createNewUserRecord():
-    return data_format
+def createNewUserRecord(message):
+    user_lst = data_format
+    if len(user_lst["users"]) == 0:
+        user_lst["users"].insert(0,message.from_user.first_name)
+        user_lst["owed"][message.from_user.first_name] = 0
+        user_lst["owing"][message.from_user.first_name] = {}
+    return user_lst
 
 
 def getOverallBudget(chatId):
     data = getUserData(chatId)
     if data is None:
         return None
-    return data["budget"]["overall"]
+    if 'budget' in data.keys():
+        return data["budget"]["overall"]
+    return None
 
 
 def getCategoryBudget(chatId):
     data = getUserData(chatId)
     if data is None:
         return None
-    return data["budget"]["category"]
+    if 'budget' in data.keys():
+        return data["budget"]["category"]
+    return None
+
 
 
 def getCategoryBudgetByCategory(chatId, cat):
@@ -214,6 +233,23 @@ def calculate_total_spendings(queryResult):
         s = row.split(",")
         total = total + float(s[2])
     return total
+
+def calculate_owing(user_list,chat_id):
+    owing_dict = {}
+    users = user_list[str(chat_id)]["users"]
+    for user in users:
+        owing_dict[user] = {"owes" : [], "owing":[]}
+        for k,v in user_list[str(chat_id)]["owing"][user].items():
+            if k in owing_dict.keys():
+                owing_dict[k]["owing"].append(str(user)+' owes '+str(k)+" an amout of "+"{:.2f}".format(v))
+                owing_dict[user]["owes"].append(str(k)+' is owing from '+str(user)+" an amout of "+"{:.2f}".format(v))
+
+            else:
+                owing_dict[k] ={"owes" :[str(k)+' is owing from '+str(user)+" an amout of "+"{:.2f}".format(v)],"owing" :[str(user)+' owes '+str(k)+" an amout of "+"{:.2f}".format(v)]}
+
+    return owing_dict
+
+
 
 
 def display_remaining_category_budget(message, bot, cat):

@@ -20,7 +20,8 @@ def display_overall_budget(message, bot):
     data = helper.getOverallBudget(chat_id)
     if data is not None:
         data = str(data)  # Convert the float to a string
-    bot.send_message(chat_id, "Overall Budget: $" + data)
+    bot.send_message(chat_id, "Overall Budget: $" + str(data))
+
 
 def display_category_budget(message, bot):
     chat_id = message.chat.id
