@@ -90,6 +90,7 @@ def overall_split(category_budget):
     random_time = time.time()
     img_name = "overall_split.png"
     plt.savefig(img_name)
+    plt.close()
 
 def spend_wise_split(category_spend):
     _, ax = plt.subplots()
@@ -98,6 +99,7 @@ def spend_wise_split(category_spend):
     random_time = time.time()
     img_name = "spend_wise.png"
     plt.savefig(img_name)
+    plt.close()
 
 def remaining(category_spend_percent):
     labels = tuple(category_spend_percent.keys())
@@ -128,6 +130,7 @@ def remaining(category_spend_percent):
 
     img_name = "remaining.png"
     plt.savefig(img_name)
+    plt.close()
 
 def time_series(cat_spend_dict):
     _, ax = plt.subplots()
@@ -137,3 +140,4 @@ def time_series(cat_spend_dict):
     plt.ylabel("Expense")
     img_name = "time_series.png"
     plt.savefig(img_name)
+    plt.close()
