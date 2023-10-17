@@ -294,12 +294,12 @@ def getFormattedPredictions(category_predictions):
     predicted_budget += category_budgets
     return predicted_budget
 
+#getters
 def getSpendCategories():
     """
     getSpendCategories(): This functions returns the spend categories used in the bot. These are defined the same file.
     """
     return spend_categories
-
 
 def getSpendDisplayOptions():
     """
@@ -307,10 +307,8 @@ def getSpendDisplayOptions():
     """
     return spend_display_option
 
-
 def getSpendEstimateOptions():
     return spend_estimate_option
-
 
 def getCommands():
     """
@@ -318,13 +316,11 @@ def getCommands():
     """
     return commands
 
-
 def getDateFormat():
     """
     getCommands(): This functions returns the command options used in the bot. These are defined the same file.
     """
     return dateFormat
-
 
 def getTimeFormat():
     """
@@ -332,25 +328,20 @@ def getTimeFormat():
     """
     return timeFormat
 
-
 def getMonthFormat():
     """
     def getMonthFormat(): This functions returns the month format used in the bot.
     """
     return monthFormat
 
-
 def getChoices():
     return choices
-
 
 def getBudgetOptions():
     return budget_options
 
-
 def getBudgetTypes():
     return budget_types
-
 
 def getUpdateOptions():
     return update_options
