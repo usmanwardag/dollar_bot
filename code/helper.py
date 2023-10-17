@@ -140,7 +140,7 @@ def createNewUserRecord():
 
 def getOverallBudget(chatId):
     data = getUserData(chatId)
-    if data is None:
+    if data is None or data == {}:
         return None
     return data["budget"]["overall"]
 
@@ -173,7 +173,7 @@ def isCategoryBudgetAvailable(chatId):
 
 def isCategoryBudgetByCategoryAvailable(chatId, cat):
     data = getCategoryBudget(chatId)
-    if data is None:
+    if data is None or data == {}:
         return False
     return cat in data.keys()
 
