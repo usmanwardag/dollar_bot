@@ -41,5 +41,7 @@ def post_operation_selection(message, bot):
             get_analysis.viewSpendWise(chat_id, bot)
         elif op == options["remaining"]:
             get_analysis.viewRemaining(chat_id, bot)
+        elif op == options["history"]:
+            get_analysis.viewHistory(chat_id, bot)
     except Exception as e:
         helper.throw_exception(e, message, bot, logging)
