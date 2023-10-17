@@ -3,6 +3,7 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
+    <li><a href="#function-documentation">Function Documentation</a></li>
     <li><a href="#testing">Testing</a></li>
     <li><a href="#code-coverage">Code Coverage</a></li>
     <li><a href="#license">License</a></li>
@@ -11,6 +12,10 @@
     <li><a href="#future-roadmap">Future RoadMap</a></li>
   </ol>
 </details>
+
+## Function Documentation
+
+
 
 ## Testing
 

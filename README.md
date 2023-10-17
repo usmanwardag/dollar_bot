@@ -152,6 +152,12 @@ Here's a quick overview of how each of the commands work. Also see: Link at the 
 
 ### Budget
 
+#### Delete
+
+#### Update
+
+#### View
+
 ### Delete
 
 ### Edit
