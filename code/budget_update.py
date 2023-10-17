@@ -13,11 +13,8 @@ def run(message, bot):
     is the telegram bot object from the main code.py function.
     """
     chat_id = message.chat.id
-    if helper.isOverallBudgetAvailable(chat_id):
-        update_overall_budget(chat_id, bot)
-    elif helper.isCategoryBudgetAvailable(chat_id):
-        update_category_budget(message, bot)
-    else:
+    choice = message.text
+    if choice == "Add":
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         options = helper.getBudgetTypes()
         markup.row_width = 2
@@ -25,6 +22,19 @@ def run(message, bot):
             markup.add(c)
         msg = bot.reply_to(message, "Select Budget Type", reply_markup=markup)
         bot.register_next_step_handler(msg, post_type_selection, bot)
+    else:
+        if helper.isOverallBudgetAvailable(chat_id):
+            update_overall_budget(chat_id, bot)
+        elif helper.isCategoryBudgetAvailable(chat_id):
+            update_category_budget(message, bot)
+        else:
+            markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+            options = helper.getBudgetTypes()
+            markup.row_width = 2
+            for c in options.values():
+                markup.add(c)
+            msg = bot.reply_to(message, "Select Budget Type", reply_markup=markup)
+            bot.register_next_step_handler(msg, post_type_selection, bot)
 
 
 def post_type_selection(message, bot):
@@ -88,8 +98,12 @@ def post_overall_amount_input(message, bot):
             raise Exception("Invalid amount.")
         user_list = helper.read_json()
         if str(chat_id) not in user_list:
-            user_list[str(chat_id)] = helper.createNewUserRecord()
-        user_list[str(chat_id)]["budget"]["overall"] = amount_value
+            user_list[str(chat_id)] = helper.createNewUserRecord(message)
+        if "budget" not in user_list[str(chat_id)]:
+            user_list[str(chat_id)]["budget"] = {"overall": amount_value}
+        else:
+            user_list[str(chat_id)]["budget"]["overall"] = str(amount_value)
+
         helper.write_json(user_list)
         bot.send_message(chat_id, "Budget Updated!")
         budget_view.display_overall_budget(message, bot)
@@ -170,7 +184,7 @@ def post_category_amount_input(message, bot, category):
             raise Exception("Invalid amount.")
         user_list = helper.read_json()
         if str(chat_id) not in user_list:
-            user_list[str(chat_id)] = helper.createNewUserRecord()
+            user_list[str(chat_id)] = helper.createNewUserRecord(message)
         if user_list[str(chat_id)]["budget"]["category"] is None:
             user_list[str(chat_id)]["budget"]["category"] = {}
         user_list[str(chat_id)]["budget"]["category"][category] = amount_value

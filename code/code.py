@@ -123,12 +123,9 @@ def start_and_menu_command(m):
     user_list = helper.read_json()
     chat_id = m.chat.id
     print(user_list)
-    if (str(chat_id) in user_list.keys()) and ("users" in user_list[str(chat_id)].keys()):
-        user_list[str(chat_id)]["users"].insert(0,m.from_user.first_name)
-        user_list[str(chat_id)]["owed"][m.from_user.first_name] = 0
-        user_list[str(chat_id)]["owing"][m.from_user.first_name] = {}
-    else:
-        user_list[str(chat_id)] = {"users" : [m.from_user.first_name],"owed": {m.from_user.first_name: 0},"owing": {m.from_user.first_name: {}}}
+    if str(chat_id) not in user_list:
+        user_list[str(chat_id)] = helper.createNewUserRecord(m)
+
 
 
     # print('receieved start or menu command.')

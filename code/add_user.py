@@ -8,7 +8,7 @@ registered_users = {}
 def register_people(message, bot,user_list):
     chat_id = message.chat.id
     if str(chat_id) not in user_list:
-        user_list[str(chat_id)] = helper.createNewUserRecord()
+        user_list[str(chat_id)] = helper.createNewUserRecord(message)
     if "users" in user_list[str(chat_id)].keys():
         registered_users={chat_id : user_list[str(chat_id)]["users"]}
     else:
