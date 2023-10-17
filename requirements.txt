@@ -3,6 +3,7 @@ pytest
 jproperties
 flake8
 matplotlib
+fpdf
 coverage
 pytest-mock
 python-telegram-bot-calendar

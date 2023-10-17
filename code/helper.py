@@ -28,15 +28,16 @@ analytics_options = {"overall": "Overall budget split", "spend": "Split of curre
 
 # set of implemented commands and their description
 commands = {
+    "menu": "Display commands with their descriptions.",
     "help": "Display the list of commands.",
     "pdf": "Save history as PDF.",
     "add": "This option is for adding your expenses \
        \n 1. It will give you the list of categories to choose from. \
        \n 2. You will be prompted to enter the amount corresponding to your spending \
        \n 3.The message will be prompted to notify the addition of your expense with the amount,date, time and category ",
-    "display": "This option gives user a graphical representation(bar graph) of their expenditures \
-        \n You will get an option to choose from day or month for better analysis of the expenses.",
-    "estimate": "This option gives you the estimate of expenditure for the next day/month. It calcuates based on your recorded spendings",
+    "analytics": "This option gives user a graphical representation of their expenditures \
+        \n You will get an option to choose the type of data you want to see.",
+    "predict": "This option analyzes your recorded spendings and gives you a budget that will accommodate for them.",
     "history": "This option is to give you the detailed summary of your expenditure with Date, time ,category and amount. A quick lookup into your spendings",
     "delete": "This option is to Clear/Erase all your records",
     "edit": "This option helps you to go back and correct/update the missing details \

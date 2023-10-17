@@ -129,8 +129,7 @@ def post_expense_selection(message,bot):
             raise Exception("Spent amount has to be a non-zero number.")
 
         date_of_entry = datetime.today().strftime(
-            helper.getDateFormat() + " " + helper.getTimeFormat()
-        )
+            helper.getDateFormat())
 
         date_str, category_str, amount_str = (
             str(date_of_entry),
@@ -177,8 +176,7 @@ def post_amount_input(message, bot, selected_category):
             raise Exception("Spent amount has to be a non-zero number.")
 
         date_of_entry = datetime.today().strftime(
-            helper.getDateFormat() + " " + helper.getTimeFormat()
-        )
+            helper.getDateFormat())
 
         date_str, category_str, amount_str = (
             str(date_of_entry),

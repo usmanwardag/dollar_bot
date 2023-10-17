@@ -1,6 +1,11 @@
 import helper
 import logging
+import get_analysis
 from matplotlib import pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
+from fpdf import FPDF
+import graphing
+import os
 
 # === Documentation of pdf.py ===
 
@@ -13,8 +18,8 @@ def run(message, bot):
         helper.read_json()
         chat_id = message.chat.id
         user_history = helper.getUserHistory(chat_id)
-        message = "Alright. I just created a pdf of your expense history!"
-        bot.send_message(chat_id, message)
+        msg = "Alright. I just created a pdf of your expense history!"
+        bot.send_message(chat_id, msg)
         fig = plt.figure()
         ax = fig.add_subplot(1, 1, 1)
         top = 0.8
@@ -30,9 +35,8 @@ def run(message, bot):
             )
         for rec in user_history:
             date, category, amount = rec.split(",")
-            date, time = date.split(" ")
             print(date, category, amount)
-            rec_str = f"{amount}$ {category} expense on {date} at {time}"
+            rec_str = f"{amount}$ {category} expense on {date}"
             plt.text(
                 0,
                 top,
@@ -45,9 +49,45 @@ def run(message, bot):
             )
             top -= 0.15
         plt.axis("off")
-        plt.savefig("expense_history.pdf")
+        plt.savefig("expense_history.png")
         plt.close()
-        bot.send_document(chat_id, open("expense_history.pdf", "rb"))
+
+        if helper.isCategoryBudgetAvailable(chat_id):
+            category_budget = {}
+            for cat in helper.spend_categories:
+                if helper.isCategoryBudgetByCategoryAvailable(chat_id, cat):
+                    category_budget[cat] = helper.getCategoryBudgetByCategory(chat_id, cat)
+            graphing.overall_split(category_budget)
+
+        category_spend = {}
+        for cat in helper.spend_categories:
+            spend = helper.calculate_total_spendings_for_cateogory_chat_id(chat_id,cat)
+            if spend != 0:
+                category_spend[cat] = spend
+        if category_spend != {}:
+            graphing.spend_wise_split(category_spend)
+
+        if helper.isCategoryBudgetAvailable(chat_id):
+            category_spend_percent = {}
+            for cat in helper.spend_categories:
+                if helper.isCategoryBudgetByCategoryAvailable(chat_id, cat):
+                    percent = helper.calculateRemainingCateogryBudgetPercent(chat_id, cat)
+                    category_spend_percent[cat] = percent
+            graphing.remaining(category_spend_percent)
+
+        if helper.getUserHistory(chat_id):
+            cat_spend_dict = helper.getUserHistoryDateExpense(chat_id)
+            graphing.time_series(cat_spend_dict)
+        
+        list_of_images = ["expense_history.png","overall_split.png","spend_wise.png","remaining.png","time_series.png"]
+        pdf = FPDF()
+        pdf.add_page()
+        for image in list_of_images:
+            pdf.image(image)
+        pdf.output("expense_report.pdf", "F")
+        bot.send_document(chat_id, open("expense_report.pdf", "rb"))
+        for image in list_of_images:
+            os.remove(image)
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, "Oops!" + str(e))
