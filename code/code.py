@@ -13,6 +13,7 @@ import delete
 import add
 import budget
 import analytics
+import predict
 from datetime import datetime
 from jproperties import Properties
 
@@ -229,6 +230,13 @@ def command_analytics(message):
     """
     analytics.run(message, bot)
 
+@bot.message_handler(commands=["predict"])
+def command_predict(message):
+    """
+    command_predict(message): Take an argument message with content and chat ID. Calls predict to 
+    analyze budget and spending trends and suggest a future budget. Commands to run this commands=["predict"]
+    """
+    predict.run(message, bot)
 
 # not used
 

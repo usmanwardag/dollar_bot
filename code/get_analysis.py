@@ -29,10 +29,9 @@ def viewSpendWise(chat_id, bot):
         if spend != 0:
             category_spend[cat] = spend
 
-    if category_spend.keys() == None:
+    if category_spend == {}:
         bot.send_message(chat_id, "No category spend available", reply_markup=types.ReplyKeyboardRemove())
         return
-    
     _, ax = plt.subplots()
     ax.pie(category_spend.values(), labels=category_spend.keys(), autopct='%1.1f%%')
     ax.set_title("Category-wise spend")
@@ -45,7 +44,6 @@ def viewRemaining(chat_id, bot):
     if not helper.isCategoryBudgetAvailable(chat_id):
         bot.send_message(chat_id, "No category budget available", reply_markup=types.ReplyKeyboardRemove())
         return
-
     category_spend_percent = {}
     for cat in helper.spend_categories:
         if helper.isCategoryBudgetByCategoryAvailable(chat_id, cat):

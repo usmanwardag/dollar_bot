@@ -1,6 +1,7 @@
 import helper
 from telebot import types
 from telegram_bot_calendar import DetailedTelegramCalendar, LSTEP
+from datetime import datetime
 
 # === Documentation of edit.py ===
 
@@ -105,7 +106,7 @@ def edit_date(bot, selected_data, result, c, updated):
     edit3(m, bot):: function in the same file. It takes care of date change and edits.
     """
     user_list = helper.read_json()
-    new_date = str(result)
+    new_date = datetime.strftime(result, helper.getDateFormat())
     chat_id = c.message.chat.id
     m = c.message
     data_edit = helper.getUserHistory(chat_id)

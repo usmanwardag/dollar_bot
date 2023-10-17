@@ -167,15 +167,23 @@ def getCategoryBudgetByCategory(chatId, cat):
 
 
 def canAddBudget(chatId):
-    return (getOverallBudget(chatId) is None) and (getCategoryBudget(chatId) is None)
+    overall_budget = getOverallBudget(chatId)
+    category_budget = getCategoryBudget(chatId)
+    return (overall_budget is None and overall_budget != '0') and (category_budget is None and category_budget != {})
 
 
 def isOverallBudgetAvailable(chatId):
-    return getOverallBudget(chatId) is not None
+    overall_budget = getOverallBudget(chatId)
+    if overall_budget is not None and overall_budget != '0':
+        return True
+    return False
 
 
 def isCategoryBudgetAvailable(chatId):
-    return getCategoryBudget(chatId) is not None
+    category_budget = getCategoryBudget(chatId)
+    if category_budget is not None and category_budget != {}:
+        return True
+    return False
 
 
 def isCategoryBudgetByCategoryAvailable(chatId, cat):
@@ -187,7 +195,7 @@ def isCategoryBudgetByCategoryAvailable(chatId, cat):
 def get_uncategorized_amount(chatId, amount):
     overall_budget = float(amount)
     category_budget_data = getCategoryBudget(chatId)
-    if category_budget_data is None:
+    if category_budget_data is None or category_budget_data == {}:
         return amount
     category_budget = 0
     for c in category_budget_data.values():
@@ -287,6 +295,35 @@ def updateBudgetCategory(chatId, category):
     user_list = read_json()
     user_list[str(chatId)]["budget"]["category"][category] = str(0)
     write_json(user_list)
+
+def getAvailableCategories(history):
+    available_categories = set()
+    for record in history:
+        available_categories.add(record.split(',')[1])
+    return available_categories
+
+def getCategoryWiseSpendings(available_categories, history):
+    category_wise_history = {}
+    for cat in available_categories:
+        for record in history:
+            if cat in record:
+                if cat in category_wise_history.keys():
+                    category_wise_history[cat].append(record)
+                else:
+                    category_wise_history[cat] = [record]
+    return category_wise_history
+
+def getFormattedPredictions(category_predictions):
+    category_budgets = ""
+    for key,value in category_predictions.items():
+        if type(value) == float:
+            category_budgets += str(key) + ": $" + str(value) + "\n"
+        else:
+            category_budgets += str(key) + ": " + value + "\n"
+    predicted_budget = "Here are your predicted budgets"
+    predicted_budget += " for the next month \n"
+    predicted_budget += category_budgets
+    return predicted_budget
 
 def getSpendCategories():
     """
