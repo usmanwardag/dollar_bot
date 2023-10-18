@@ -4,7 +4,7 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#why-should-you-use-dollar-bot">Why should you use Dollar Bot?</a></li>
+    <li><a href="#why-should-you-use-dollarsplitbot">Why should you use DollarSplitBot?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
     <li><a href="#installation">Installation</a></li>
@@ -42,7 +42,7 @@
 
 <hr>
 
-## Why should you use MyDollar Bot?
+## Why should you use DollarSplitBot?
 
 Dollar Bot is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle.  
 With simple commands, this bot allows you to:
