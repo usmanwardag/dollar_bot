@@ -1,4 +1,4 @@
-# 💰 MyDollar Bot 💰
+# 💰 DollarSplitBot 💰
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
