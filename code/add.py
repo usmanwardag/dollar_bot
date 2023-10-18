@@ -35,7 +35,7 @@ def select_user(message,bot,owed_by,user_list,paid_by):
     text_m = message.text
     remaining_users = [item for item in user_list[str(chat_id)]["users"] if item not in owed_by]
     if len(remaining_users)==0:
-        post_append_spend(message,bot,owed_by,paid_by)
+        post_append_spend(message,bot,owed_by,user_list,paid_by)
     else:
         if text_m in user_list[str(chat_id)]["users"]:
             paid_by = text_m
