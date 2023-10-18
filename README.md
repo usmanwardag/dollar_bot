@@ -124,7 +124,13 @@ To run the script automatically at startup / reboot, simply add the `.run_foreve
 
 3. **SMTP Username**: The smtp_username variable should be set to your own Gmail email address from which you want to send the emails. Make sure to replace `your-email@gmail.com` with your actual Gmail email address in the code. This ensures that the emails will be sent from your specific Gmail account.
 
-4. **SMTP Password**: The `smtp_password` variable is set, you need to generate an "App Password". An App Password is a 16-character code that allows you to access your Gmail account without revealing your real password. 
+4. **SMTP Password**: The `smtp_password` variable is set, you need to generate an "App Password". An App Password is a 16-character code that allows you to access your Gmail account without revealing your real password. To generate an App Password, follow these steps:
+
+   a. Go to your Google Account settings (https://myaccount.google.com/).
+   b. In the "Security" section, under "Signing in to Google", select "App Passwords".
+   c. Select "Mail" and "Other (Custom name)" from the dropdown menus.
+   d. Click "Generate".
+   e. Google will provide you with a 16-character App Password. Use this as your `smtp_password` in your code.
 
 By customizing these settings, you can send emails from any email account using SMTP. Just ensure you are adhering to the security guidelines provided by your email provider.
 
