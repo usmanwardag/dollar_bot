@@ -152,6 +152,24 @@ coverage run -m pytest test/
 coverage report
 ```
 
+## Use Cases
+
+Common use cases for DollarSplitBot summarized in three points:
+
+1. **Personal Expense Tracking:**
+   - Easily log and monitor your individual daily and monthly expenses, including groceries, dining out, transportation, and entertainment.
+   - Access your spending history and totals at any time, providing valuable insights into your financial habits.
+
+2. **Group Expense Management:**
+   - Efficiently manage group expenses with friends or family members. Add participants to track shared costs and responsibilities.
+   - DollarSplitBot calculates equitable divisions, simplifying the process of determining who owes what to whom in group expenses.
+
+3. **Expense Reporting and Communication:**
+   - Generate detailed PDF expenditure reports for a comprehensive overview of your financial activity.
+   - Utilize the bot's email reminders to facilitate financial settlements and maintain harmony in shared expenses, ensuring everyone is accountable.
+
+Certainly, you can watch this video [![Demo Video](https://i9.ytimg.com/vi/aCjcT1CHAzU/mq3.jpg?sqp=COSotI0G&rs=AOn4CLD34jFIlq6GRdmTnK6p3F8O2F-Yig)](https://youtu.be/aCjcT1CHAzU) for a step-by-step guide on how to use DollarSplitBot. 
+
 ## License
 
 This project is licensed under the terms of the MIT license. Please check [License](https://github.com/shonilbhide/dollar_bot/blob/main/LICENSE) for more details.
