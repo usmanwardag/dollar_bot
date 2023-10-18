@@ -114,6 +114,20 @@ A successful run will generate a message on your terminal that says "TeleBot: St
 
 To run the script automatically at startup / reboot, simply add the `.run_forever.sh` script to your `.bashrc` file, which executes whenever you reboot your system.
 
+## Configuring Email Credentials for SMTP: Sending Emails from Your Account"
+
+**SMTP (Simple Mail Transfer Protocol)** is a standard protocol for sending emails. It is widely used for sending email messages from one server to another. In the code, we are using SMTP to send emails via a Gmail account. Here's how the SMTP configuration and usage work:
+
+1. **SMTP Server**: The `smtp_server` variable is set to 'smtp.gmail.com,' which is the SMTP server for Gmail. This server is responsible for sending your email messages.
+
+2. **SMTP Port**: The `smtp_port` variable is set to 587. This is the port for TLS (Transport Layer Security) encryption. Gmail uses this port for secure email communication.
+
+3. **SMTP Username**: The smtp_username variable should be set to your own Gmail email address from which you want to send the emails. Make sure to replace `your-email@gmail.com` with your actual Gmail email address in the code. This ensures that the emails will be sent from your specific Gmail account.
+
+4. **SMTP Password**: The `smtp_password` variable is set, you need to generate an "App Password". An App Password is a 16-character code that allows you to access your Gmail account without revealing your real password. 
+
+By customizing these settings, you can send emails from any email account using SMTP. Just ensure you are adhering to the security guidelines provided by your email provider.
+
 ## Testing
 
 We use pytest to perform testing on all unit tests together. The command needs to be run from the home directory of the project. The command is:
