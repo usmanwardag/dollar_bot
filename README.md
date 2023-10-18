@@ -148,7 +148,7 @@ Here's a quick overview of how each of the commands work. Also see: Link at the 
 ``` add example add code here ``` 
 [insert a GIF showing how to run here]
 
-(https://github.com/aditikilledar/dollar_bot_SE23/blob/docu-merging-scattered-docs/docs/add.md)[Learn more here]
+[Learn more here](https://github.com/aditikilledar/dollar_bot_SE23/blob/docu-merging-scattered-docs/docs/add.md)
 
 ### Budget
 
@@ -168,7 +168,7 @@ Here's a quick overview of how each of the commands work. Also see: Link at the 
 
 Use /analytics to gain graphical insights about your budgets and spending.
 
-(https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/analytics.md)[Learn more here]
+[Learn more here](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/analytics.md)
 
 ### Helper
 
