@@ -114,7 +114,7 @@ A successful run will generate a message on your terminal that says "TeleBot: St
 
 To run the script automatically at startup / reboot, simply add the `.run_forever.sh` script to your `.bashrc` file, which executes whenever you reboot your system.
 
-## Configuring Email Credentials for SMTP: Sending Emails from Your Account"
+## Configuring Email Credentials for SMTP: Sending Emails from Your Account
 
 **SMTP (Simple Mail Transfer Protocol)** is a standard protocol for sending emails. It is widely used for sending email messages from one server to another. In the code, we are using SMTP to send emails via a Gmail account. Here's how the SMTP configuration and usage work:
 
@@ -126,11 +126,11 @@ To run the script automatically at startup / reboot, simply add the `.run_foreve
 
 4. **SMTP Password**: The `smtp_password` variable is set, you need to generate an "App Password". An App Password is a 16-character code that allows you to access your Gmail account without revealing your real password. To generate an App Password, follow these steps:
 
-   a. Go to your Google Account settings (https://myaccount.google.com/).
-   b. In the "Security" section, under "Signing in to Google", select "App Passwords".
-   c. Select "Mail" and "Other (Custom name)" from the dropdown menus.
-   d. Click "Generate".
-   e. Google will provide you with a 16-character App Password. Use this as your `smtp_password` in your code.
+   - Go to your Google Account settings (https://myaccount.google.com/).
+   - In the "Security" section, under "Signing in to Google", select "App Passwords".
+   - Select "Mail" and "Other (Custom name)" from the dropdown menus.
+   - Click "Generate".
+   -  Google will provide you with a 16-character App Password. Use this as your `smtp_password` in your code.
 
 By customizing these settings, you can send emails from any email account using SMTP. Just ensure you are adhering to the security guidelines provided by your email provider.
 
