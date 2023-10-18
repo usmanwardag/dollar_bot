@@ -13,8 +13,8 @@ def run(message, bot):
         chat_id = message.chat.id
         user_history = helper.getUserHistory(chat_id)
         print('User-history--> ',user_history)
-        data = user_list[str(chat_id)]['csv_data']
         if user_history != None:
+            data = user_list[str(chat_id)]['csv_data']
             message = "Alright. I just created a csv file of your expense history!"
             bot.send_message(chat_id, message)
             csv_file = 'expense_report.csv'
