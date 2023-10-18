@@ -44,7 +44,8 @@
 
 ## Why should you use MyDollar Bot?
 
-![Expense Tracker](<iframe src="https://giphy.com/embed/3o6ZtakuxQq65UboDC" width="480" height="338" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/southparkgifs-3o6ZtakuxQq65UboDC">via GIPHY</a></p>)
+![Expense Tracker](https://media.giphy.com/media/3o6ZtakuxQq65UboDC/giphy.gif)
+
 Dollar Bot is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle.  
 With simple commands, this bot allows you to:
 - Add/Record new spendings
