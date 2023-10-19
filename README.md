@@ -14,8 +14,9 @@
     <li><a href="#code-documentation">Code Documentation</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
     <li><a href="#future-roadmap">Future RoadMap</a></li>
-   <li><a href="#contributors">Contributors</a></li>
-   <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#contributors">Contributors</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#contact-us">Contact Us</a></li>
   </ol>
 </details>
 
@@ -205,6 +206,8 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
   </tr>
 </table>
 
+## Contact Us
+In case of any queries, kindly contact us on: <b>csc510group32@gmail.com</b>
 
 
 ## Acknowledgements
