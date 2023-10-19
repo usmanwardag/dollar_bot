@@ -1,0 +1,37 @@
+[MASTER]
+
+# Specify the maximum line length (79 is PEP 8's recommendation, but you can change it)
+max-line-length = 79
+
+[MESSAGES CONTROL]
+
+# Disable some specific warnings or errors
+disable = C0114, C0115, C0116
+
+[BASIC]
+
+# Naming style (snake_case)
+method-rgx=_*[a-z_][a-z0-9_]*$
+function-rgx=_*[a-z_][a-z0-9_]*$
+attr-rgx=_*[a-z_][a-z0-9_]*$
+
+[FORMAT]
+
+# Ensure consistent whitespace in function call
+remove-trailing-whitespace = yes
+
+# Add or remove whitespace where necessary
+single-space-after-comma = yes
+single-space-after-keywords = yes
+
+[TYPECHECK]
+
+# Enable type hints and type checking (Python 3.5+)
+init-import = yes
+ignore-mixin-members = yes
+
+[IMPORTS]
+
+# Allow wildcard imports in specific cases (e.g., __init__.py)
+allow-wildcard-with-all = yes
+
