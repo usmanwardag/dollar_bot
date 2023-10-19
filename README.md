@@ -206,10 +206,6 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
   </tr>
 </table>
 
-## Contact Us
-In case of any queries, kindly contact us on: <b>csc510group32@gmail.com</b>
-
-
 ## Acknowledgements
 
 - We would like to express our gratitude 🙏🏻 and a big thank you 😇 to Prof. Dr. Timothy Menzie for giving us the opportunity to get into the shoes of software building and learning new skills and development process throught the project building.
@@ -217,6 +213,5 @@ In case of any queries, kindly contact us on: <b>csc510group32@gmail.com</b>
 - Thank you to the previous team 😊 for a thorough ReadMe and deatiled documentation.[MyDollarBot](https://github.com/sak007/MyDollarBot-BOTGo)
 - Thank you to the ⭐️[Telegram bot](https://github.com/python-telegram-bot/python-telegram-bot)
 
-
-
-
+## Contact Us
+In case of any queries, kindly contact us on: <b>csc510group32@gmail.com</b>
