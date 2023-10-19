@@ -14,6 +14,7 @@
     <li><a href="#code-documentation">Code Documentation</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
     <li><a href="#future-roadmap">Future RoadMap</a></li>
+    <li><a href="#discussion-channel">Discussion Channel</a></li>
     <li><a href="#contributors">Contributors</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li><a href="#contact-us">Contact Us</a></li>
@@ -196,6 +197,8 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 -  Integrate the bot with financial services, like bank APIs, for real-time expense tracking and account balance updates.
 - Implement a reminder system to notify users of recurring expenses, upcoming bills, or when they need to settle debts.
 
+## Discussion Channel
+Check out the [channel] (https://github.com/discussions)
 ## Contributors
 <table>
   <tr>
