@@ -2,7 +2,6 @@ import helper
 
 # === Documentation of delete.py ===
 
-
 def run(message, bot):
     """
     run(message, bot): This is the main function used to implement the delete feature.
@@ -22,7 +21,6 @@ def run(message, bot):
     else:
         delete_history_text = "No records there to be deleted. Start adding your expenses to keep track of your spendings!"
     bot.send_message(chat_id, delete_history_text)
-
 
 # function to delete a record
 def deleteHistory(chat_id):

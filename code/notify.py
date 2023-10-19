@@ -3,7 +3,6 @@ from notifier import TelegramNotifier
 
 configs = Properties()
 
-
 def notify(chat_id, cat, amount):
     print("inside notify")
     with open("user.properties", "rb") as read_prop:

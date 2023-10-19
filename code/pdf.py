@@ -1,14 +1,11 @@
 import helper
 import logging
-import get_analysis
 from matplotlib import pyplot as plt
-from matplotlib.backends.backend_pdf import PdfPages
 from fpdf import FPDF
 import graphing
 import os
 
 # === Documentation of pdf.py ===
-
 
 def run(message, bot):
     """

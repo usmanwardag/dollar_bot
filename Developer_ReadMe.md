@@ -1,8 +1,9 @@
-# For Developers: By the Developers of DollarBot
+# For Developers: From the Developers of DollarBot
 
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
+    <li><a href="#function-documentation">Function Documentation</a></li>
     <li><a href="#testing">Testing</a></li>
     <li><a href="#code-coverage">Code Coverage</a></li>
     <li><a href="#license">License</a></li>
@@ -11,6 +12,26 @@
     <li><a href="#future-roadmap">Future RoadMap</a></li>
   </ol>
 </details>
+
+## Code Documentation by Functionality
+
+For a detailed explanation of the code, follow the links below:
+
+<ol>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/code.md">Main Code File</a></li>
+    <b> Features: </b>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/add.md">Add</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/budget_delete.md">Budget Delete</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/budget_update.md">Budget Update</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/budget_view.md">Budget View</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/delete.md">Delete</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/display.md">Display</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/estimate.md">Estimate</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/graphing.md">Graphing</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/helper.md">Helper</a></li>
+    <li><a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/history.md">History</a></li>
+  </ol>
+
 
 ## Testing
 
@@ -34,10 +55,6 @@ coverage report
 
 This project is licensed under the terms of the MIT license. Please check [License](https://github.com/usmanwardag/dollar_bot/blob/main/LICENSE) for more details.
 
-
-## Code Documentation
-
-Checkout the [docs](https://github.com/aditikilledar/dollar_bot_SE23/tree/main/docs) for a detailed explanation of each functionality and the expected working along with code file location.
 
 ## How to Contribute
 

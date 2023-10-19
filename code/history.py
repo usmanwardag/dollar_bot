@@ -3,7 +3,6 @@ import logging
 
 # === Documentation of history.py ===
 
-
 def run(message, bot):
     """
     run(message, bot): This is the main function used to implement the delete feature.
