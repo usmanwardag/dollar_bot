@@ -43,13 +43,14 @@ It's easy to setup, run and use on a daily basis!
 ## Why use DollarBot?
 
 With simple in-chat commands, this bot helps you:
+- Set your own customized budget
 - Add/Record new spendings
-- Display your spendings through engaging graphs
-- Show the sum of your expenditure for the current day/month
+- Display your spending trends through engaging graphs
+- Predict your next month's budget based on your current expenditure
 - Display your spending history
 - Clear/Erase all your records
 - Edit/Change any spending details if you wish to
-- View Analytics and export as csv
+- View Analytics and export as a pdf
 
 ## Check out the video!
 
@@ -62,8 +63,8 @@ We've considerably extended this project to make using DollarBot easy and engagi
 2. Expressive Graphs
 3. Budget Creation Updated
 4. Analytics
-5. Clearer PDF Reports
-6. CSV Reports for Analytics use
+5. Clearer and more informative PDF Reports
+6. Budget prediction
 
 Check [this documentation out](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/Whats_new.pdf) for an in-depth depiction of our changes. :)
 
