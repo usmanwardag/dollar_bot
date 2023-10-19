@@ -13,6 +13,7 @@
     <li><a href="#automated-analysis-tools">Automated Analysis Tools</a></li>
     <li><a href="#License">License</a></li>
     <li><a href="#code-documentation">Code Documentation</a></li>
+    <li><a href="#version-numbers">Version Specifications</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
     <li><a href="#future-roadmap">Future RoadMap</a></li>
     <li><a href="#discussion-channel">Discussion Channel</a></li>
@@ -188,6 +189,12 @@ This project is licensed under the terms of the MIT license. Please check [Licen
 ## Code Documentation
 
 Checkout the [docs](https://github.com/shonilbhide/dollar_bot/tree/main/docs)
+
+## Version Specifications
+The current release of the project has the following versions:
+- python- Python 3.9.1
+- pip- pip 23.2.1
+
 
 ## How to Contribute
 
