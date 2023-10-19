@@ -4,7 +4,6 @@ import os
 from datetime import datetime
 
 from notify import notify
-
 spend_categories = [
     "Food",
     "Groceries",
@@ -18,25 +17,42 @@ spend_display_option = ["Day", "Month"]
 spend_estimate_option = ["Next day", "Next month"]
 update_options = {"continue": "Continue", "exit": "Exit"}
 
-budget_options = {"update": "Add/Update", "view": "View", "delete": "Delete"}
+budget_options = {"add":"Add","update": "Update", "view": "View", "delete": "Delete"}
 
 budget_types = {"overall": "Overall Budget", "category": "Category-Wise Budget"}
 
-data_format = {"data": [], "budget": {"overall": None, "category": None}}
+data_format = {"users":[],"owed":{},"owing":{},"data": [],"csv_data":[], 
+    "budget": {"overall": '0', "category": {"Food": '0',
+                                            "Groceries": '0',
+                                            "Utilities": '0',
+                                            "Transport": '0',
+                                            "Shopping": '0',
+                                            "Miscellaneous": '0'}
+                }
+}
 
 # set of implemented commands and their description
 commands = {
     "help": "Display the list of commands.",
     "pdf": "Save history as PDF.",
+    "csv": "Save history as a cv file.",
+    "add_user": "Add users to expense tracker",
+    "delete_user":"Delete user from the registered users",
     "add": "This option is for adding your expenses \
        \n 1. It will give you the list of categories to choose from. \
        \n 2. You will be prompted to enter the amount corresponding to your spending \
        \n 3.The message will be prompted to notify the addition of your expense with the amount,date, time and category ",
+    "add_category": "This option is for adding new category \
+       \n 1. You will be prompted to enter a new category \
+       \n 2.The message will be prompted to notify the addition of your category ",
+
     "display": "This option gives user a graphical representation(bar graph) of their expenditures \
         \n You will get an option to choose from day or month for better analysis of the expenses.",
     "estimate": "This option gives you the estimate of expenditure for the next day/month. It calcuates based on your recorded spendings",
     "history": "This option is to give you the detailed summary of your expenditure with Date, time ,category and amount. A quick lookup into your spendings",
     "delete": "This option is to Clear/Erase all your records",
+    "delete_expense": "This option is to Clear/Erase individual record from expense history records.",
+    "send_mail": "This option is to send mail of calculate owings",
     "edit": "This option helps you to go back and correct/update the missing details \
         \n 1. It will give you the list of your expenses you wish to edit \
         \n 2. It will let you change the specific field based on your requirements like amount/date/category",
@@ -109,7 +125,6 @@ def getUserHistory(chat_id):
         return data["data"]
     return None
 
-
 def getUserData(chat_id):
     user_list = read_json()
     if user_list is None:
@@ -124,22 +139,32 @@ def throw_exception(e, message, bot, logging):
     bot.reply_to(message, "Oh no! " + str(e))
 
 
-def createNewUserRecord():
-    return data_format
+def createNewUserRecord(message):
+    user_lst = data_format
+    if len(user_lst["users"]) == 0:
+        user_lst["users"].insert(0,message.from_user.first_name)
+        user_lst["owed"][message.from_user.first_name] = 0
+        user_lst["owing"][message.from_user.first_name] = {}
+    return user_lst
 
 
 def getOverallBudget(chatId):
     data = getUserData(chatId)
     if data is None:
         return None
-    return data["budget"]["overall"]
+    if 'budget' in data.keys():
+        return data["budget"]["overall"]
+    return None
 
 
 def getCategoryBudget(chatId):
     data = getUserData(chatId)
     if data is None:
         return None
-    return data["budget"]["category"]
+    if 'budget' in data.keys():
+        return data["budget"]["category"]
+    return None
+
 
 
 def getCategoryBudgetByCategory(chatId, cat):
@@ -208,6 +233,23 @@ def calculate_total_spendings(queryResult):
         s = row.split(",")
         total = total + float(s[2])
     return total
+
+def calculate_owing(user_list,chat_id):
+    owing_dict = {}
+    users = user_list[str(chat_id)]["users"]
+    for user in users:
+        owing_dict[user] = {"owes" : [], "owing":[]}
+        for k,v in user_list[str(chat_id)]["owing"][user].items():
+            if k in owing_dict.keys():
+                owing_dict[k]["owing"].append(str(user)+' owes '+str(k)+" an amout of "+"{:.2f}".format(v))
+                owing_dict[user]["owes"].append(str(k)+' is owing from '+str(user)+" an amout of "+"{:.2f}".format(v))
+
+            else:
+                owing_dict[k] ={"owes" :[str(k)+' is owing from '+str(user)+" an amout of "+"{:.2f}".format(v)],"owing" :[str(user)+' owes '+str(k)+" an amout of "+"{:.2f}".format(v)]}
+
+    return owing_dict
+
+
 
 
 def display_remaining_category_budget(message, bot, cat):

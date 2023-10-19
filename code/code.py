@@ -11,7 +11,13 @@ import display
 import estimate
 import delete
 import add
+import add_category
+import delete_expense
+import send_mail
 import budget
+import csvfile
+import add_user
+import delete_user
 from datetime import datetime
 from jproperties import Properties
 
@@ -19,7 +25,7 @@ configs = Properties()
 
 with open("user.properties", "rb") as read_prop:
     configs.load(read_prop)
-
+user_list = helper.read_json()
 api_token = str(configs.get("api_token").data)
 
 bot = telebot.TeleBot(api_token)
@@ -80,7 +86,6 @@ def help(m):
     commands = helper.getCommands()
     for c in commands:
         message += "/" + c + ", "
-        # message += commands[c] + "\n\n"
     message += "\nUse /menu for detailed instructions about these commands."
     bot.send_message(chat_id, message)
 
@@ -96,7 +101,8 @@ def faq(m):
         ('"What does this bot do?"\n'
          ">> DollarBot lets you manage your expenses so you can always stay on top of them! \n\n"
          '"How can I add an epxense?" \n'
-         ">> Type /add, then select a category to type the expense. \n\n"
+         ">> Type /add_category, then add a category for the expense. \n\n"
+         ">> Type /add_category, then select a category to type the expense. \n\n"
          '"Can I see history of my expenses?" \n'
          ">> Yes! Use /display to get a graphical display, or /history to view detailed summary.\n\n"
          '"I added an incorrect expense. How can I edit it?"\n'
@@ -115,9 +121,14 @@ def start_and_menu_command(m):
     bot offers and the corresponding commands to be run from the Telegram UI to use these features.
     Commands used to run this: commands=['start', 'menu']
     """
-    helper.read_json()
-    global user_list
+    global user_list 
+    user_list = helper.read_json()
     chat_id = m.chat.id
+    print(user_list)
+    if str(chat_id) not in user_list:
+        user_list[str(chat_id)] = helper.createNewUserRecord(m)
+
+
 
     # print('receieved start or menu command.')
     # text_into = "Welcome to the Dollar Bot!"
@@ -152,6 +163,24 @@ def command_add(message):
     add.run(message, bot)
 
 
+@bot.message_handler(commands=["add_user"])
+def command_add_user(message):
+    add_user.register_people(message,bot,user_list)
+
+@bot.message_handler(commands=["delete_user"])
+def command_delete_user(message):
+    # Call the delete_user function from the delete_user module
+    registered_users=user_list[str(message.chat.id)]["users"]
+    delete_user.delete_user(message, bot, user_list)
+
+@bot.message_handler(commands=["add_category"])
+def command_add_category(message):
+    """
+    command_add(message) Takes 1 argument message which contains the message from
+    the user along with the chat ID of the user chat. It then calls add.py to run to execute
+    the add functionality. Commands used to run this: commands=['add']
+    """
+    add_category.run(message, bot)
 # function to fetch expenditure history of the user
 
 
@@ -164,6 +193,15 @@ def command_pdf(message):
     """
     pdf.run(message, bot)
 
+
+@bot.message_handler(commands=["csv"])
+def command_csv(message):
+    """
+    command_history(message): Takes 1 argument message which contains the message from
+    the user along with the chat ID of the user chat. It then calls csv.py to run to execute
+    the add functionality. Commands used to run this: commands=['csv']
+    """
+    csvfile.run(message, bot)
 
 # function to fetch expenditure history of the user
 @bot.message_handler(commands=["history"])
@@ -214,10 +252,24 @@ def command_delete(message):
     """
     delete.run(message, bot)
 
+# handles "/delete_expense" command
+@bot.message_handler(commands=["delete_expense"])
+def command_delete(message):
+    """
+    command_delete(message): Takes 1 argument message which contains the message from the user
+    along with the chat ID of the user chat. It then calls delete_expense.py to run to execute the add functionality.
+    Commands used to run this: commands=['display']
+    """
+    delete_expense.run(message, bot)
+
 
 @bot.message_handler(commands=["budget"])
 def command_budget(message):
     budget.run(message, bot)
+
+@bot.message_handler(commands=["send_mail"])
+def command_send_mail(message):
+    send_mail.run(message, bot)
 
 
 # not used
