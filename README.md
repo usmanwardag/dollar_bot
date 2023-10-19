@@ -10,6 +10,7 @@
     <li><a href="#installation">Installation</a></li>
     <li><a href="#testing">Testing</a></li>
     <li><a href="#code-coverage">Code Coverage</a></li>
+    <li><a href="#automated-analysis-tools">Automated Analysis Tools</a></li>
     <li><a href="#License">License</a></li>
     <li><a href="#code-documentation">Code Documentation</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
@@ -171,6 +172,13 @@ Common use cases for DollarSplitBot summarized in three points:
 
 Certainly, you can watch this video [![Demo Video](https://i9.ytimg.com/vi/aCjcT1CHAzU/mq3.jpg?sqp=COSotI0G&rs=AOn4CLD34jFIlq6GRdmTnK6p3F8O2F-Yig)](https://youtu.be/aCjcT1CHAzU) for a step-by-step guide on how to use DollarSplitBot. 
 
+## Automated Analysis Tools
+
+This project uses various automated analysis tools like 
+- pylint and flask8 for code formating
+- pytest for tesing
+- coverage.py for code coverage
+- Travis CI for automated testing
 ## License
 
 This project is licensed under the terms of the MIT license. Please check [License](https://github.com/shonilbhide/dollar_bot/blob/main/LICENSE) for more details.
