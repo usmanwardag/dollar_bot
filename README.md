@@ -15,6 +15,7 @@
     <li><a href="#code-documentation">Code Documentation</a></li>
     <li><a href="#version-numbers">Version Specifications</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
+    <li><a href="#depriciated-libraries">Depriciated Libraries</a></li>
     <li><a href="#future-roadmap">Future RoadMap</a></li>
     <li><a href="#projects-users">Number of projects and Users associated with the project</a></li>
     <li><a href="#contributors">Contributors</a></li>
@@ -202,6 +203,8 @@ We would be happy to receive contributions! If you'd like to, please go through 
 
 For any feedback, issues, or bug reports, please create an issue [here](https://github.com/shonilbhide/dollar_bot/issues/new).
 
+## Depriciated Libraries
+- "The parameter "none_stop" is deprecated. Use "non_stop" instead."
 ## Future RoadMap
 
 - More content can be added for the way notifications can be displayed on the user front. This can be done to make the UI more interactive.
