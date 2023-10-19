@@ -186,8 +186,10 @@ def add_user_record(user_list,message,chat_id, record_to_be_added,amount_value,o
         else:
             user_list[str(chat_id)]["owing"][user][paid_by] = owed_amount
     record_to_be_added+=",{},{}".format(paid_by,' & '.join(owed_by))
-    user_list[str(chat_id)]["csv_data"].append(record_to_be_added)
-    print("####",user_list)
+    if "csv_data" in user_list[str(chat_id)]:
+        user_list[str(chat_id)]["csv_data"].append(record_to_be_added)
+    else:
+        user_list[str(chat_id)]["csv_data"] = [record_to_be_added]
     return user_list
 
 
