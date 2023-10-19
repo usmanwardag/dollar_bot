@@ -27,8 +27,8 @@ but nevertheless, here is a track record that everyone is contributing a lot)| (
 |Issues are discussed before they are closed | (Many were discussed but here is one such example)[https://github.com/aditikilledar/dollar_bot_SE23/issues/22] | 3 |
 | Chat channel: exists| Link or screenshots | TODO
 |Test cases: a large proportion of the issues related to handling failing cases. | (If a test case fails, open an issue and fix it)[https://github.com/aditikilledar/dollar_bot_SE23/issues/] | 3
-|Evidence that the whole team is using the same tools: everyone can get to all tools and files|
-|Evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people)| [Common Requirements.txt used by everyone](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/requirements.txt)
-|Evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer)|
+|Evidence that the whole team is using the same tools: everyone can get to all tools and files| Everyone can run and use our version of dollarbot. | 3
+|Evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people)| [Common Requirements.txt used by everyone](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/requirements.txt) | 3
+|Evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer)| 3
 |Evidence that the members of the team are working across multiple places in the code base| (PR's by different people working on multiple places in the code bae)[https://github.com/aditikilledar/dollar_bot_SE23/pulse] | 3 | 
 |Short release cycles | (hard to see in short projects) (project members are committing often enough so that everyone can get your work)[https://github.com/aditikilledar/dollar_bot_SE23/releases] | 3
