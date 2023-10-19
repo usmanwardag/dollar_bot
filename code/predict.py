@@ -74,7 +74,10 @@ def predict_category_spending(category_history):
         total_spent += float(record.split(',')[2])
         date = datetime.strptime(record.split(',')[0].split(' ')[0], helper.getDateFormat())
         recorded_days.append(date)
-    day_difference = abs(int((recorded_days[0] - recorded_days[-1]).days)) + 1
+    first = min(recorded_days)
+    last = max(recorded_days)
+    day_difference = abs(int((last - first).days)) + 1
+    print(day_difference)
     avg_per_day = total_spent/day_difference
     predicted_spending = avg_per_day * 30
     return round(predicted_spending,2)
