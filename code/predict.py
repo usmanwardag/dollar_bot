@@ -77,7 +77,6 @@ def predict_category_spending(category_history):
     first = min(recorded_days)
     last = max(recorded_days)
     day_difference = abs(int((last - first).days)) + 1
-    print(day_difference)
     avg_per_day = total_spent/day_difference
     predicted_spending = avg_per_day * 30
     return round(predicted_spending,2)

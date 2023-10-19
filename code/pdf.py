@@ -79,11 +79,17 @@ def run(message, bot):
             cat_spend_dict = helper.getUserHistoryDateExpense(chat_id)
             graphing.time_series(cat_spend_dict)
         
-        list_of_images = ["expense_history.png","overall_split.png","spend_wise.png","remaining.png","time_series.png"]
+        list_of_images = ["overall_split.png","spend_wise.png","remaining.png","time_series.png"]
         pdf = FPDF()
         pdf.add_page()
+        x_coord = 20
+        y_coord = 30
         for image in list_of_images:
-            pdf.image(image)
+            pdf.image(image,x=x_coord,y=y_coord,w=70,h=50)
+            x_coord += 80
+            if x_coord > 100:
+                x_coord = 20
+                y_coord += 60
         pdf.output("expense_report.pdf", "F")
         bot.send_document(chat_id, open("expense_report.pdf", "rb"))
         for image in list_of_images:
