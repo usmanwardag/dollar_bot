@@ -2,7 +2,7 @@
 This feature enables the user to estimate their expenses for the next month or next day. The option to choose next month or next day pops up on the screen and they can choose their preference to be displayed.
 
 # Location of Code for this Feature
-The code that implements this feature can be found [here](https://github.com/sak007/MyDollarBot-BOTGo/blob/estimate-feature/code/estimate.py)
+The code that implements this feature can be found [here](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/code/estimate.py)
 
 # Code Description
 ## Functions
@@ -19,26 +19,5 @@ It takes 2 arguments for processing - **message** which is the message from the 
 Takes 2 arguments for processing - **queryResult** which is the query result from the estimate total function in the same file. It parses the query result and turns it into a form suitable for display on the UI by the user. **days_to_estimate** is a variable that tells the function to calculate the estimate for a specified period like a day or month.
 
 # How to run this feature?
-
-```
-$: python code/code.py
-
-$: /start
-
-$: /estimate
-
-Please select the period to estimate:
-$: Next day
-
-Hold on! Calculating...
-
-Here are your estimated spendings for the next day:
-CATEGORIES,AMOUNT 
-----------------------
-Food $200.0
-Groceries $100.0
-```
-
-![alt text](https://github.com/sak007/MyDollarBot-BOTGo/blob/estimate-feature/docs/estimate.png)
 
 

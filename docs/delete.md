@@ -2,7 +2,7 @@
 This feature enables the user to delete all of their saved records till date in their expense tracker.
 
 # Location of Code for this Feature
-The code that implements this feature can be found [here](https://github.com/sak007/MyDollarBot-BOTGo/blob/main/code/delete.py)
+The code that implements this feature can be found [here](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/code/delete.py)
 
 # Code Description
 ## Functions
@@ -15,11 +15,3 @@ It takes 1 argument for processing - **chat_id** which is the chat_id of the use
 
 # How to run this feature?
 Once the project is running(please follow the instructions given in the main README.md for this), please type /add into the telegram bot.
-
-Below you can see an example in text format:
-
-Sri Athithya Kruth, [19.10.21 21:50]
-/delete
-
-dollarbot,[]
-History has been deleted!

@@ -31,4 +31,4 @@ This function saves a bar graph with the cateogry-wise % of budget remaining
 This function saves a time series graph with history of spending
 
 # How to run this feature?
-After you've added sufficient input data, use the /display command and you can see the output in a pictorial representation. 
+After you've added sufficient input data, use the /display or /analytics command and you can see the output in a pictorial representation. 

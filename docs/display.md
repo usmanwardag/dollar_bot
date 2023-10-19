@@ -2,7 +2,7 @@
 This feature enables the user to view their expenses for the past month or past day. The option to choose month or day pops up on the screen and they can choose their preference to be displayed afterwards.
 
 # Location of Code for this Feature
-The code that implements this feature can be found [here](https://github.com/sak007/MyDollarBot-BOTGo/blob/main/code/display.py)
+The code that implements this feature can be found [here](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/code/display.py)
 
 # Code Description
 ## Functions
@@ -19,24 +19,3 @@ It takes 2 arguments for processing - **message** which is the message from the 
 Takes 1 argument for processing - **queryResult** which is the query result from the display total function in the same file. It parses the query result and turns it into a form suitable for display on the UI by the user.
 
 # How to run this feature?
-Sri Athithya Kruth, [20.10.21 20:33]
-/display
-
-mydollarbot20102021, [20.10.21 20:33]
-[In reply to Sri Athithya Kruth]
-Please select a category to see the total expense
-
-Sri Athithya Kruth, [20.10.21 20:33]
-Day
-
-mydollarbot20102021, [20.10.21 20:33]
-Hold on! Calculating...
-
-mydollarbot20102021, [20.10.21 20:33]
-
-Here are your total spendings day:
-
-CATEGORIES,AMOUNT 
-----------------------
-Transport $1022.0
-Groceries $12.0
