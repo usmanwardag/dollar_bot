@@ -16,10 +16,7 @@
     <li><a href="#version-numbers">Version Specifications</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
     <li><a href="#future-roadmap">Future RoadMap</a></li>
-
-    <li><a href="#projects and users">Number of projects and Users associated with the project</a></li>
-    <li><a href="#discussion-channel">Discussion Channel</a></li>
-
+    <li><a href="#projects-users">Number of projects and Users associated with the project</a></li>
     <li><a href="#contributors">Contributors</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li><a href="#contact-us">Contact Us</a></li>
@@ -218,12 +215,11 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 
 ## Number of projects and Users associated with the project
 Here is the list of projects and the users associated with the project:
-- [Project1] (https://github.com/shonilbhide/dollar_bot) and users: Shonil_Bhide, Rutuja_Rashinkar, Sakshi_Basapure, Akshada_Malpure
-- [Project2] (https://github.com/usmanwardag/dollar_bot) and users: Usman_Khan, Aakriti_Aakriti, Suneha_Bose, Muskan_Gupta, Kriti_Khullar
-- [Project3] (https://github.com/sak007/MyDollarBot-BOTGo) and users: Athithya, Subramanian, Ashok, Zunaid, Rithik, Dev, Prakruthi, Radhika, Rohan, Sunidhi
-- [Project4] (https://github.com/deekay2310/MyDollarBot) and users:Dev, Prakruthi, Radhika, Rohan, Sunidhi 
-## Discussion Channel
-Check out the [channel] (https://github.com/discussions)
+- Project 1[Project1] (https://github.com/shonilbhide/dollar_bot) and users: Shonil_Bhide, Rutuja_Rashinkar, Sakshi_Basapure Akshada_Malpure
+- Project 2 [Project2] (https://github.com/usmanwardag/dollar_bot) and users: Usman_Khan, Aakriti_Aakriti, Suneha_Bose, Muskan_Gupta, Kriti_Khullar
+- Project 3 [Project3] (https://github.com/sak007/MyDollarBot-BOTGo) and users: Athithya, Subramanian, Ashok, Zunaid, Rithik, Dev, Prakruthi, Radhika, Rohan, Sunidhi
+- Project 4 [Project4] (https://github.com/deekay2310/MyDollarBot) and users:Dev, Prakruthi, Radhika, Rohan, Sunidhi 
+
 
 ## Contributors
 <table>
