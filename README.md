@@ -14,7 +14,6 @@
     <li><a href="#code-documentation">Code Documentation</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
     <li><a href="#future-roadmap">Future RoadMap</a></li>
-    <li><a href="#projects-and-users">Projects and Users associated</a></li>
     <li><a href="#contributors">Contributors</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li><a href="#contact-us">Contact Us</a></li>
