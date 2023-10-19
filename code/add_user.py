@@ -1,5 +1,8 @@
-import helper
+'''
+This is the main file used to implement the REGISTER NEW USER feature.
+'''
 import logging
+import helper
 from telebot import types
 
 # Initialize a dictionary to store registered users
@@ -38,7 +41,8 @@ def add_person(message, bot,registered_users,user_list):
         markup.add("Register Another Person", "Finish Registration")
         msg = bot.send_message(chat_id, "What would you like to do next?", reply_markup=markup)
 
-        bot.register_next_step_handler(msg, handle_registration_choice, bot,registered_users,user_list)
+        bot.register_next_step_handler(msg, handle_registration_choice,
+                                       bot,registered_users,user_list)
 
 def handle_registration_choice(message, bot,registered_users,user_list):
     chat_id = message.chat.id
@@ -66,7 +70,8 @@ def handle_registration_choice(message, bot,registered_users,user_list):
                     user_list[str(chat_id)] = {"owed": {user: 0},"owing": {user: {}}}
             helper.write_json(user_list)
             if users:
-                bot.send_message(chat_id, "Registered Users:\n" + '\n'.join(registered_users[chat_id]))
+                bot.send_message(chat_id, "Registered Users:\n" +
+                                 '\n'.join(registered_users[chat_id]))
             else:
                 bot.send_message(chat_id, "No users registered yet.")
     else:

@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+'''
+Main program | to make the bot running
+'''
+
 import logging
-import telebot
 import time
+from datetime import datetime
+import telebot
+from jproperties import Properties
 import helper
 import edit
 import history
@@ -18,8 +24,6 @@ import budget
 import csvfile
 import add_user
 import delete_user
-from datetime import datetime
-from jproperties import Properties
 
 configs = Properties()
 
@@ -68,8 +72,8 @@ def listener(user_requests):
 
         if user_requests[0].text[0] != "/":
             bot.send_message(chat_id, message)
-    except Exception:
-        pass
+    except Exception as e:
+        bot.reply_to(message, "Oh no! " + str(e))
 
 
 bot.set_update_listener(listener)
@@ -104,7 +108,7 @@ def faq(m):
          ">> Type /add_category, then add a category for the expense. \n\n"
          ">> Type /add_category, then select a category to type the expense. \n\n"
          '"Can I see history of my expenses?" \n'
-         ">> Yes! Use /display to get a graphical display, or /history to view detailed summary.\n\n"
+         ">> Yes! Use /display to get a graphical display, or/history to view detailed summary.\n\n"
          '"I added an incorrect expense. How can I edit it?"\n'
          ">> Use /edit command. \n\n"
          '"Can I check if my expenses have exceeded budget?"\n'
@@ -121,7 +125,7 @@ def start_and_menu_command(m):
     bot offers and the corresponding commands to be run from the Telegram UI to use these features.
     Commands used to run this: commands=['start', 'menu']
     """
-    global user_list 
+    global user_list
     user_list = helper.read_json()
     chat_id = m.chat.id
     print(user_list)
@@ -230,7 +234,8 @@ def command_edit(message):
 def command_display(message):
     """
     command_display(message): Takes 1 argument message which contains the message from the user
-    along with the chat ID of the user chat. It then calls display.py to run to execute the add functionality.
+    along with the chat ID of the user chat. It then calls display.py to run to execute
+    the add functionality.
     Commands used to run this: commands=['display']
     """
     display.run(message, bot)
@@ -246,8 +251,9 @@ def command_estimate(message):
 @bot.message_handler(commands=["delete"])
 def command_delete(message):
     """
-    command_delete(message): Takes 1 argument message which contains the message from the user
-    along with the chat ID of the user chat. It then calls delete.py to run to execute the add functionality.
+    command_delete(message): Takes 1 argument message which contains the 
+    message from the user along with the chat ID of the user chat. It then
+    calls delete.py to run to execute the add functionality.
     Commands used to run this: commands=['display']
     """
     delete.run(message, bot)
@@ -256,8 +262,9 @@ def command_delete(message):
 @bot.message_handler(commands=["delete_expense"])
 def command_delete(message):
     """
-    command_delete(message): Takes 1 argument message which contains the message from the user
-    along with the chat ID of the user chat. It then calls delete_expense.py to run to execute the add functionality.
+    command_delete(message): Takes 1 argument message which contains the 
+    message from the user along with the chat ID of the user chat. It then
+    calls delete_expense.py to run to execute the add functionality.
     Commands used to run this: commands=['display']
     """
     delete_expense.run(message, bot)
@@ -277,7 +284,7 @@ def command_send_mail(message):
 
 def addUserHistory(chat_id, user_record):
     global user_list
-    if not (str(chat_id) in user_list):
+    if not str(chat_id) in user_list:
         user_list[str(chat_id)] = []
     user_list[str(chat_id)].append(user_record)
     return user_list

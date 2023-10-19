@@ -1,8 +1,10 @@
-#budget_update.py
+'''
+This is the main file used to implement the UPDATE BUDGET feature.
+'''
 
-import helper
 from telebot import types
 import logging
+import helper
 
 def run(message, bot):
     chat_id = message.chat.id

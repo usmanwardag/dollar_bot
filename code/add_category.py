@@ -1,7 +1,12 @@
+'''
+This is the main file used to implement the ADD CATEGORY feature.
+'''
+
+#import logging
+#from datetime import datetime
 import helper
-import logging
 from telebot import types
-from datetime import datetime
+
 
 
 option = {}
@@ -25,19 +30,17 @@ def run(message, bot):
     message1 = bot.send_message(chat_id, "Please enter your category")
     bot.register_next_step_handler(message1, post_append_spend, bot)
 
-
-
 def post_append_spend(message, bot):
     chat_id = message.chat.id
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = 2
     selected_category = message.text
     if selected_category.lower() in [x.lower() for x in helper.spend_categories]:
-            bot.send_message(
-                chat_id, "Category already exists", reply_markup=types.ReplyKeyboardRemove()
-            )
-            message1 = bot.send_message(chat_id, "Please enter a new category")
-            bot.register_next_step_handler(message1, post_append_spend, bot)
+        bot.send_message(
+            chat_id, "Category already exists", reply_markup=types.ReplyKeyboardRemove()
+        )
+        message1 = bot.send_message(chat_id, "Please enter a new category")
+        bot.register_next_step_handler(message1, post_append_spend, bot)
 
     else:
         helper.spend_categories.append(selected_category)
@@ -52,4 +55,3 @@ def post_append_spend(message, bot):
                     selected_category
                 ),
             )
-
