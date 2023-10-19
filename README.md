@@ -68,7 +68,7 @@ DollarSplitBot: Where simplicity meets financial harmony at your fingertips.
 
 ## What is new in this version?
 
-Checkout the [this documentation](https://github.com/usmanwardag/dollar_bot/blob/main/docs/Updated_version.pdf)
+Checkout the [this documentation](docs/Update_Version.pdf)
 ## Installation
 
 The below instructions can be followed in order to set-up this bot at your end in a span of few minutes! Let's get started:
