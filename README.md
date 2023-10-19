@@ -10,11 +10,16 @@
     <li><a href="#installation">Installation</a></li>
     <li><a href="#testing">Testing</a></li>
     <li><a href="#code-coverage">Code Coverage</a></li>
+    <li><a href="#automated-analysis-tools">Automated Analysis Tools</a></li>
     <li><a href="#License">License</a></li>
     <li><a href="#code-documentation">Code Documentation</a></li>
+    <li><a href="#version-numbers">Version Specifications</a></li>
     <li><a href="#how-to-contribute">How to Contribute</a></li>
     <li><a href="#future-roadmap">Future RoadMap</a></li>
+
     <li><a href="#projects and users">Number of projects and Users associated with the project</a></li>
+    <li><a href="#discussion-channel">Discussion Channel</a></li>
+
     <li><a href="#contributors">Contributors</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li><a href="#contact-us">Contact Us</a></li>
@@ -172,6 +177,13 @@ Common use cases for DollarSplitBot summarized in three points:
 
 Certainly, you can watch this video [![Demo Video](https://i9.ytimg.com/vi/aCjcT1CHAzU/mq3.jpg?sqp=COSotI0G&rs=AOn4CLD34jFIlq6GRdmTnK6p3F8O2F-Yig)](https://youtu.be/aCjcT1CHAzU) for a step-by-step guide on how to use DollarSplitBot. 
 
+## Automated Analysis Tools
+
+This project uses various automated analysis tools like 
+- pylint and flask8 for code formating
+- pytest for tesing
+- coverage.py for code coverage
+- Travis CI for automated testing
 ## License
 
 This project is licensed under the terms of the MIT license. Please check [License](https://github.com/shonilbhide/dollar_bot/blob/main/LICENSE) for more details.
@@ -180,6 +192,12 @@ This project is licensed under the terms of the MIT license. Please check [Licen
 ## Code Documentation
 
 Checkout the [docs](https://github.com/shonilbhide/dollar_bot/tree/main/docs)
+
+## Version Specifications
+The current release of the project has the following versions:
+- python- Python 3.9.1
+- pip- pip 23.2.1
+
 
 ## How to Contribute
 
@@ -197,13 +215,15 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 -  Integrate the bot with financial services, like bank APIs, for real-time expense tracking and account balance updates.
 - Implement a reminder system to notify users of recurring expenses, upcoming bills, or when they need to settle debts.
 
+
 ## Number of projects and Users associated with the project
 Here is the list of projects and the users associated with the project:
 - [Project1] (https://github.com/shonilbhide/dollar_bot) and users: Shonil_Bhide, Rutuja_Rashinkar, Sakshi_Basapure, Akshada_Malpure
 - [Project2] (https://github.com/usmanwardag/dollar_bot) and users: Usman_Khan, Aakriti_Aakriti, Suneha_Bose, Muskan_Gupta, Kriti_Khullar
 - [Project3] (https://github.com/sak007/MyDollarBot-BOTGo) and users: Athithya, Subramanian, Ashok, Zunaid, Rithik, Dev, Prakruthi, Radhika, Rohan, Sunidhi
 - [Project4] (https://github.com/deekay2310/MyDollarBot) and users:Dev, Prakruthi, Radhika, Rohan, Sunidhi 
-
+## Discussion Channel
+Check out the [channel] (https://github.com/discussions)
 
 ## Contributors
 <table>
