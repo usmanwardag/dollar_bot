@@ -1,3 +1,7 @@
+'''
+File which provides all supporting data
+'''
+
 import re
 import json
 import os

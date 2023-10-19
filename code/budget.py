@@ -1,3 +1,7 @@
+'''
+This is the main file used to implement the BUDGET feature.
+'''
+
 import helper
 from telebot import types
 import logging

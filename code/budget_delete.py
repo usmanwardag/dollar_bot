@@ -1,6 +1,10 @@
+'''
+This is the main file used to implement the DELETE BUDGET feature.
+'''
+
+import logging
 import helper
 from telebot import types
-import logging
 
 def run(message, bot):
     chat_id = message.chat.id
@@ -14,7 +18,7 @@ def run(message, bot):
             user_list[str(chat_id)]["budget"] = {"overall": None, "category": {}}
         else:
             bot.send_message(chat_id, "No budget data to delete.")
-        
+                
         helper.write_json(user_list)
         bot.send_message(chat_id, "Budget data deleted successfully.")
 

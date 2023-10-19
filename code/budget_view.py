@@ -1,3 +1,7 @@
+'''
+This is the main file used to implement the VIEW BUDGET feature.
+'''
+
 import helper
 import logging
 

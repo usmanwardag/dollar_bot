@@ -25,7 +25,7 @@ def run(message, bot):
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.row_width = len(user_list[str(chat_id)]["users"])
     for c in user_list[str(chat_id)]["users"]:
-            markup.add(c)
+        markup.add(c)
     m = bot.send_message(chat_id, "Select who paid for the Expense",reply_markup=markup)
     bot.register_next_step_handler(m, select_user, bot,owed_by,user_list,None)
 
@@ -41,9 +41,9 @@ def select_user(message,bot,owed_by,user_list,paid_by):
             paid_by = text_m
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         markup.row_width = 2
-        
+
         for c in remaining_users:
-                markup.add(c)
+            markup.add(c)
         m = bot.send_message(chat_id, "Select who shares the Expense",reply_markup=markup)
         bot.register_next_step_handler(m, add_shared_user, bot,owed_by,user_list,paid_by)
 
@@ -55,8 +55,8 @@ def add_shared_user(message,bot,owed_by,user_list,paid_by):
     else:
         pass
     choice = bot.reply_to(message, "Do you want to add more user to share the expense? Y/N")
-    bot.register_next_step_handler(choice, user_choice, bot, owed_by,user_list,paid_by)   
-
+    bot.register_next_step_handler(choice, user_choice, bot, owed_by,user_list,paid_by)
+    
 def user_choice(message, bot,owed_by, user_list,paid_by):
     Choice = message.text
     if Choice == "Y" or Choice == 'y':
@@ -72,7 +72,7 @@ def post_append_spend(message, bot,owed_by,user_list,paid_by):
     markup.row_width = 2
     m = bot.send_message(chat_id, "Select a category")
     for c in helper.getSpendCategories():
-            markup.add(c)
+        markup.add(c)
     msg = bot.reply_to(message, "Select Category", reply_markup=markup)
     bot.register_next_step_handler(msg, post_category_selection, bot,owed_by,paid_by,user_list)
 
@@ -81,9 +81,9 @@ def post_category_selection(message, bot,owed_by,paid_by,user_list):
     """
     post_category_selection(message, bot): It takes 2 arguments for processing -
     message which is the message from the user, and bot which is the telegram bot object
-    from the run(message, bot): function in the add.py file. It requests the user to enter the amount
-    they have spent on the expense category chosen and then passes control to
-    post_amount_input(message, bot): for further processing.
+    from the run(message, bot): function in the add.py file. It requests the user 
+    to enter the amount they have spent on the expense category chosen and then passes
+    control to post_amount_input(message, bot): for further processing.
     """
     try:
         chat_id = message.chat.id
