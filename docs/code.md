@@ -2,34 +2,21 @@
 code.py is the main file from where calls to the corresponding .py files for all features are sent. It contains a number of endpoints which redirect to function calls in the corresponding files. 
 
 # Location of Code for this Feature
-The code that implements this feature can be found [here](https://github.com/sak007/MyDollarBot-BOTGo/blob/main/code/code.py)
+The code that implements this feature can be found [here](https://github.com/shonilbhide/dollar_bot/blob/Rubrics/code/code.py)
+
 
 # Code Description
 ## Functions
 
-1. main()
-The entire bot's execution begins here. It ensure the **bot** variable begins polling and actively listening for requests from telegram.
+- run(message, bot): This function serves as the entry point for the budget feature. It displays a menu in the chatbot, prompting the user to select an operation related to their budget. The available options are determined by the helper.getBudgetOptions() function. Once the user makes a selection, the control is passed to the post_operation_selection(message, bot) function for further processing.
 
-2. listener(user_requests):
-Takes 1 argument **user_requests** and logs all user interaction with the bot including all bot commands run and any other issue logs.
+- post_operation_selection(message, bot): This function processes the user's selection of a budget operation. It checks if the selected operation is valid and, if not, informs the user that the operation is invalid. If the user is new and doesn't have a budget record, it initializes one. Depending on the selected operation (e.g., add, update, view, delete), it calls the respective sub-module functions to perform the desired operation and then stores the updated budget data using helper.write_json(user_list).
 
-3. start_and_menu_command(m):
-Prints out the the main menu displaying the features that the bot offers and the corresponding commands to be run from the Telegram UI to use these features. Commands used to run this: commands=['start', 'menu']
+- budget_update.run(message, bot): This function is called when the user selects the "add" or "update" operation. It handles the process of adding or updating budget expenses. The exact details of these operations are likely implemented in the budget_update module.
 
-4. command_add(message)
-Takes 1 argument **message** which contains the message from the user along with the chat ID of the user chat. It then calls add.py to run to execute the add functionality. Commands used to run this: commands=['add']
+- budget_view.run(message, bot): This function is called when the user selects the "view" operation. It is responsible for displaying the user's budget information, such as expenses and balances. The specific implementation of the viewing process is likely found in the budget_view module.
 
-5. command_history(message):
-Takes 1 argument **message** which contains the message from the user along with the chat ID of the user chat. It then calls history.py to run to execute the add functionality. Commands used to run this: commands=['history']
-
-6. command_edit(message):
-Takes 1 argument **message** which contains the message from the user along with the chat ID of the user chat. It then calls edit.py to run to execute the add functionality. Commands used to run this: commands=['edit']
-
-7. command_display(message):
-Takes 1 argument **message** which contains the message from the user along with the chat ID of the user chat. It then calls display.py to run to execute the add functionality. Commands used to run this: commands=['display']
-
-8. command_delete(message):
-Takes 1 argument **message** which contains the message from the user along with the chat ID of the user chat. It then calls delete.py to run to execute the add functionality. Commands used to run this: commands=['display']
+- budget_delete.run(message, bot): This function is called when the user selects the "delete" operation. It is responsible for managing the process of deleting specific budget expenses. The details of how the deletion process works are likely defined in the budget_delete module.
 
 # How to run this feature?
 This file contains information on the main code.py file from where all features are run. Instructions to run this are the same as instructions to run the project and can be found in README.md.
