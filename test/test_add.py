@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import patch
 from telebot import types
 from datetime import datetime
-from ..code import add
+from code import add
 
 
 dateFormat = "%d-%b-%Y"
