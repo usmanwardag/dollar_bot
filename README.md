@@ -194,7 +194,8 @@ Here's a quick overview of how each of the commands work. Simply enter /<command
 - Sharing expenses
 - Windows specific setup scripts
 - Adding notes section while recording expenses
-- Incorporating Machine Learnig insights into Analytics
+- Incorporating Machine Learning insights into the Analytics Feature
+- Making DollarBot respond to casual conversation like 'Hi' and 'Bye'
 
 ## Acknowledgements
 
