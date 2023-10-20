@@ -1,6 +1,7 @@
 import helper
 import logging
-
+import csv
+from io import StringIO
 # === Documentation of history.py ===
 
 
@@ -12,20 +13,36 @@ def run(message, bot):
     historical data and based on whether there is data available, it either prints an error message or
     displays the user's historical data.
     """
+
     try:
         helper.read_json()
         chat_id = message.chat.id
         user_history = helper.getUserHistory(chat_id)
-        spend_total_str = ""
+
         if user_history is None:
             raise Exception("Sorry! No spending records found!")
-        spend_total_str = "Here is your spending history : \nDATE, CATEGORY, AMOUNT\n----------------------\n"
+
         if len(user_history) == 0:
-            spend_total_str = "Sorry! No spending records found!"
+            bot.send_message(chat_id, "Sorry! No spending records found!")
         else:
-            for rec in user_history:
-                spend_total_str += str(rec) + "\n"
-        bot.send_message(chat_id, spend_total_str)
+            # Create a tabular representation of the data
+            tabular_data = "```"
+            tabular_data += "+-------------------+-------------------+-------------+\n"
+            tabular_data += "|     DATE          |    CATEGORY       |   AMOUNT    |\n"
+            tabular_data += "+-------------------+-------------------+-------------+\n"
+
+            for line in user_history:
+                rec = line.split(",")  # Assuming data is comma-separated
+                if len(rec) == 3:
+                    tabular_data += "| {:<15} | {:<17} | {:<11} |\n".format(rec[0], rec[1], rec[2])
+
+            tabular_data += "+-------------------+-------------------+-------------+"
+            tabular_data += "```"
+
+            # Send the tabular data as a Markdown-formatted message
+            bot.send_message(chat_id, tabular_data, parse_mode="Markdown")
+
     except Exception as e:
         logging.exception(str(e))
-        bot.reply_to(message, "Oops!" + str(e))
+        bot.reply_to(message, "Oops! " + str(e))
+
