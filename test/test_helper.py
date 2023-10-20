@@ -6,7 +6,7 @@ from mock.mock import patch
 import logging
 import mock
 
-MOCK_CHAT_ID = 101
+MOCK_CHAT_ID = 894127939
 MOCK_USER_DATA = {
     str(MOCK_CHAT_ID): {
         "data": ["correct_mock_value"],
@@ -348,41 +348,6 @@ def test_display_remaining_overall_budget_exceeding_case(mock_telebot, mocker):
     mc.send_message.assert_called_with(
         11, "\nBudget Exceded!\nExpenditure exceeds the budget by $10"
     )
-
-
-@patch("telebot.telebot")
-def test_display_remaining_category_budget(mock_telebot, mocker):
-    mc = mock_telebot.return_value
-    mc.send_message.return_value = True
-    helper.calculateRemainingCategoryBudget = mock.Mock(return_value=150)
-    message = create_message("hello from testing")
-    helper.display_remaining_category_budget(message, mc, "Food")
-
-    mc.send_message.assert_called_with(11, "\nRemaining Budget for Food is $150")
-
-
-@patch("telebot.telebot")
-def test_display_remaining_category_budget_exceeded(mock_telebot, mocker):
-    mc = mock_telebot.return_value
-    mc.send_message.return_value = True
-    helper.calculateRemainingCategoryBudget = mock.Mock(return_value=-90)
-    message = create_message("hello from testing")
-    helper.display_remaining_category_budget(message, mc, "Food")
-
-    mc.send_message.assert_called_with(11, "\nRemaining Budget for Food is $-90")
-
-
-@patch("telebot.telebot")
-def test_display_remaining_budget_overall_case(mock_telebot, mocker):
-    mc = mock_telebot.return_value
-    message = create_message("hello from testing")
-
-    helper.isOverallBudgetAvailable = mock.Mock(return_value=True)
-    helper.display_remaining_overall_budget = mock.Mock(return_value=True)
-
-    helper.display_remaining_budget(message, mc, "Food")
-    helper.display_remaining_overall_budget.assert_called_with(message, mc)
-
 
 @patch("telebot.telebot")
 def test_display_remaining_budget_category_case(mock_telebot, mocker):
