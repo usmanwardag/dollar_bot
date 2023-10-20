@@ -68,7 +68,7 @@ DollarSplitBot: Where simplicity meets financial harmony at your fingertips.
 
 ## Check out the video!
 
-[![Demo Video](https://i9.ytimg.com/vi/aCjcT1CHAzU/mq3.jpg?sqp=COSotI0G&rs=AOn4CLD34jFIlq6GRdmTnK6p3F8O2F-Yig)](https://youtu.be/aCjcT1CHAzU)
+To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the DollarSplitBot project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://youtu.be/aCjcT1CHAzU)
 
 ## What is new in this version?
 
@@ -172,7 +172,7 @@ Common use cases for DollarSplitBot summarized in three points:
    - Generate detailed PDF expenditure reports for a comprehensive overview of your financial activity.
    - Utilize the bot's email reminders to facilitate financial settlements and maintain harmony in shared expenses, ensuring everyone is accountable.
 
-Certainly, you can watch this video [![Demo Video](https://i9.ytimg.com/vi/aCjcT1CHAzU/mq3.jpg?sqp=COSotI0G&rs=AOn4CLD34jFIlq6GRdmTnK6p3F8O2F-Yig)](https://youtu.be/aCjcT1CHAzU) for a step-by-step guide on how to use DollarSplitBot. 
+Certainly, you can watch this video [YouTube Link](https://youtu.be/JT06PTMHz7Y) for a step-by-step guide on how to use DollarSplitBot. 
 
 ## Automated Analysis Tools
 
@@ -181,6 +181,7 @@ This project uses various automated analysis tools like
 - pytest for tesing
 - coverage.py for code coverage
 - Travis CI for automated testing
+  
 ## License
 
 This project is licensed under the terms of the MIT license. Please check [License](https://github.com/shonilbhide/dollar_bot/blob/main/LICENSE) for more details.
