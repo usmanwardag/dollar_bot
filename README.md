@@ -68,7 +68,7 @@ DollarSplitBot: Where simplicity meets financial harmony at your fingertips.
 
 ## Check out the video!
 
-To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the DollarSplitBot project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://youtu.be/aCjcT1CHAzU)
+To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the DollarSplitBot project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://www.youtube.com/watch?v=JT06PTMHz7Y)
 
 ## What is new in this version?
 
