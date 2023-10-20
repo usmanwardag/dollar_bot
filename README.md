@@ -39,7 +39,7 @@ DollarBot is a handy little bot built on top of Telegram, to help you with daily
 
 It's easy to setup, run and use on a daily basis!
 
-![](dollar_bot_SE23/docs/DollarBot_Marketing.mp4)
+<a href="https://www.canva.com/design/DAFxwU4ABIg/LqMkLeGUBhC__JmWmdkFiQ/watch?utm_content=DAFxwU4ABIg&utm_campaign=designshare&utm_medium=link&utm_source=editor">Click here for a video overview!!</a>
 
 ## Why use DollarBot?
 
