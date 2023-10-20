@@ -43,4 +43,3 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         env_vars: OS,PYTHON
-        files: ./coverage.xml
