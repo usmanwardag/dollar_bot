@@ -6,7 +6,6 @@ matplotlib.use("Agg")
 
 # === Documentation of graphing.py ===
 
-
 def viewBudget(data):
     sorted_data = {}
     sorted_data = {k: v for k, v in sorted(data.items(), key=lambda item: item[1])}
@@ -21,7 +20,6 @@ def viewBudget(data):
     plt.savefig("budget.png", bbox_inches="tight")
     plt.close()
 
-
 def addlabels(x, y):
     """
     addlabels(x, y): This function is used to add the labels to the graph.
@@ -29,7 +27,6 @@ def addlabels(x, y):
     """
     for i in range(len(x)):
         plt.text(i, y[i] // 2, y[i], ha="center")
-
 
 def visualize(total_text, monthly_budget):
     """
@@ -77,4 +74,55 @@ def visualize(total_text, monthly_budget):
     plt.xticks(r1 + width / 2, monthly_budget_categ_val.keys(), rotation=90)
     plt.legend()
     plt.savefig("expenditure.png", bbox_inches="tight")
+    plt.close()
+
+def overall_split(category_budget):
+    _, ax = plt.subplots()
+    ax.pie(category_budget.values(), labels=category_budget.keys(), autopct='%1.1f%%')
+    ax.set_title("Budget split")
+    img_name = "overall_split.png"
+    plt.savefig(img_name)
+    plt.close()
+
+def spend_wise_split(category_spend):
+    _, ax = plt.subplots()
+    ax.pie(category_spend.values(), labels=category_spend.keys(), autopct='%1.1f%%')
+    ax.set_title("Category-wise spend")
+    img_name = "spend_wise.png"
+    plt.savefig(img_name)
+    plt.close()
+
+def remaining(category_spend_percent):
+    labels = tuple(category_spend_percent.keys())
+    remaining_val_list = [100 - x for x in list(category_spend_percent.values())]
+
+    weight_counts = {
+        "Used": list(category_spend_percent.values()),
+        "Remaining": remaining_val_list,
+    }
+    width = 0.5
+    _, ax = plt.subplots()
+    bottom = np.zeros(len(list(category_spend_percent.values())))
+
+    for boolean, weight_count in weight_counts.items():
+        print(boolean, weight_count)
+        ax.bar(labels, weight_count, width, label=boolean, bottom=bottom)
+        bottom += weight_count
+
+    ax.set_title("Category-wise budget consumed")
+    plt.xlabel("Categories")
+    plt.ylabel("Percentage")
+    ax.legend(loc="upper right")
+
+    img_name = "remaining.png"
+    plt.savefig(img_name)
+    plt.close()
+
+def time_series(cat_spend_dict):
+    plt.plot(cat_spend_dict.keys(), cat_spend_dict.values(), marker='o')
+    plt.title("Time-series of expenses")
+    plt.xlabel("Time")
+    plt.ylabel("Expense")
+    img_name = "time_series.png"
+    plt.savefig(img_name)
     plt.close()

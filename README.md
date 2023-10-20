@@ -1,160 +1,195 @@
-# 💰 MyDollar Bot 💰
+# 💰 Dollar Bot 💰
 
 <!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
+<b><h3>Table of Contents</h3></b>
   <ol>
-    <li><a href="#why-should-you-use-dollar-bot">Why should you use Dollar Bot?</a></li>
-    <li><a href="#check-out-the-video">Check out the video!</a></li>
-    <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
-    <li><a href="#installation">Installation</a></li>
-    <li><a href="#testing">Testing</a></li>
-    <li><a href="#code-coverage">Code Coverage</a></li>
-    <li><a href="#License">License</a></li>
-    <li><a href="#code-documentation">Code Documentation</a></li>
-    <li><a href="#how-to-contribute">How to Contribute</a></li>
-    <li><a href="#future-roadmap">Future RoadMap</a></li>
+    <li><a href="#whats-dollarbot">What's DollarBot?
+    <li><a href="#why-use-dollarbot">Why use DollarBot?</a></li>
+    <li><a href="#demo">Demo</a></li>
+    <li><a href="#whats-new">What's new in this version?</a></li>
+    <li><a href="#installation-and-setup">Installation and Setup</a></li>
+   <li><a href="#how-to-use">How to use?</a></li>
    <li><a href="#contributors">Contributors</a></li>
+   <li><a href="#future-work">Future Work</a></li>
    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
-</details>
 
-<hr>
-<p align="center">
-<a><img  height=350 width=350 
-  src="https://s1.mzstatic.com/us/r30/Purple1/v4/de/ab/45/deab454d-8881-b37d-9513-b0e26424cc57/pr_source.png?downloadKey=1425248837_8a393efcc4a821cbf9639d5570f8e966" alt="Dollar BoT"></a>
-</p>
-<hr>
-
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/usmanwardag/auto_anki)
+Are you a developer? <a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/Developer_ReadMe.md">Click here: For Developers and Future Contributors</a>
 
 ![MIT license](https://img.shields.io/badge/License-MIT-green.svg)
 [![Platform](https://img.shields.io/badge/Platform-Telegram-blue)](https://desktop.telegram.org/)
 ![GitHub](https://img.shields.io/badge/Language-Python-blue.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/sak007/MyDollarBot-BOTGo)](https://github.com/sak007/MyDollarBot-BOTGo/graphs/contributors)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5759217.svg)](https://doi.org/10.5281/zenodo.5759217)
+[![GitHub contributors](https://img.shields.io/github/contributors/aditikilledar/dollar_bot_SE23)](https://github.com/aditikilledar/dollar_bot_SE23/graphs/contributors)
+[![DOI](https://zenodo.org/badge/691334031.svg)](https://zenodo.org/doi/10.5281/zenodo.10023639)
 [![Build Status](https://app.travis-ci.com/usmanwardag/dollar_bot.svg?branch=main)](https://app.travis-ci.com/usmanwardag/dollar_bot)
-[![codecov](https://codecov.io/gh/usmanwardag/dollar_bot/branch/main/graph/badge.svg?token=PYAWX95R67)](https://codecov.io/gh/usmanwardag/dollar_bot)
-
-[![GitHub issues](https://img.shields.io/github/issues/sak007/MyDollarBot-BOTGo)](https://github.com/sak007/MyDollarBot-BOTGo/issues?q=is%3Aopen+is%3Aissue)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/sak007/MyDollarBot-BOTGo)](https://github.com/sak007/MyDollarBot-BOTGo/issues?q=is%3Aissue+is%3Aclosed)
-![Lines of code](https://img.shields.io/tokei/lines/github/sak007/MyDollarBot-BOTGo)
+[![codecov](https://codecov.io/gh/aditikilledar/dollar_bot_SE23/graph/badge.svg?token=23RW1XPB3P)](https://codecov.io/gh/aditikilledar/dollar_bot_SE23)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/aditikilledar/dollar_bot_SE23)](https://github.com/aditikilledar/dollar_bot_SE23/issues?q=is%3Aissue+is%3Aclosed)
+<!-- [![GitHub closed issues](https://img.shields.io/github/issues-closed/sak007/MyDollarBot-BOTGo)](https://github.com/sak007/MyDollarBot-BOTGo/issues?q=is%3Aissue+is%3Aclosed) -->
 
 <hr>
 
-## Why should you use MyDollar Bot?
+## What's DollarBot?
 
-Dollar Bot is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle.  
-With simple commands, this bot allows you to:
+DollarBot is a handy little bot built on top of Telegram, to help you with daily expense tracking and analytics on your past spends. 
+
+It's easy to setup, run and use on a daily basis!
+
+<a href="https://www.canva.com/design/DAFxwU4ABIg/LqMkLeGUBhC__JmWmdkFiQ/watch?utm_content=DAFxwU4ABIg&utm_campaign=designshare&utm_medium=link&utm_source=editor">Click here for a video overview!!</a>
+
+## Why use DollarBot?
+
+With simple in-chat commands, this bot helps you:
+- Set your own customized budget
 - Add/Record new spendings
-- Display your spendings through bar graph
-- Show the sum of your expenditure for the current day/month
+- Display your spending trends through engaging graphs
+- Predict your next month's budget based on your current expenditure
 - Display your spending history
 - Clear/Erase all your records
 - Edit/Change any spending details if you wish to
+- View Analytics and export as a pdf
 
-## Check out the video!
+## Demo
 
-[![Demo Video](https://i9.ytimg.com/vi/aCjcT1CHAzU/mq3.jpg?sqp=COSotI0G&rs=AOn4CLD34jFIlq6GRdmTnK6p3F8O2F-Yig)](https://youtu.be/aCjcT1CHAzU)
+Demo Video -> [https://www.youtube.com/watch?v=XlndmRhr9Lc]
 
-## What is new in this version?
+## What's new?
 
-Checkout the [this documentation](https://github.com/usmanwardag/dollar_bot/blob/main/docs/Updated_version.pdf)
-## Installation
+We've considerably extended this project to make using DollarBot easy and engaging.\
+1. Expressive Graphs
+2. Budget prediction
+3. Clearer and more informative PDF Reports
+4. Ability to add recurring expenses
+5. Budget Creation Updated
+6. Clearer wording in the documentation
 
-The below instructions can be followed in order to set-up this bot at your end in a span of few minutes! Let's get started:
+Check [this documentation out](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/whats-new.md) for an in-depth depiction of our changes. :)
 
-1. Clone this repository to your local system.
+## Installation and Setup
 
-2. Start a terminal session in the directory where the project has been cloned. Run the following command to install the required dependencies:
+### Pre-requisite: The Telegram Desktop App
+
+Since DollarBot is built on top of Telegram, you'll first need:
+1. Download the Telegram Desktop Application <a href="https://desktop.telegram.org/">here.</a>
+```https://desktop.telegram.org/```
+2. Create a Telegram account or Sign in.
+
+Open up your terminal and let's get started:
+
+### MacOS / Ubuntu Users
+
+1. Clone this repository to your local system. 
 ```
-  pip install -r requirements.txt
-
+   git clone https://github.com/aditikilledar/dollar_bot_SE23/
 ```
-3. Download and install the Telegram desktop application for your system from the following site:
- ```
- https://desktop.telegram.org/
- ```
-## How to run?
+2. Start a terminal session in the directory where the project has been cloned. Run the following commands and follow the instructions on-screen to complete the installation.
+```
+  chmod a+x setup.sh
+  bash setup.sh
+```
+There, all done!
 
-1. In Telegram, search for "BotFather". Click on "Start", and enter the following command:
+The installation is easy for MacOS or on UNIX terminals. 
+
+### Windows
+
+With Windows, you'll need to use a platform to execute UNIX-like commands in order to execute the setup.sh bash script. Once in the platform, use the steps in the MacOS/Unix Section above to setup DollarBot.
+
+We've used <a href="https://www.cygwin.com/">Cygwin,</a> but there are more options like WSL that you can explore.
+
+Additionally, find more hints on Cygwin installation <a href="https://stackoverflow.com/questions/6413377/is-there-a-way-to-run-bash-scripts-on-windows">here.</a>
+
+## Running DollarBot:
+
+Once you've executed setup.sh, and all dependencies have been installed, you can start running DollarBot by following these instructions.
+
+1. Open the Telegram Desktop Application and sign in. Once inside Telegram, search for "BotFather". Click on "Start", and enter the following command:
 ```
   /newbot
 ```
-2. Follow the instructions on screen and choose a name for your bot (e.g., `dollarbot`). After this, select a username for your bot that ends with "bot". The username has to be unique. 
+2. Follow the instructions on screen and choose a name for your bot (e.g., `dollarbot`). After this, select a UNIQUE username for your bot that ends with "bot", for example: `dollarbot_<your_nickname>`.
 
-3. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use.
+3. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use. Make sure you save this token– don't lose it!
 
-4. In the repo directory (where you cloned it), run these commands to (i) grant execution access to a bash script, and (ii) execute that bash script to run the Telegram Bot:
-```
-   chmod a+x run.sh
-   ./run.sh
-```
+4. In the repo directory (where you cloned it), run these commands.
+
+(a) grant execution access to a bash script
+  ```
+  chmod a+x run.sh
+  ```
+
+(b) execute the run.sh bash script to start DollarBot
    
-(OR)
+###### MacOS / Unix
 ```
-   chmod a+x run.sh
    bash run.sh
 ```
-```Note```: It will ask you to paste the API token you received from Telegram in step 4.
+###### Windows
+```
+   ./run.sh
+```
+
+```Note```: It will ask you to paste the API token you received from Telegram while creating your bot (Step 3), so keep that handy.
 A successful run will generate a message on your terminal that says "TeleBot: Started polling." 
 
-5. In the Telegram app, search for your newly created bot by entering the username and open the same. Now, on Telegram, enter the "/start" or "menu" command, and you are all set to track your expenses!
+5. In the Telegram app, search for your newly created bot by entering your UNIQUE username and open the bot you created.
+
+6. Now, on Telegram, enter the "/start" or "menu" command, and you are all set to track your expenses!
 
 ### Run Automatically at Startup
 
 To run the script automatically at startup / reboot, simply add the `.run_forever.sh` script to your `.bashrc` file, which executes whenever you reboot your system.
+<a href="https://stackoverflow.com/questions/49083789/how-to-add-new-line-in-bashrc-file-in-ubuntu">Click here for help adding to .bashrc files.</a>
 
-## Testing
+## How to Use
 
-We use pytest to perform testing on all unit tests together. The command needs to be run from the home directory of the project. The command is:
-```
-python run -m pytest test/
-```
+Here's a quick overview of how each of the commands work. Simply enter /<command_name> into the Telegram chat and watch as the magic happens! 
 
-## Code Coverage
+#### /menu: Display commands with their descriptions.
 
-Code coverage is part of the build. Every time new code is pushed to the repository, the build is run, and along with it, code coverage is computed. This can be viewed by selecting the build, and then choosing the codecov pop-up on hover.
+#### /help: Display the list of commands.
 
-Locally, we use the coverage package in python for code coverage. The commands to check code coverage in python are as follows:
+#### /pdf: Save history as PDF.
 
-```
-coverage run -m pytest test/
-coverage report
-```
+#### /add: This option is for adding your expenses        
+ 1. It will give you the list of categories to choose from.        
+ 2. You will be prompted to enter the amount corresponding to your spending        
+ 3.The message will be prompted to notify the addition of your expense with the amount,date, time and category 
 
-## License
+#### /analytics: This option gives user a graphical representation of their expenditures         
+ You will get an option to choose the type of data you want to see.
 
-This project is licensed under the terms of the MIT license. Please check [License](https://github.com/usmanwardag/dollar_bot/blob/main/LICENSE) for more details.
+#### /predict: This option analyzes your recorded spendings and gives you a budget that will accommodate for them.
 
+#### /history: This option is to give you the detailed summary of your expenditure with Date, time ,category and amount. A quick lookup into your spendings
 
-## Code Documentation
+#### /delete: This option is to Clear/Erase all your records
 
-Checkout the [docs](https://github.com/sak007/MyDollarBot-BOTGo/tree/main/docs)
+#### /edit: This option helps you to go back and correct/update the missing details         
+ 1. It will give you the list of your expenses you wish to edit         
+ 2. It will let you change the specific field based on your requirements like amount/date/category
 
-## How to Contribute
-
-We would be happy to receive contributions! If you'd like to, please go through our [CONTRIBUTING.md](https://github.com/usmanwardag/dollar_bot/blob/main/CONTRIBUTING.md)
-
-For any feedback, issues, or bug reports, please create an issue [here](https://github.com/usmanwardag/dollar_bot/issues/new).
-
-## Future RoadMap
-
-- More content can be added for the way notifications can be displayed on the user front. This can be done to make the UI more interactive.
-- Recurring expenses feature can be added for faster addition of expenses instead of following the whole process of everytime.
+#### /budget: This option is to set/update/delete the budget.         
+ 1. The Add/update category is to set the new budget or update the existing budget         
+ 2. The view category gives the detail if budget is exceeding or in limit with the difference amount         
+ 3. The delete category allows to delete the budget and start afresh!
 
 ## Contributors
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/usmanwardag"><img src="https://avatars.githubusercontent.com/u/8848723?v=4" width="75px;" alt=""/><br /><sub><b>Usman Khan</b></sub></a></td>
-    <td align="center"><a href="https://github.com/aakriti0fnu"><img src="https://avatars.githubusercontent.com/u/65619749?s=400&u=e7d56965d4414a95f969dbf53ed92b3e31fab610&v=4" width="75px;" alt=""/><br /><sub><b>Aakriti Aakriti</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/sbosenc"><img src="https://avatars.githubusercontent.com/u/89551210?v=4" width="75px;" alt=""/><br /><sub><b>Suneha Bose</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/muskan7828"><img src="https://avatars.githubusercontent.com/u/45363276?v=4" width="75px;" alt=""/><br /><sub><b>Muskan Gupta</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/kriti0207"><img src="https://avatars.githubusercontent.com/u/89510237?v=4" width="75px;" alt=""/><br /><sub><b>Kriti Khullar</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/aditikilledar"><img src="https://avatars.githubusercontent.com/u/73051765?v=4" width="75px;" alt=""/><br /><sub><b>Aditi Killedar</b></sub></a></td>
+    <td align="center"><a href="https://github.com/shashank-madan"><img src="https://avatars.githubusercontent.com/u/52149707?s=80&v=4" width="75px;" alt=""/><br /><sub><b>Shashank Madan</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/srina1h"><img src="https://avatars.githubusercontent.com/u/47570142?v=4" width="75px;" alt=""/><br /><sub><b> Srinath Srinivasan</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/aiyer786"><img src="https://avatars.githubusercontent.com/u/52149707?s=80&v=4" width="75px;" alt=""/><br /><sub><b>Aditya Iyer</b></sub></a><br /></td>
   </tr>
 </table>
 
+## Future Work
 
+- Sharing expenses
+- Windows specific setup scripts
+- Adding notes section while recording expenses
+- Incorporating Machine Learning insights into the Analytics Feature
+- Making DollarBot respond to casual conversation like 'Hi' and 'Bye'
 
 ## Acknowledgements
 
@@ -162,7 +197,3 @@ For any feedback, issues, or bug reports, please create an issue [here](https://
 - A big thank you 😊 to the Teaching Assistants for their support.
 - Thank you to the previous team 😊 for a thorough ReadMe and deatiled documentation.[MyDollarBot](https://github.com/sak007/MyDollarBot-BOTGo)
 - Thank you to the ⭐️[Telegram bot](https://github.com/python-telegram-bot/python-telegram-bot)
-
-
-
-

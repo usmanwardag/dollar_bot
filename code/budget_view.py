@@ -5,7 +5,6 @@ import os
 
 # === Documentation of budget_view.py ===
 
-
 def run(message, bot):
     """
     run(message, bot): This is the main function used to implement the budget feature.
@@ -19,9 +18,8 @@ def run(message, bot):
     try:
         print("here")
         chat_id = message.chat.id
-        if helper.isOverallBudgetAvailable(chat_id):
+        if helper.isOverallBudgetAvailable(chat_id) or helper.isCategoryBudgetAvailable(chat_id):
             display_overall_budget(message, bot)
-        elif helper.isCategoryBudgetAvailable(chat_id):
             display_category_budget(message, bot)
         else:
             raise Exception(
@@ -29,7 +27,6 @@ def run(message, bot):
             )
     except Exception as e:
         helper.throw_exception(e, message, bot, logging)
-
 
 def display_overall_budget(message, bot):
     """
@@ -42,7 +39,6 @@ def display_overall_budget(message, bot):
     data = helper.getOverallBudget(chat_id)
     bot.send_message(chat_id, "Overall Budget: $" + data)
 
-
 def display_category_budget(message, bot):
     """
     display_category_budget(message, bot): It takes 2 arguments for processing -
@@ -52,7 +48,10 @@ def display_category_budget(message, bot):
     format suitable for display, and returns the same through the bot to the Telegram UI.
     """
     chat_id = message.chat.id
-    data = helper.getCategoryBudget(chat_id)
-    graphing.viewBudget(data)
-    bot.send_photo(chat_id, photo=open("budget.png", "rb"))
-    os.remove("budget.png")
+    if helper.isCategoryBudgetAvailable(chat_id):
+        data = helper.getCategoryBudget(chat_id)
+        graphing.viewBudget(data)
+        bot.send_photo(chat_id, photo=open("budget.png", "rb"))
+        os.remove("budget.png")
+    else:
+        bot.send_message(chat_id, "You are yet to set your budget for different categories.")

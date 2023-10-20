@@ -12,6 +12,8 @@ import estimate
 import delete
 import add
 import budget
+import analytics
+import predict
 from datetime import datetime
 from jproperties import Properties
 
@@ -31,8 +33,6 @@ option = {}
 # === Documentation of code.py ===
 
 # Define listener for requests by user
-
-
 def listener(user_requests):
     """
     listener(user_requests): Takes 1 argument user_requests and logs all user
@@ -65,9 +65,7 @@ def listener(user_requests):
     except Exception:
         pass
 
-
 bot.set_update_listener(listener)
-
 
 @bot.message_handler(commands=["help"])
 def help(m):
@@ -80,10 +78,8 @@ def help(m):
     commands = helper.getCommands()
     for c in commands:
         message += "/" + c + ", "
-        # message += commands[c] + "\n\n"
     message += "\nUse /menu for detailed instructions about these commands."
     bot.send_message(chat_id, message)
-
 
 @bot.message_handler(commands=["faq"])
 def faq(m):
@@ -98,14 +94,13 @@ def faq(m):
          '"How can I add an epxense?" \n'
          ">> Type /add, then select a category to type the expense. \n\n"
          '"Can I see history of my expenses?" \n'
-         ">> Yes! Use /display to get a graphical display, or /history to view detailed summary.\n\n"
+         ">> Yes! Use /analytics to get a graphical display, or /history to view detailed summary.\n\n"
          '"I added an incorrect expense. How can I edit it?"\n'
          ">> Use /edit command. \n\n"
          '"Can I check if my expenses have exceeded budget?"\n'
          ">> Yes! Use /budget and then select the view category. \n\n")
     )
     bot.send_message(chat_id, faq_message)
-
 
 # defines how the /start and /help commands have to be handled/processed
 @bot.message_handler(commands=["start", "menu"])
@@ -119,29 +114,21 @@ def start_and_menu_command(m):
     global user_list
     chat_id = m.chat.id
 
-    # print('receieved start or menu command.')
-    # text_into = "Welcome to the Dollar Bot!"
-
     text_intro = (
         ("Welcome to the Dollar Bot! \n"
          "DollarBot can track all your expenses with simple and easy to use commands :) \n"
          "Here is the complete menu. \n\n")
     )
-    # "Type /faq or /help to get stated."
 
     commands = helper.getCommands()
-    for (
-        c
-    ) in (
-        commands
-    ):  # generate help text out of the commands dictionary defined at the top
+    for c in commands:  
+        # generate help text out of the commands dictionary defined at the top
         text_intro += "/" + c + ": "
         text_intro += commands[c] + "\n\n"
     bot.send_message(chat_id, text_intro)
     return True
 
-
-# defines how the /new command has to be handled/processed
+# defines how the /add command has to be handled/processed
 @bot.message_handler(commands=["add"])
 def command_add(message):
     """
@@ -151,10 +138,7 @@ def command_add(message):
     """
     add.run(message, bot)
 
-
-# function to fetch expenditure history of the user
-
-
+# handles pdf command
 @bot.message_handler(commands=["pdf"])
 def command_pdf(message):
     """
@@ -163,7 +147,6 @@ def command_pdf(message):
     the add functionality. Commands used to run this: commands=['pdf']
     """
     pdf.run(message, bot)
-
 
 # function to fetch expenditure history of the user
 @bot.message_handler(commands=["history"])
@@ -175,7 +158,6 @@ def command_history(message):
     """
     history.run(message, bot)
 
-
 # function to edit date, category or cost of a transaction
 @bot.message_handler(commands=["edit"])
 def command_edit(message):
@@ -185,7 +167,6 @@ def command_edit(message):
     the add functionality. Commands used to run this: commands=['edit']
     """
     edit.run(message, bot)
-
 
 # function to display total expenditure
 @bot.message_handler(commands=["display"])
@@ -197,12 +178,10 @@ def command_display(message):
     """
     display.run(message, bot)
 
-
 # function to estimate future expenditure
 @bot.message_handler(commands=["estimate"])
 def command_estimate(message):
     estimate.run(message, bot)
-
 
 # handles "/delete" command
 @bot.message_handler(commands=["delete"])
@@ -214,14 +193,28 @@ def command_delete(message):
     """
     delete.run(message, bot)
 
-
+# handles budget command
 @bot.message_handler(commands=["budget"])
 def command_budget(message):
     budget.run(message, bot)
 
+# handles analytics command
+@bot.message_handler(commands=["analytics"])
+def command_analytics(message):
+    """
+    command_analytics(message): Take an argument message with content and chat ID. Calls analytics to 
+    run analytics. Commands to run this commands=["analytics"]
+    """
+    analytics.run(message, bot)
 
-# not used
-
+# handles predict command
+@bot.message_handler(commands=["predict"])
+def command_predict(message):
+    """
+    command_predict(message): Take an argument message with content and chat ID. Calls predict to 
+    analyze budget and spending trends and suggest a future budget. Commands to run this commands=["predict"]
+    """
+    predict.run(message, bot)
 
 def addUserHistory(chat_id, user_record):
     global user_list
@@ -229,7 +222,6 @@ def addUserHistory(chat_id, user_record):
         user_list[str(chat_id)] = []
     user_list[str(chat_id)].append(user_record)
     return user_list
-
 
 def main():
     """
@@ -242,7 +234,6 @@ def main():
         logging.exception(str(e))
         time.sleep(3)
         print("Connection Timeout")
-
 
 if __name__ == "__main__":
     main()

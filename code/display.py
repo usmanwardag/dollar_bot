@@ -7,7 +7,6 @@ from datetime import datetime
 
 # === Documentation of display.py ===
 
-
 def run(message, bot):
     """
     run(message, bot): This is the main function used to implement the delete feature.
@@ -26,14 +25,12 @@ def run(message, bot):
         markup.row_width = 2
         for mode in helper.getSpendDisplayOptions():
             markup.add(mode)
-        # markup.add('Day', 'Month')
         msg = bot.reply_to(
             message,
             "Please select a category to see the total expense",
             reply_markup=markup,
         )
         bot.register_next_step_handler(msg, display_total, bot)
-
 
 def display_total(message, bot):
     """
@@ -63,7 +60,6 @@ def display_total(message, bot):
         time.sleep(0.5)
 
         total_text = ""
-
         if DayWeekMonth == "Day":
             query = datetime.now().today().strftime(helper.getDateFormat())
             # query all that contains today's date
@@ -91,11 +87,9 @@ def display_total(message, bot):
             )
             graphing.visualize(total_text, monthly_budget)
             bot.send_photo(chat_id, photo=open("expenditure.png", "rb"))
-            # os.remove('expenditure.png')
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, str(e))
-
 
 def calculate_spendings(queryResult):
     """

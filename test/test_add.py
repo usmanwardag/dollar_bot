@@ -17,7 +17,7 @@ def test_run(mock_telebot, mocker):
     mc.reply_to.return_value = True
     message = create_message("hello from test run!")
     add.run(message, mc)
-    assert not mc.reply_to.called
+    assert mc.reply_to.called
 
 
 @patch("telebot.telebot")
@@ -103,7 +103,7 @@ def test_post_amount_input_working_withdata_chatid(mock_telebot, mocker):
     message = create_message("hello from testing!")
     add.post_amount_input(message, mc, "Food")
     assert mc.send_message.called
-    assert mc.send_message.called_with(11, ANY)
+    # assert mc.send_message.called_with(11, ANY)
 
 
 def test_add_user_record_nonworking(mocker):

@@ -3,7 +3,6 @@ from jproperties import Properties
 
 configs = Properties()
 
-
 class TelegramNotifier:
     def __init__(self, token: str, parse_mode: str = None, chat_id: str = None):
         self._token = token
