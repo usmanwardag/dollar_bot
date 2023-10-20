@@ -57,7 +57,7 @@ With simple in-chat commands, this bot helps you:
 
 ## Demo
 
-[![Demo Video](https://i9.ytimg.com/vi/aCjcT1CHAzU/mq3.jpg?sqp=COSotI0G&rs=AOn4CLD34jFIlq6GRdmTnK6p3F8O2F-Yig)]([https://www.youtube.com/watch?v=XlndmRhr9Lc])
+Demo Video -> [https://www.youtube.com/watch?v=XlndmRhr9Lc]
 
 ## What's new?
 
