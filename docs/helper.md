@@ -2,40 +2,30 @@
 The helper file contains a set of functions that are commonly used for repeated tasks in the various features of MyDollarBot. Since these come up often, we have put them all up here in a separate file for reusability.
 
 # Location of Code for this Feature
-The code that implements this feature can be found [here](https://github.com/sak007/MyDollarBot-BOTGo/blob/main/code/helper.py)
+The code that implements this feature can be found [here](https://github.com/shonilbhide/dollar_bot/blob/main/code/helper.py)
 
 # Code Description
 ## Functions
 
-1. read_json():
-Function to load .json expense record data
+- spend_categories: This is a list of predefined spending categories, such as "Food," "Groceries," "Utilities," etc. These categories are used to categorize expenses.
 
-2. write_json(user_list):
-Stores data into the datastore of the bot.
+- choices: A list containing three options: "Date," "Category," and "Cost." These options might be used to select how the user wants to view or filter their expense data.
 
-3. validate_entered_amount(amount_entered):
-Takes 1 argument, **amount_entered**. It validates this amount's format to see if it has been correctly entered by the user.
+- spend_display_option: This list contains two options: "Day" and "Month." These options could be used to specify whether the user wants to view expenses on a daily or monthly basis.
 
-4. getUserHistory(chat_id):
-Takes 1 argument **chat_id** and uses this to get the relevant user's historical data.
+- spend_estimate_option: Another list with two options: "Next day" and "Next month." These might be used to estimate future expenses based on past spending data.
 
-5. getSpendCategories():
-This functions returns the spend categories used in the bot. These are defined the same file.
+- update_options: A dictionary with two key-value pairs, "continue" and "exit." These options could be used to continue or exit a particular process within the program.
 
-6. getSpendDisplayOptions():
-This functions returns the spend display options used in the bot. These are defined the same file.
+- budget_options: A dictionary with options related to budget management, such as "add," "update," "view," and "delete."
 
-7. getCommands():
-This functions returns the command options used in the bot. These are defined the same file.
+- budget_types: A dictionary that defines different types of budgets, such as "Overall Budget" and "Category-Wise Budget."
 
-8. def getDateFormat():
-This functions returns the date format used in the bot. 
+- data_format: A dictionary that seems to be an initial data structure for storing user data, expenses, and budgets. It has placeholders for various data, including user information, expenses, and budget details.
 
-9. def getTimeFormat():
-This functions returns the time format used in the bot. 
+- commands: A dictionary that provides descriptions of various commands or actions that the user can perform within the program. These descriptions include commands like "add," "display," "edit," etc.
 
-10. def getMonthFormat():
-This functions returns the month format used in the bot. 
+Functions: The code defines several functions, including read_json, write_json, validate_entered_amount, and others. These functions likely handle reading and writing data, validating user input, and managing user records and budgets
 
 # How to run this feature?
 Once the project is running(please follow the instructions given in the main README.md for this), please type /add into the telegram bot.
