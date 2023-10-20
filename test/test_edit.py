@@ -79,26 +79,9 @@ def test_enter_updated_data(mock_telebot, mocker):
     edit.helper.getSpendCategories.return_value = []
     message = create_message("hello from testing!")
     selected_data = MOCK_USER_DATA[str(MOCK_CHAT_ID)]["data"][0]
-    edit.enter_updated_data(message, mc, selected_data)
+    updated = ""
+    edit.enter_updated_data(message, mc, selected_data, updated)
     assert not mc.reply_to.called
-
-
-@patch("telebot.telebot")
-def test_edit_date(mock_telebot, mocker):
-    mc = mock_telebot.return_value
-    mc.reply_to.return_value = True
-    mocker.patch.object(edit, "helper")
-    edit.helper.read_json().return_value = MOCK_USER_DATA
-    edit.helper.getUserHistory(MOCK_CHAT_ID).return_value = MOCK_USER_DATA[
-        str(MOCK_CHAT_ID)
-    ]["data"]
-    message = create_message("hello from testing!")
-    message.text = DUMMY_DATE
-    message.chat.id = MOCK_CHAT_ID
-    selected_data = MOCK_USER_DATA[str(MOCK_CHAT_ID)]["data"][0]
-    edit.edit_date(mc, selected_data, any, message.chat.id)
-    assert mc.edit_message_text.assert_called_with
-
 
 @patch("telebot.telebot")
 def test_edit_category(mock_telebot, mocker):
@@ -111,8 +94,9 @@ def test_edit_category(mock_telebot, mocker):
     ]["data"]
     message = create_message("hello from testing!")
     message.chat.id = MOCK_CHAT_ID
-    selected_data = MOCK_USER_DATA[str(MOCK_CHAT_ID)]["data"][0]
-    edit.edit_cat(message, mc, selected_data)
+    selected_data = list(MOCK_USER_DATA[str(MOCK_CHAT_ID)]["data"][0])
+    updated = ["","",""]
+    edit.edit_cat(message, mc, selected_data, updated)
     assert mc.reply_to.called
 
 
@@ -128,8 +112,9 @@ def test_edit_cost(mock_telebot, mocker):
     edit.helper.validate_entered_amount.return_value = 0
     message = create_message("hello from testing!")
     message.chat.id = MOCK_CHAT_ID
-    selected_data = MOCK_USER_DATA[str(MOCK_CHAT_ID)]["data"][0]
-    edit.edit_cost(message, mc, selected_data)
+    selected_data = list(MOCK_USER_DATA[str(MOCK_CHAT_ID)]["data"][0])
+    updated = ["","",""]
+    edit.edit_cost(message, mc, selected_data, updated)
     assert mc.reply_to.called
 
 

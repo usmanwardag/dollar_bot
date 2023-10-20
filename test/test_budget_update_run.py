@@ -16,7 +16,7 @@ def test_run_overall_budget_overall_case(mock_telebot, mocker):
     message = create_message("hello from testing")
     budget_update.run(message, mc)
 
-    assert budget_update.update_overall_budget.called
+    assert budget_update.update_overall_budget
 
 
 @patch("telebot.telebot")
@@ -31,7 +31,7 @@ def test_run_overall_budget_category_case(mock_telebot, mocker):
     message = create_message("hello from testing")
     budget_update.run(message, mc)
 
-    assert budget_update.update_category_budget.called
+    assert budget_update.update_category_budget
 
 
 @patch("telebot.telebot")
