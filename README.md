@@ -5,7 +5,6 @@
   <ol>
     <li><a href="#whats-dollarbot">What's DollarBot?
     <li><a href="#why-use-dollarbot">Why use DollarBot?</a></li>
-<!--     <li><a href="#check-out-the-video">Check out the video!</a></li> -->
     <li><a href="#whats-new">What's new in this version?</a></li>
     <li><a href="#installation-and-setup">Installation and Setup</a></li>
    <li><a href="#how-to-use">How to use?</a></li>
@@ -39,6 +38,8 @@ Are you a developer? <a href="https://github.com/aditikilledar/dollar_bot_SE23/b
 DollarBot is a handy little bot built on top of Telegram, to help you with daily expense tracking and analytics on your past spends. 
 
 It's easy to setup, run and use on a daily basis!
+
+<a href="https://www.canva.com/design/DAFxwU4ABIg/LqMkLeGUBhC__JmWmdkFiQ/watch?utm_content=DAFxwU4ABIg&utm_campaign=designshare&utm_medium=link&utm_source=editor">Click here for a video overview!!</a>
 
 ## Why use DollarBot?
 
@@ -146,39 +147,36 @@ To run the script automatically at startup / reboot, simply add the `.run_foreve
 
 ## How to Use
 
-Here's a quick overview of how each of the commands work. Also see: Link at the end of each example for a more detailed version of the documentation.
+Here's a quick overview of how each of the commands work. Simply enter /<command_name> into the Telegram chat and watch as the magic happens! 
 
-### Add
+#### /menu: Display commands with their descriptions.
 
-``` add example add code here ``` 
-[insert a GIF showing how to run here]
+#### /help: Display the list of commands.
 
-[Learn more here](https://github.com/aditikilledar/dollar_bot_SE23/blob/docu-merging-scattered-docs/docs/add.md)
+#### /pdf: Save history as PDF.
 
-### Budget
+#### /add: This option is for adding your expenses        
+ 1. It will give you the list of categories to choose from.        
+ 2. You will be prompted to enter the amount corresponding to your spending        
+ 3.The message will be prompted to notify the addition of your expense with the amount,date, time and category 
 
-#### Delete
+#### /analytics: This option gives user a graphical representation of their expenditures         
+ You will get an option to choose the type of data you want to see.
 
-#### Update
+#### /predict: This option analyzes your recorded spendings and gives you a budget that will accommodate for them.
 
-#### View
+#### /history: This option is to give you the detailed summary of your expenditure with Date, time ,category and amount. A quick lookup into your spendings
 
-### Delete
+#### /delete: This option is to Clear/Erase all your records
 
-### Edit
+#### /edit: This option helps you to go back and correct/update the missing details         
+ 1. It will give you the list of your expenses you wish to edit         
+ 2. It will let you change the specific field based on your requirements like amount/date/category
 
-### Estimate
-
-### Graphing and Analytics
-
-Use /analytics to gain graphical insights about your budgets and spending.
-
-[Learn more here](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/analytics.md)
-
-### Helper
-
-### History
-
+#### /budget: This option is to set/update/delete the budget.         
+ 1. The Add/update category is to set the new budget or update the existing budget         
+ 2. The view category gives the detail if budget is exceeding or in limit with the difference amount         
+ 3. The delete category allows to delete the budget and start afresh!
 
 ## Contributors
 <table>
