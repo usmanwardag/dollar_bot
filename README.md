@@ -147,9 +147,7 @@ To run the script automatically at startup / reboot, simply add the `.run_foreve
 
 ## How to Use
 
-Here's a quick overview of how each of the commands work. Also see: Link at the end of each example for a more detailed version of the documentation.
-
-Here is the complete set of commands. Simply enter /<command_name> into the Telegram chat and watch as the magic happens! 
+Here's a quick overview of how each of the commands work. Simply enter /<command_name> into the Telegram chat and watch as the magic happens! 
 
 #### /menu: Display commands with their descriptions.
 
