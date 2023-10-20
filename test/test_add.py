@@ -2,15 +2,15 @@ import pytest
 from unittest.mock import patch
 from telebot import types
 from datetime import datetime
-from code import add
-from code import helper
+from ..code import add
+
 
 dateFormat = "%d-%b-%Y"
 timeFormat = "%H:%M"
 monthFormat = "%b-%Y"
 
 @patch("telebot.telebot")
-@patch("code.helper.read_json")
+@patch("add.helper.read_json")
 def test_run(user_mock,mock_telebot):
     mc = mock_telebot.return_value
     user_mock.return_value = create_user_list()
