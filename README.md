@@ -58,13 +58,13 @@ With simple in-chat commands, this bot helps you:
 
 ## What's new?
 
-We've considerably extended this project to make using DollarBot easy and engaging.
-1. Clearer wording in the documentation.
-2. Expressive Graphs
-3. Budget Creation Updated
-4. Analytics
-5. Clearer and more informative PDF Reports
-6. Budget prediction
+We've considerably extended this project to make using DollarBot easy and engaging.\
+1. Expressive Graphs
+2. Budget prediction
+3. Clearer and more informative PDF Reports
+4. Ability to add recurring expenses
+5. Budget Creation Updated
+6. Clearer wording in the documentation
 
 Check [this documentation out](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/whats-new.md) for an in-depth depiction of our changes. :)
 
