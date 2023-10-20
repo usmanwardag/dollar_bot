@@ -149,37 +149,36 @@ To run the script automatically at startup / reboot, simply add the `.run_foreve
 
 Here's a quick overview of how each of the commands work. Also see: Link at the end of each example for a more detailed version of the documentation.
 
-### Add
+Here is the complete set of commands. Simply enter /<command_name> into the Telegram chat and watch as the magic happens! 
 
-``` add example add code here ``` 
-[insert a GIF showing how to run here]
+#### /menu: Display commands with their descriptions.
 
-[Learn more here](https://github.com/aditikilledar/dollar_bot_SE23/blob/docu-merging-scattered-docs/docs/add.md)
+#### /help: Display the list of commands.
 
-### Budget
+#### /pdf: Save history as PDF.
 
-#### Delete
+#### /add: This option is for adding your expenses        
+ 1. It will give you the list of categories to choose from.        
+ 2. You will be prompted to enter the amount corresponding to your spending        
+ 3.The message will be prompted to notify the addition of your expense with the amount,date, time and category 
 
-#### Update
+#### /analytics: This option gives user a graphical representation of their expenditures         
+ You will get an option to choose the type of data you want to see.
 
-#### View
+#### /predict: This option analyzes your recorded spendings and gives you a budget that will accommodate for them.
 
-### Delete
+#### /history: This option is to give you the detailed summary of your expenditure with Date, time ,category and amount. A quick lookup into your spendings
 
-### Edit
+#### /delete: This option is to Clear/Erase all your records
 
-### Estimate
+#### /edit: This option helps you to go back and correct/update the missing details         
+ 1. It will give you the list of your expenses you wish to edit         
+ 2. It will let you change the specific field based on your requirements like amount/date/category
 
-### Graphing and Analytics
-
-Use /analytics to gain graphical insights about your budgets and spending.
-
-[Learn more here](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/analytics.md)
-
-### Helper
-
-### History
-
+#### /budget: This option is to set/update/delete the budget.         
+ 1. The Add/update category is to set the new budget or update the existing budget         
+ 2. The view category gives the detail if budget is exceeding or in limit with the difference amount         
+ 3. The delete category allows to delete the budget and start afresh!
 
 ## Contributors
 <table>
