@@ -16,20 +16,14 @@
 
 Are you a developer? <a href="https://github.com/aditikilledar/dollar_bot_SE23/blob/main/Developer_ReadMe.md">Click here: For Developers and Future Contributors</a>
 
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/usmanwardag/auto_anki)
-
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/aditikilledar/dollar_bot_SE)
 ![MIT license](https://img.shields.io/badge/License-MIT-green.svg)
 [![Platform](https://img.shields.io/badge/Platform-Telegram-blue)](https://desktop.telegram.org/)
 ![GitHub](https://img.shields.io/badge/Language-Python-blue.svg)
-
 [![GitHub contributors](https://img.shields.io/github/contributors/aditikilledar/dollar_bot_SE23)](https://github.com/aditikilledar/dollar_bot_SE23/graphs/contributors)
-
 [![DOI](https://zenodo.org/badge/691334031.svg)](https://zenodo.org/doi/10.5281/zenodo.10023639)
-
 [![Build Status](https://app.travis-ci.com/usmanwardag/dollar_bot.svg?branch=main)](https://app.travis-ci.com/usmanwardag/dollar_bot)
-
 [![codecov](https://codecov.io/gh/aditikilledar/dollar_bot_SE23/graph/badge.svg?token=23RW1XPB3P)](https://codecov.io/gh/aditikilledar/dollar_bot_SE23)
-
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/aditikilledar/dollar_bot_SE23)](https://github.com/aditikilledar/dollar_bot_SE23/issues?q=is%3Aissue+is%3Aclosed)
 <!-- [![GitHub closed issues](https://img.shields.io/github/issues-closed/sak007/MyDollarBot-BOTGo)](https://github.com/sak007/MyDollarBot-BOTGo/issues?q=is%3Aissue+is%3Aclosed) -->
 
