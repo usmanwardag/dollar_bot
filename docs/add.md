@@ -1,4 +1,4 @@
-# About DollarSlpitBot's /add Feature
+# About DollarSplitBot's /add Feature
 This part of a Telegram bot application helps users track their expenses and split costs with others.
 Currently we have the following expense categories set by default:
 
