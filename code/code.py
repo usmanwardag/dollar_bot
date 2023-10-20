@@ -72,9 +72,8 @@ def listener(user_requests):
 
         if user_requests[0].text[0] != "/":
             bot.send_message(chat_id, message)
-    except Exception as e:
-        bot.reply_to(message, "Oh no! " + str(e))
-
+    except Exception:
+        pass
 
 bot.set_update_listener(listener)
 
