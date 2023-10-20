@@ -5,10 +5,12 @@
   <ol>
     <li><a href="#whats-dollarbot">What's DollarBot?
     <li><a href="#why-use-dollarbot">Why use DollarBot?</a></li>
+    <li><a href="#demo">Demo</a></li>
     <li><a href="#whats-new">What's new in this version?</a></li>
     <li><a href="#installation-and-setup">Installation and Setup</a></li>
    <li><a href="#how-to-use">How to use?</a></li>
    <li><a href="#contributors">Contributors</a></li>
+   <li><a href="#future-work">Future Work</a></li>
    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 
@@ -53,9 +55,9 @@ With simple in-chat commands, this bot helps you:
 - Edit/Change any spending details if you wish to
 - View Analytics and export as a pdf
 
-## Check out the video!
+## Demo
 
-[![Demo Video](https://i9.ytimg.com/vi/aCjcT1CHAzU/mq3.jpg?sqp=COSotI0G&rs=AOn4CLD34jFIlq6GRdmTnK6p3F8O2F-Yig)](https://youtu.be/aCjcT1CHAzU)
+Demo Video -> [https://www.youtube.com/watch?v=XlndmRhr9Lc]
 
 ## What's new?
 
@@ -188,13 +190,17 @@ Here's a quick overview of how each of the commands work. Simply enter /<command
   </tr>
 </table>
 
+## Future Work
+
+- Sharing expenses
+- Windows specific setup scripts
+- Adding notes section while recording expenses
+- Incorporating Machine Learning insights into the Analytics Feature
+- Making DollarBot respond to casual conversation like 'Hi' and 'Bye'
+
 ## Acknowledgements
 
 - We would like to express our gratitude 🙏🏻 and a big thank you 😇 to Prof. Dr. Timothy Menzie for giving us the opportunity to get into the shoes of software building and learning new skills and development process throught the project building.
 - A big thank you 😊 to the Teaching Assistants for their support.
 - Thank you to the previous team 😊 for a thorough ReadMe and deatiled documentation.[MyDollarBot](https://github.com/sak007/MyDollarBot-BOTGo)
 - Thank you to the ⭐️[Telegram bot](https://github.com/python-telegram-bot/python-telegram-bot)
-
-
-
-
