@@ -8,8 +8,11 @@
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
     <li><a href="#installation">Installation</a></li>
+    <li><a href="#how-to-run">How To Run</a></li>
+    <li><a href="#configuring-email-credentials-for-smtp-sending-emails-from-your-account">Configuring Email Credentials for SMTP: Sending Emails from Your Account</a></li>
     <li><a href="#testing">Testing</a></li>
     <li><a href="#code-coverage">Code Coverage</a></li>
+    <li><a href="#use-cases">Use Cases</a></li>
     <li><a href="#automated-analysis-tools">Automated Analysis Tools</a></li>
     <li><a href="#License">License</a></li>
     <li><a href="#code-documentation">Code Documentation</a></li>
@@ -68,7 +71,7 @@ DollarSplitBot: Where simplicity meets financial harmony at your fingertips.
 
 ## Check out the video!
 
-To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the DollarSplitBot project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://youtu.be/aCjcT1CHAzU)
+To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the DollarSplitBot project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://www.youtube.com/watch?v=JT06PTMHz7Y)
 
 ## What is new in this version?
 
