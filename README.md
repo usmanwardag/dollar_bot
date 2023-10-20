@@ -188,13 +188,16 @@ Here's a quick overview of how each of the commands work. Simply enter /<command
   </tr>
 </table>
 
+## Future Work
+
+- Sharing expenses
+- Windows specific setup scripts
+- Adding notes section while recording expenses
+- Incorporating Machine Learnig insights into Analytics
+
 ## Acknowledgements
 
 - We would like to express our gratitude 🙏🏻 and a big thank you 😇 to Prof. Dr. Timothy Menzie for giving us the opportunity to get into the shoes of software building and learning new skills and development process throught the project building.
 - A big thank you 😊 to the Teaching Assistants for their support.
 - Thank you to the previous team 😊 for a thorough ReadMe and deatiled documentation.[MyDollarBot](https://github.com/sak007/MyDollarBot-BOTGo)
 - Thank you to the ⭐️[Telegram bot](https://github.com/python-telegram-bot/python-telegram-bot)
-
-
-
-
