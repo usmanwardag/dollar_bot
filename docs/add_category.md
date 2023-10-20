@@ -1,6 +1,6 @@
-# About MyDollarBot's /add_category Feature
-#TO-DO
-This feature enables the user to add a new category.
+# About DollarSplitBot's /add_category Feature
+This feature allows users to tell the chatbot what kind of expenses they want to track. If they choose a category that already exists, they are informed. If they choose a new category, it is added to their list of expense categories, and the chatbot starts tracking their spending for that category. This helps users keep a record of their expenses in different categories, like food, transportation, or shopping.
+
 Currently we have the following expense categories set by default:
 
 - Food
@@ -12,17 +12,22 @@ Currently we have the following expense categories set by default:
 
 
 # Location of Code for this Feature
-The code that implements this feature can be found [here](https://github.com/sak007/MyDollarBot-BOTGo/blob/main/code/add_category.py)
+The code that implements this feature can be found [here](https://github.com/shonilbhide/dollar_bot/blob/main/code/add_category.py)
 
 # Code Description
 ## Functions
 
 1. run(message, bot):
-This is the main function used to implement the add_category feature. It asks the user to add a new category, after which control is given to post_append_spend(message, bot) for further proccessing. It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the main code.py function.
+This function is the entry point for the "add" feature. When a user interacts with the bot, it pops up a menu asking the user to select an expense category. The function takes two arguments:
+     - `message`: This is a message from the user, containing their selection.
+     - `bot`: A reference to the Telegram bot object.
 
 2. post_append_spend(message, bot):
- It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the run(message, bot): function in the add_category.py file. It requests the user to enter the a new category. It also handles the case of keeping the category names unique.
+This function is called after the user selects an expense category. It takes two arguments:
+     - `message`: The message from the user containing the selected category.
+     - `bot`: A reference to the Telegram bot object.
 
+The function then processes the user's choice. If the selected category already exists, it informs the user. If it doesn't exist, it adds the category to the list of expense categories and stores it in the user's expense tracker.
 
 # How to run this feature?
 Once the project is running(please follow the instructions given in the main README.md for this), please type /add_category into the telegram bot.
