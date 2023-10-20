@@ -14,32 +14,6 @@ def run(message, bot):
     displays the user's historical data.
     """
 
-    # try:
-    #     helper.read_json()
-    #     chat_id = message.chat.id
-    #     user_history = helper.getUserHistory(chat_id)
-
-    #     if user_history is None:
-    #         raise Exception("Sorry! No spending records found!")
-
-    #     if len(user_history) == 0:
-    #         bot.send_message(chat_id, "Sorry! No spending records found!")
-    #     else:
-    #         # Create a CSV representation of the data
-    #         csv_data = "DATE, CATEGORY, AMOUNT\n"
-            
-    #         for line in user_history:
-    #             rec = line.split(",")  # Assuming data is comma-separated
-    #             if len(rec) == 3:
-    #                 csv_data += f"{rec[0]}, {rec[1]}, {rec[2]}\n"
-
-    #         # Send the CSV data as a text message
-    #         bot.send_message(chat_id, csv_data)
-
-    # except Exception as e:
-    #     logging.exception(str(e))
-    #     bot.reply_to(message, "Oops! " + str(e))
-
     try:
         helper.read_json()
         chat_id = message.chat.id

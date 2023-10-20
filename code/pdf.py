@@ -2,23 +2,10 @@ import helper
 import logging
 from matplotlib import pyplot as plt
 from telebot import types
-
-#Issue 15 - Added tabulate and fpdf libraries
 from tabulate import tabulate
 from fpdf import FPDF
 
-#Issue 23 - Added Tabula library
-#import tabula
-
-#from reportlab.lib import colors
-#from reportlab.lib.pagesizes import letter
-#from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
-
-#Issue - 33
-
 # === Documentation of pdf.py ===
-
-
 def run(message, bot):
     """
     run(message, bot): This is the main function used to implement the pdf save feature.
@@ -31,8 +18,6 @@ def run(message, bot):
         #print('User-history--> ',user_history)
         print('User_list', user_list)
 
-         #Issue 23 - add two pdf types - start
-
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         #markup.row_width = 2
         markup.add("PDF for Total Expenses - Category wise", "PDF showing who owes whom how much")
@@ -41,7 +26,6 @@ def run(message, bot):
         user_history = helper.getUserHistory(chat_id)
 
         bot.register_next_step_handler(msg, pdfGeneration, bot,user_list, user_history)
-        #Issue 23 - add two pdf types - end
 
     except Exception as e:
         logging.exception(str(e))
@@ -108,10 +92,6 @@ def pdfGeneration(message, bot, user_list, user_history):
                 pdf.output("expense_report.pdf")
                 bot.send_document(chat_id, open("expense_report.pdf", "rb"))
                 print("PDF generated successfully.")
-                #issue 15 - modified the format of pdf document - start
-                
-            
-            #Issue 3 - added the else condition - start
             else:
                 message = "Looks like you have not entered any data yet. Please enter some data and then try creating a pdf."
                 bot.send_message(chat_id, message)
@@ -127,8 +107,6 @@ def pdfGeneration(message, bot, user_list, user_history):
                     display_text += commands[c] + "\n"
                 bot.send_message(chat_id, "Please select a menu option from below:")
                 bot.send_message(chat_id, display_text)
-            #Issue 3 - added the else condition - end
-        #Issue 23 - added code for generating pdf showing who owes whom how much
         elif choice == 'PDF showing who owes whom how much':
             message = "Alright. I just created a pdf of your expense history!"
             bot.send_message(chat_id, message)
@@ -155,8 +133,6 @@ def pdfGeneration(message, bot, user_list, user_history):
 
                 pdf.set_font("helvetica", size=12)
                 for user, details in user_list.items():
-                    #print('User! ', user)
-                    #print('details! ', details)
                     for i, user_name in enumerate(details["users"]):
                         #amounts = ''
                         pdf.cell(50, 10, user_name, border=1, align="C", fill=True)
