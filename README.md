@@ -66,7 +66,7 @@ We've considerably extended this project to make using DollarBot easy and engagi
 5. Clearer and more informative PDF Reports
 6. Budget prediction
 
-Check [this documentation out](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/Whats_new.pdf) for an in-depth depiction of our changes. :)
+Check [this documentation out](https://github.com/aditikilledar/dollar_bot_SE23/blob/main/docs/whats-new.md) for an in-depth depiction of our changes. :)
 
 ## Installation and Setup
 
