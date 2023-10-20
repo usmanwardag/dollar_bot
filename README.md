@@ -5,7 +5,6 @@
   <ol>
     <li><a href="#whats-dollarbot">What's DollarBot?
     <li><a href="#why-use-dollarbot">Why use DollarBot?</a></li>
-<!--     <li><a href="#check-out-the-video">Check out the video!</a></li> -->
     <li><a href="#whats-new">What's new in this version?</a></li>
     <li><a href="#installation-and-setup">Installation and Setup</a></li>
    <li><a href="#how-to-use">How to use?</a></li>
@@ -39,6 +38,8 @@ Are you a developer? <a href="https://github.com/aditikilledar/dollar_bot_SE23/b
 DollarBot is a handy little bot built on top of Telegram, to help you with daily expense tracking and analytics on your past spends. 
 
 It's easy to setup, run and use on a daily basis!
+
+![](dollar_bot_SE23/docs/DollarBot_Marketing.mp4)
 
 ## Why use DollarBot?
 
