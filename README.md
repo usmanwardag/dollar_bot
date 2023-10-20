@@ -9,6 +9,7 @@
     <li><a href="#installation-and-setup">Installation and Setup</a></li>
    <li><a href="#how-to-use">How to use?</a></li>
    <li><a href="#contributors">Contributors</a></li>
+   <li><a href="#future-work">Future Work</a></li>
    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 
